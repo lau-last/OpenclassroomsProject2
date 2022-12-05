@@ -480,7 +480,7 @@ function lineHeight(node) {
     var height = _node.offsetHeight;
     lnHeight = height;
 
-    // Remove our hotel-luxury-child from the DOM
+    // Remove our child from the DOM
     body.removeChild(_node);
   }
 
@@ -9798,7 +9798,7 @@ function getFilterMatcher(filterValue) {
     if (term.children.length > 0) {
       term.children = term.children.map(matchTermsForFilter).filter(child => child);
     } // If the term's name contains the filterValue, or it has children
-    // (i.e. some hotel-luxury-child matched at some point in the tree) then return it.
+    // (i.e. some child matched at some point in the tree) then return it.
 
 
     if (-1 !== term.name.toLowerCase().indexOf(filterValue.toLowerCase()) || term.children.length > 0) {

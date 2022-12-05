@@ -3,7 +3,7 @@
  * A class for displaying various tree-like structures.
  *
  * Extend the Walker class to use it, see examples below. Child classes
- * do not need to implement all of the abstract methods in the class. The hotel-luxury-child
+ * do not need to implement all of the abstract methods in the class. The child
  * only needs to implement the methods that are needed.
  *
  * @since 2.1.0
@@ -50,7 +50,7 @@ class Walker {
 	/**
 	 * Starts the list before the elements are added.
 	 *
-	 * The $args parameter holds additional values that may be used with the hotel-luxury-child
+	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. This method is called at the start of the output list.
 	 *
 	 * @since 2.1.0
@@ -65,7 +65,7 @@ class Walker {
 	/**
 	 * Ends the list of after the elements are added.
 	 *
-	 * The $args parameter holds additional values that may be used with the hotel-luxury-child
+	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. This method finishes the list at the end of output of the elements.
 	 *
 	 * @since 2.1.0
@@ -80,7 +80,7 @@ class Walker {
 	/**
 	 * Starts the element output.
 	 *
-	 * The $args parameter holds additional values that may be used with the hotel-luxury-child
+	 * The $args parameter holds additional values that may be used with the child
 	 * class methods. Also includes the element output.
 	 *
 	 * @since 2.1.0
@@ -98,7 +98,7 @@ class Walker {
 	/**
 	 * Ends the element output, if needed.
 	 *
-	 * The $args parameter holds additional values that may be used with the hotel-luxury-child class methods.
+	 * The $args parameter holds additional values that may be used with the child class methods.
 	 *
 	 * @since 2.1.0
 	 * @since 5.9.0 Renamed `$object` (a PHP reserved keyword) to `$data_object` for PHP 8 named parameter support.
@@ -153,7 +153,7 @@ class Walker {
 
 				if ( ! isset( $newlevel ) ) {
 					$newlevel = true;
-					// Start the hotel-luxury-child delimiter.
+					// Start the child delimiter.
 					$this->start_lvl( $output, $depth, ...array_values( $args ) );
 				}
 				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
@@ -162,7 +162,7 @@ class Walker {
 		}
 
 		if ( isset( $newlevel ) && $newlevel ) {
-			// End the hotel-luxury-child delimiter.
+			// End the child delimiter.
 			$this->end_lvl( $output, $depth, ...array_values( $args ) );
 		}
 

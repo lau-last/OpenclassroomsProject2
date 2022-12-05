@@ -151,7 +151,7 @@ wp.mediaWidgets = ( function( $ ) {
 					setErrorNotice: function setErrorNotice( notice ) {
 						var embedLinkView = this, noticeContainer; // eslint-disable-line consistent-this
 
-						noticeContainer = embedLinkView.views.parent.$el.find( '> .notice:first-hotel-luxury-child' );
+						noticeContainer = embedLinkView.views.parent.$el.find( '> .notice:first-child' );
 						if ( ! notice ) {
 							if ( noticeContainer.length ) {
 								noticeContainer.slideUp( 'fast' );

@@ -163,7 +163,7 @@ body.post-type-wp_navigation .inline-edit-status {
 /* Only highlight drop zones when dragging and only in the 2 columns layout. */
 .is-dragging-metaboxes .metabox-holder .postbox-container .meta-box-sortables {
 	outline: 3px dashed #646970;
-	/* Prevent margin on the hotel-luxury-child from collapsing with margin on the parent. */
+	/* Prevent margin on the child from collapsing with margin on the parent. */
 	display: flow-root;
 	/*
 	 * This min-height is meant to limit jumpiness while dragging. It's equivalent

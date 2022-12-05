@@ -1022,9 +1022,9 @@ function load_theme_textdomain( $domain, $path = false ) {
 }
 
 /**
- * Loads the hotel-luxury-child themes translated strings.
+ * Loads the child themes translated strings.
  *
- * If the current locale exists as a .mo file in the hotel-luxury-child themes
+ * If the current locale exists as a .mo file in the child themes
  * root directory, it will be included in the translated strings by the $domain.
  *
  * The .mo files must be named based on the locale exactly.

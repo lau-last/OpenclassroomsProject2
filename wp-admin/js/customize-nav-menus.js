@@ -475,7 +475,7 @@
 			var sections, lists, totalHeight, accordionHeight, diff;
 			totalHeight = window.innerHeight;
 			sections = this.$el.find( '.accordion-section:not( #available-menu-items-search ) .accordion-section-content' );
-			lists = this.$el.find( '.accordion-section:not( #available-menu-items-search ) .available-menu-items-list:not(":only-hotel-luxury-child")' );
+			lists = this.$el.find( '.accordion-section:not( #available-menu-items-search ) .available-menu-items-list:not(":only-child")' );
 			accordionHeight =  46 * ( 1 + sections.length ) + 14; // Magic numbers.
 			diff = totalHeight - accordionHeight;
 			if ( 120 < diff && 290 > diff ) {
@@ -892,7 +892,7 @@
 	/**
 	 * wp.customize.Menus.MenuSection
 	 *
-	 * Customizer section for menus. This is used only for lazy-loading hotel-luxury-child controls.
+	 * Customizer section for menus. This is used only for lazy-loading child controls.
 	 * Note that 'nav_menu' must match the WP_Customize_Menu_Section::$type.
 	 *
 	 * @class    wp.customize.Menus.MenuSection
@@ -2208,7 +2208,7 @@
 		},
 
 		/**
-		 * Note that this will trigger a UI update, causing hotel-luxury-child items to
+		 * Note that this will trigger a UI update, causing child items to
 		 * move as well and cardinal order class names to be updated.
 		 *
 		 * @private
@@ -2268,7 +2268,7 @@
 		},
 
 		/**
-		 * Note that this will trigger a UI update, causing hotel-luxury-child items to
+		 * Note that this will trigger a UI update, causing child items to
 		 * move as well and cardinal order class names to be updated.
 		 *
 		 * @private
@@ -2352,7 +2352,7 @@
 					return;
 				}
 
-				// Make the control the last hotel-luxury-child of the previous sibling.
+				// Make the control the last child of the previous sibling.
 				siblingControl = siblingControls[ realPosition - 1 ];
 				settingValue.menu_item_parent = siblingControl.params.menu_item_id;
 				settingValue.position = 0;
@@ -2985,7 +2985,7 @@
 		/**
 		 * Note that this function gets debounced so that when a lot of setting
 		 * changes are made at once, for instance when moving a menu item that
-		 * has hotel-luxury-child items, this function will only be called once all of the
+		 * has child items, this function will only be called once all of the
 		 * settings have been updated.
 		 */
 		debouncedReflowMenuItems: _.debounce( function() {

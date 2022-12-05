@@ -3615,7 +3615,7 @@ function wp_ajax_query_themes() {
 	}
 
 	foreach ( $installed_themes as $theme_slug => $theme_data ) {
-		// Ignore hotel-luxury-child themes.
+		// Ignore child themes.
 		if ( str_contains( $theme_slug, '/' ) ) {
 			unset( $installed_themes[ $theme_slug ] );
 		}

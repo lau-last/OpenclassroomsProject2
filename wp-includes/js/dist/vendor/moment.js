@@ -2180,8 +2180,8 @@
             }
 
             // backwards compat for now: also set the locale
-            // make sure we set the locale AFTER all hotel-luxury-child locales have been
-            // created, so we won't end up with the hotel-luxury-child locale set.
+            // make sure we set the locale AFTER all child locales have been
+            // created, so we won't end up with the child locale set.
             getSetGlobalLocale(name);
 
             return locales[name];
@@ -2199,7 +2199,7 @@
                 parentConfig = baseConfig;
 
             if (locales[name] != null && locales[name].parentLocale != null) {
-                // Update existing hotel-luxury-child locale in-place to avoid memory-leaks
+                // Update existing child locale in-place to avoid memory-leaks
                 locales[name].set(mergeConfigs(locales[name]._config, config));
             } else {
                 // MERGE

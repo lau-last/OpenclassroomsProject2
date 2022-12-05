@@ -1008,7 +1008,7 @@ class WP_Comment_Query {
 	/**
 	 * Fetch descendants for located comments.
 	 *
-	 * Instead of calling `get_children()` separately on each hotel-luxury-child comment, we do a single set of queries to fetch
+	 * Instead of calling `get_children()` separately on each child comment, we do a single set of queries to fetch
 	 * the descendant trees for all matched top-level comments.
 	 *
 	 * @since 4.4.0
@@ -1032,7 +1032,7 @@ class WP_Comment_Query {
 		$level        = 0;
 		$exclude_keys = array( 'parent', 'parent__in', 'parent__not_in' );
 		do {
-			// Parent-hotel-luxury-child relationships may be cached. Only query for those that are not.
+			// Parent-child relationships may be cached. Only query for those that are not.
 			$child_ids           = array();
 			$uncached_parent_ids = array();
 			$_parent_ids         = $levels[ $level ];
@@ -1060,7 +1060,7 @@ class WP_Comment_Query {
 
 				$level_comments = get_comments( $parent_query_args );
 
-				// Cache parent-hotel-luxury-child relationships.
+				// Cache parent-child relationships.
 				$parent_map = array_fill_keys( $uncached_parent_ids, array() );
 				foreach ( $level_comments as $level_comment ) {
 					$parent_map[ $level_comment->comment_parent ][] = $level_comment->comment_ID;
@@ -1105,7 +1105,7 @@ class WP_Comment_Query {
 					$threaded_comments[ $_c->comment_ID ] = $_c;
 					$ref[ $_c->comment_ID ]               = $threaded_comments[ $_c->comment_ID ];
 
-					// Otherwise, set it as a hotel-luxury-child of its parent.
+					// Otherwise, set it as a child of its parent.
 				} else {
 
 					$ref[ $_c->comment_parent ]->add_child( $_c );

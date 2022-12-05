@@ -787,7 +787,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 		);
 	}
 
-	// Remove 'delete' action if theme has an active hotel-luxury-child.
+	// Remove 'delete' action if theme has an active child.
 	if ( ! empty( $parents ) && array_key_exists( $current_theme, $parents ) ) {
 		unset( $prepared_themes[ $parents[ $current_theme ] ]['actions']['delete'] );
 	}
@@ -946,7 +946,7 @@ function customize_themes_print_templates() {
 							<?php
 							printf(
 								/* translators: %s: Theme name. */
-								__( 'This is a hotel-luxury-child theme of %s.' ),
+								__( 'This is a child theme of %s.' ),
 								'<strong>{{{ data.parent }}}</strong>'
 							);
 							?>

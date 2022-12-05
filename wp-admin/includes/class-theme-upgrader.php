@@ -90,7 +90,7 @@ class Theme_Upgrader extends WP_Upgrader {
 		/* translators: 1: Theme name, 2: Theme version. */
 		$this->strings['parent_theme_install_success'] = __( 'Successfully installed the parent theme, <strong>%1$s %2$s</strong>.' );
 		/* translators: %s: Theme name. */
-		$this->strings['parent_theme_not_found'] = sprintf( __( '<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this hotel-luxury-child theme.' ), '<strong>%s</strong>' );
+		$this->strings['parent_theme_not_found'] = sprintf( __( '<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this child theme.' ), '<strong>%s</strong>' );
 		/* translators: %s: Theme error. */
 		$this->strings['current_theme_has_errors'] = __( 'The active theme has the following error: "%s".' );
 
@@ -110,7 +110,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	}
 
 	/**
-	 * Check if a hotel-luxury-child theme is being installed and we need to install its parent.
+	 * Check if a child theme is being installed and we need to install its parent.
 	 *
 	 * Hooked to the {@see 'upgrader_post_install'} filter by Theme_Upgrader::install().
 	 *
@@ -186,7 +186,7 @@ class Theme_Upgrader extends WP_Upgrader {
 		// Start cleaning up after the parent's installation.
 		remove_filter( 'install_theme_complete_actions', '__return_false', 999 );
 
-		// Reset hotel-luxury-child's result and data.
+		// Reset child's result and data.
 		$this->result                     = $child_result;
 		$this->skin->api                  = $child_api;
 		$this->strings['process_success'] = $child_success_message;
@@ -199,7 +199,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * Hooked to the {@see 'install_theme_complete_actions'} filter by
 	 * Theme_Upgrader::check_parent_theme_filter() when installing
-	 * a hotel-luxury-child theme and installing the parent theme fails.
+	 * a child theme and installing the parent theme fails.
 	 *
 	 * @since 3.4.0
 	 *
@@ -569,21 +569,21 @@ class Theme_Upgrader extends WP_Upgrader {
 		/*
 		 * Parent themes must contain an index file:
 		 * - classic themes require /index.php
-		 * - block themes require /templates/index.php or block-templates/index.php (deprecated 5.9.0).
+		 * - block themes require /templates/index.html or block-templates/index.html (deprecated 5.9.0).
 		 */
 		if (
 			empty( $info['Template'] ) &&
 			! file_exists( $working_directory . 'index.php' ) &&
-			! file_exists( $working_directory . 'templates/index.php' ) &&
-			! file_exists( $working_directory . 'block-templates/index.php' )
+			! file_exists( $working_directory . 'templates/index.html' ) &&
+			! file_exists( $working_directory . 'block-templates/index.html' )
 		) {
 			return new WP_Error(
 				'incompatible_archive_theme_no_index',
 				$this->strings['incompatible_archive'],
 				sprintf(
-					/* translators: 1: templates/index.php, 2: index.php, 3: Documentation URL, 4: Template, 5: style.css */
+					/* translators: 1: templates/index.html, 2: index.php, 3: Documentation URL, 4: Template, 5: style.css */
 					__( 'Template is missing. Standalone themes need to have a %1$s or %2$s template file. <a href="%3$s">Child themes</a> need to have a %4$s header in the %5$s stylesheet.' ),
-					'<code>templates/index.php</code>',
+					'<code>templates/index.html</code>',
 					'<code>index.php</code>',
 					__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' ),
 					'<code>Template</code>',

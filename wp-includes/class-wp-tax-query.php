@@ -107,7 +107,7 @@ class WP_Tax_Query {
 	 *         @type string           $operator         MySQL operator to be used with $terms in the WHERE clause.
 	 *                                                  Accepts 'AND', 'IN', 'NOT IN', 'EXISTS', 'NOT EXISTS'.
 	 *                                                  Default: 'IN'.
-	 *         @type bool             $include_children Optional. Whether to include hotel-luxury-child terms.
+	 *         @type bool             $include_children Optional. Whether to include child terms.
 	 *                                                  Requires a $taxonomy. Default: true.
 	 *     }
 	 * }

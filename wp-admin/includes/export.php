@@ -167,7 +167,7 @@ function export_wp( $args = array() ) {
 			)
 		);
 
-		// Put categories in order with no hotel-luxury-child going before its parent.
+		// Put categories in order with no child going before its parent.
 		while ( $cat = array_shift( $categories ) ) {
 			if ( ! $cat->parent || isset( $cats[ $cat->parent ] ) ) {
 				$cats[ $cat->term_id ] = $cat;
@@ -176,7 +176,7 @@ function export_wp( $args = array() ) {
 			}
 		}
 
-		// Put terms in order with no hotel-luxury-child going before its parent.
+		// Put terms in order with no child going before its parent.
 		while ( $t = array_shift( $custom_terms ) ) {
 			if ( ! $t->parent || isset( $terms[ $t->parent ] ) ) {
 				$terms[ $t->term_id ] = $t;

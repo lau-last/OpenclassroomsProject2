@@ -258,7 +258,7 @@ function () {
     value: function _delete(key) {
       if (!this.has(key)) {
         return false;
-      } // This naive implementation will leave orphaned hotel-luxury-child trees. A better
+      } // This naive implementation will leave orphaned child trees. A better
       // implementation should traverse and remove orphans.
 
 

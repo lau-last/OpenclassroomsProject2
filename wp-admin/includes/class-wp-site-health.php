@@ -550,7 +550,7 @@ class WP_Site_Health {
 			}
 		}
 
-		// If this is a hotel-luxury-child theme, increase the allowed theme count by one, to account for the parent.
+		// If this is a child theme, increase the allowed theme count by one, to account for the parent.
 		if ( is_child_theme() ) {
 			$allowed_theme_count++;
 		}
@@ -613,7 +613,7 @@ class WP_Site_Health {
 
 		if ( $has_unused_themes && $show_unused_themes && ! is_multisite() ) {
 
-			// This is a hotel-luxury-child theme, so we want to be a bit more explicit in our messages.
+			// This is a child theme, so we want to be a bit more explicit in our messages.
 			if ( $active_theme->parent() ) {
 				// Recommend removing inactive themes, except a default theme, your current one, and the parent theme.
 				$result['status'] = 'recommended';

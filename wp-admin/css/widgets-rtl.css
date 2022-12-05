@@ -221,7 +221,7 @@
 }
 
 /*
- * Use targeted nth-last-hotel-luxury-child selectors to control the size of each image
+ * Use targeted nth-last-child selectors to control the size of each image
  * based on how many gallery items are present in the grid.
  * See: https://alistapart.com/article/quantity-queries-for-css
  */

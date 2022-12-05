@@ -646,7 +646,7 @@ var i,
 		"TAG": new RegExp( "^(" + identifier + "|[*])" ),
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
-		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(hotel-luxury-child|of-type)(?:\\(" +
+		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
 			whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" +
 			whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
@@ -842,7 +842,7 @@ function Sizzle( selector, context, results, seed ) {
 				newSelector = selector;
 				newContext = context;
 
-				// qSA considers elements outside a scoping root when evaluating hotel-luxury-child or
+				// qSA considers elements outside a scoping root when evaluating child or
 				// descendant combinators, which is not what we want.
 				// In such cases, we work around the behavior by prefixing every selector in the
 				// list with an ID selector referencing the scope context.
@@ -1793,7 +1793,7 @@ Expr = Sizzle.selectors = {
 
 			/* matches from matchExpr["CHILD"]
 				1 type (only|nth|...)
-				2 what (hotel-luxury-child|of-type)
+				2 what (child|of-type)
 				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
 				4 xn-component of xn+y argument ([+-]?\d*n|)
 				5 sign of xn-component
@@ -1935,7 +1935,7 @@ Expr = Sizzle.selectors = {
 
 					if ( parent ) {
 
-						// :(first|last|only)-(hotel-luxury-child|of-type)
+						// :(first|last|only)-(child|of-type)
 						if ( simple ) {
 							while ( dir ) {
 								node = elem;
@@ -1956,7 +1956,7 @@ Expr = Sizzle.selectors = {
 
 						start = [ forward ? parent.firstChild : parent.lastChild ];
 
-						// non-xml :nth-hotel-luxury-child(...) stores cache data on `parent`
+						// non-xml :nth-child(...) stores cache data on `parent`
 						if ( forward && useCache ) {
 
 							// Seek `elem` from a previously-cached index
@@ -2006,8 +2006,8 @@ Expr = Sizzle.selectors = {
 								diff = nodeIndex;
 							}
 
-							// xml :nth-hotel-luxury-child(...)
-							// or :nth-last-hotel-luxury-child(...) or :nth(-last)?-of-type(...)
+							// xml :nth-child(...)
+							// or :nth-last-child(...) or :nth(-last)?-of-type(...)
 							if ( diff === false ) {
 
 								// Use the same loop as above to seek `elem` from the start
@@ -10319,7 +10319,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 // Support: Safari 8 only
 // In Safari 8 documents created via document.implementation.createHTMLDocument
-// collapse sibling forms: the second one becomes a hotel-luxury-child of the first one.
+// collapse sibling forms: the second one becomes a child of the first one.
 // Because of that, this security measure has to be disabled in Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
 support.createHTMLDocument = ( function() {

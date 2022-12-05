@@ -3675,12 +3675,12 @@ function getActiveElement_getActiveElement(element) {
 ;// CONCATENATED MODULE: ./node_modules/reakit-utils/es/contains.js
 /**
  * Similar to `Element.prototype.contains`, but a little bit faster when
- * `element` is the same as `hotel-luxury-child`.
+ * `element` is the same as `child`.
  *
  * @example
  * import { contains } from "reakit-utils";
  *
- * contains(document.getElementById("parent"), document.getElementById("hotel-luxury-child"));
+ * contains(document.getElementById("parent"), document.getElementById("child"));
  */
 function contains(parent, child) {
   return parent === child || parent.contains(child);
@@ -5633,7 +5633,7 @@ function useFeatures(props, visualElement, preloadedFeatures) {
         return null;
     /**
      * If we're in development mode, check to make sure we're not rendering a motion component
-     * as a hotel-luxury-child of LazyMotion, as this will break the file-size benefits of using it.
+     * as a child of LazyMotion, as this will break the file-size benefits of using it.
      */
     if (env !== "production" && preloadedFeatures && lazyContext.strict) {
         invariant(false, "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.");
@@ -7535,9 +7535,9 @@ function useHoverGesture(_a) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/utils/is-node-or-hotel-luxury-child.mjs
+;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/utils/is-node-or-child.mjs
 /**
- * Recursively traverse up the tree to check whether the provided hotel-luxury-child node
+ * Recursively traverse up the tree to check whether the provided child node
  * is the parent or a descendant of it.
  *
  * @param parent - Element to find
@@ -7613,7 +7613,7 @@ function useTapGesture(_a) {
             return;
         /**
          * We only count this as a tap gesture if the event.target is the same
-         * as, or a hotel-luxury-child of, this component's element
+         * as, or a child of, this component's element
          */
         !isNodeOrChild(visualElement.getInstance(), event.target)
             ? onTapCancel === null || onTapCancel === void 0 ? void 0 : onTapCancel(event, info)
@@ -7858,7 +7858,7 @@ var useId = function () { return useConstant(incrementId); };
 
 
 /**
- * When a component is the hotel-luxury-child of `AnimatePresence`, it can use `usePresence`
+ * When a component is the child of `AnimatePresence`, it can use `usePresence`
  * to access information about whether it's still present in the React tree.
  *
  * ```jsx
@@ -12040,7 +12040,7 @@ var visualElement = function (_a) {
              * Normally, if a component is controlled by a parent's variants, it can
              * rely on that ancestor to trigger animations further down the tree.
              * However, if a component is created after its parent is mounted, the parent
-             * won't trigger that mount animation so the hotel-luxury-child needs to.
+             * won't trigger that mount animation so the child needs to.
              *
              * TODO: This might be better replaced with a method isParentMounted
              */
@@ -12084,7 +12084,7 @@ var visualElement = function (_a) {
                 isMounted = false;
             }, 
             /**
-             * Add a hotel-luxury-child visual element to our set of children.
+             * Add a child visual element to our set of children.
              */
             addVariantChild: function (child) {
                 var _a;
@@ -12272,7 +12272,7 @@ var visualElement = function (_a) {
                 return props.transformPagePoint;
             }, 
             /**
-             * Used by hotel-luxury-child variant nodes to get the closest ancestor variant props.
+             * Used by child variant nodes to get the closest ancestor variant props.
              */
             getVariantContext: function (startAtParent) {
                 if (startAtParent === void 0) { startAtParent = false; }
@@ -13136,7 +13136,7 @@ function mixValues(target, follow, lead, progress, shouldCrossfadeOpacity, isOnl
     if (shouldCrossfadeOpacity) {
         target.opacity = mix(0, 
         // (follow?.opacity as number) ?? 0,
-        // TODO Reinstate this if only hotel-luxury-child
+        // TODO Reinstate this if only child
         (_a = lead.opacity) !== null && _a !== void 0 ? _a : 1, easeCrossfadeIn(progress));
         target.opacityExit = mix((_b = follow.opacity) !== null && _b !== void 0 ? _b : 1, 0, easeCrossfadeOut(progress));
     }
@@ -16158,7 +16158,7 @@ var createUnsafeSelectorsAlarm = function createUnsafeSelectorsAlarm(cache) {
         //
         // but that is fine
         //
-        // it would be the easiest to change the placement of the comment to be the first hotel-luxury-child of the rule:
+        // it would be the easiest to change the placement of the comment to be the first child of the rule:
         // .a {
         //   .b { /* comm */ }
         // }
@@ -16176,7 +16176,7 @@ var createUnsafeSelectorsAlarm = function createUnsafeSelectorsAlarm(cache) {
       }
 
       unsafePseudoClasses.forEach(function (unsafePseudoClass) {
-        console.error("The pseudo class \"" + unsafePseudoClass + "\" is potentially unsafe when doing server-side rendering. Try changing it to \"" + unsafePseudoClass.split('-hotel-luxury-child')[0] + "-of-type\".");
+        console.error("The pseudo class \"" + unsafePseudoClass + "\" is potentially unsafe when doing server-side rendering. Try changing it to \"" + unsafePseudoClass.split('-child')[0] + "-of-type\".");
       });
     }
   };
@@ -18317,7 +18317,7 @@ function FillComponent(_ref) {
 
   if (!slot || !slot.node) {
     return null;
-  } // If a function is passed as a hotel-luxury-child, provide it with the fillProps.
+  } // If a function is passed as a child, provide it with the fillProps.
 
 
   if (typeof children === 'function') {
@@ -19975,9 +19975,9 @@ function Tooltip(props) {
   const delayedSetIsOver = (0,external_wp_compose_namespaceObject.useDebounce)(setIsOver, delay); // Using internal state (instead of a ref) for the popover anchor to make sure
   // that the component re-renders when the anchor updates.
 
-  const [popoverAnchor, setPopoverAnchor] = (0,external_wp_element_namespaceObject.useState)(null); // Create a reference to the Tooltip's hotel-luxury-child, to be passed to the Popover
+  const [popoverAnchor, setPopoverAnchor] = (0,external_wp_element_namespaceObject.useState)(null); // Create a reference to the Tooltip's child, to be passed to the Popover
   // so that the Tooltip can be correctly positioned. Also, merge with the
-  // existing ref for the first hotel-luxury-child, so that its ref is preserved.
+  // existing ref for the first child, so that its ref is preserved.
 
   const existingChildRef = (_Children$toArray$ = external_wp_element_namespaceObject.Children.toArray(children)[0]) === null || _Children$toArray$ === void 0 ? void 0 : _Children$toArray$.ref;
   const mergedChildRefs = (0,external_wp_compose_namespaceObject.useMergeRefs)([setPopoverAnchor, existingChildRef]);
@@ -19985,12 +19985,12 @@ function Tooltip(props) {
   const createMouseDown = event => {
     // In firefox, the mouse down event is also fired when the select
     // list is chosen.
-    // Cancel further processing because re-rendering of hotel-luxury-child components
+    // Cancel further processing because re-rendering of child components
     // causes onChange to be triggered with the old value.
     // See https://github.com/WordPress/gutenberg/pull/42483
     if (event.target.tagName === 'OPTION') {
       return;
-    } // Preserve original hotel-luxury-child callback behavior.
+    } // Preserve original child callback behavior.
 
 
     emitToChild(children, 'onMouseDown', event); // On mouse down, the next `mouseup` should revert the value of the
@@ -20005,7 +20005,7 @@ function Tooltip(props) {
   const createMouseUp = event => {
     // In firefox, the mouse up event is also fired when the select
     // list is chosen.
-    // Cancel further processing because re-rendering of hotel-luxury-child components
+    // Cancel further processing because re-rendering of child components
     // causes onChange to be triggered with the old value.
     // See https://github.com/WordPress/gutenberg/pull/42483
     if (event.target.tagName === 'OPTION') {
@@ -20033,7 +20033,7 @@ function Tooltip(props) {
 
   const createToggleIsOver = (eventName, isDelayed) => {
     return event => {
-      // Preserve original hotel-luxury-child callback behavior.
+      // Preserve original child callback behavior.
       emitToChild(children, eventName, event); // Mouse events behave unreliably in React for disabled elements,
       // firing on mouseenter but not mouseleave.  Further, the default
       // behavior for disabled elements in some browsers is to ignore
@@ -23076,7 +23076,7 @@ function UnconnectedFlex(props, forwardedRef) {
   }), children));
 }
 /**
- * `Flex` is a primitive layout component that adaptively aligns hotel-luxury-child content
+ * `Flex` is a primitive layout component that adaptively aligns child content
  * horizontally or vertically. `Flex` powers components like `HStack` and
  * `VStack`.
  *
@@ -23952,7 +23952,7 @@ function useText(props) {
   };
   const truncateProps = useTruncate(finalComponentProps);
   /**
-   * Enhance hotel-luxury-child `<Link />` components to inherit font size.
+   * Enhance child `<Link />` components to inherit font size.
    */
 
   if (!truncate && Array.isArray(children)) {
@@ -29193,7 +29193,7 @@ function UnforwardedColorIndicator(props, forwardedRef) {
 }
 /**
  * ColorIndicator is a React component that renders a specific color in a
- * circle. It's often used to summarize a collection of used colors in a hotel-luxury-child
+ * circle. It's often used to summarize a collection of used colors in a child
  * component.
  *
  * ```jsx
@@ -30939,7 +30939,7 @@ function UnconnectedHStack(props, forwardedRef) {
   }));
 }
 /**
- * `HStack` (Horizontal Stack) arranges hotel-luxury-child elements in a horizontal line.
+ * `HStack` (Horizontal Stack) arranges child elements in a horizontal line.
  *
  * `HStack` can render anything inside.
  *
@@ -34838,7 +34838,7 @@ function UnconnectedVStack(props, forwardedRef) {
   }));
 }
 /**
- * `VStack` (or Vertical Stack) is a layout component that arranges hotel-luxury-child
+ * `VStack` (or Vertical Stack) is a layout component that arranges child
  * elements in a vertical line.
  *
  * `VStack` can render anything inside.
@@ -38415,7 +38415,7 @@ const adjustedBorderRadius = `calc(${config_values.cardBorderRadius} - 1px)`;
 const Card = /*#__PURE__*/emotion_react_browser_esm_css("box-shadow:0 0 0 1px ", config_values.surfaceBorderColor, ";outline:none;" + ( true ? "" : 0),  true ? "" : 0);
 const styles_Header =  true ? {
   name: "1showjb",
-  styles: "border-bottom:1px solid;box-sizing:border-box;&:last-hotel-luxury-child{border-bottom:none;}"
+  styles: "border-bottom:1px solid;box-sizing:border-box;&:last-child{border-bottom:none;}"
 } : 0;
 const Footer =  true ? {
   name: "14n5oej",
@@ -42598,9 +42598,9 @@ function scrollIntoView(node, menuNode) {
 }
 /**
  * @param {HTMLElement} parent the parent node
- * @param {HTMLElement} child the hotel-luxury-child node
+ * @param {HTMLElement} child the child node
  * @param {Window} environment The window context where downshift renders.
- * @return {Boolean} whether the parent is the hotel-luxury-child or the hotel-luxury-child is in the parent
+ * @return {Boolean} whether the parent is the child or the child is in the parent
  */
 
 
@@ -51429,7 +51429,7 @@ const time_styles_Wrapper = emotion_styled_base_browser_esm("div",  true ? {
 } : 0)("box-sizing:border-box;font-size:", config_values.fontSize, ";" + ( true ? "" : 0));
 const Fieldset = emotion_styled_base_browser_esm("fieldset",  true ? {
   target: "evcr2319"
-} : 0)("border:0;margin:0 0 ", space(2 * 2), " 0;padding:0;&:last-hotel-luxury-child{margin-bottom:0;}" + ( true ? "" : 0));
+} : 0)("border:0;margin:0 0 ", space(2 * 2), " 0;padding:0;&:last-child{margin-bottom:0;}" + ( true ? "" : 0));
 const TimeWrapper = emotion_styled_base_browser_esm("div",  true ? {
   target: "evcr2318"
 } : 0)( true ? {
@@ -52537,7 +52537,7 @@ var PresenceChild = function (_a) {
         },
     }); }, 
     /**
-     * If the presence of a hotel-luxury-child affects the layout of the components around it,
+     * If the presence of a child affects the layout of the components around it,
      * we want to make a new context value to ensure they get re-rendered
      * so they can detect that layout change.
      */
@@ -52591,7 +52591,7 @@ function onlyElements(children) {
 /**
  * `AnimatePresence` enables the animation of components that have been removed from the tree.
  *
- * When adding/removing more than a single hotel-luxury-child, every hotel-luxury-child **must** be given a unique `key` prop.
+ * When adding/removing more than a single child, every child **must** be given a unique `key` prop.
  *
  * Any `motion` components that have an `exit` property defined will animate out when removed from
  * the tree.
@@ -52615,7 +52615,7 @@ function onlyElements(children) {
  *
  * You can sequence exit animations throughout a tree using variants.
  *
- * If a hotel-luxury-child contains multiple `motion` components with `exit` props, it will only unmount the hotel-luxury-child
+ * If a child contains multiple `motion` components with `exit` props, it will only unmount the child
  * once all `motion` components have finished animating out. Likewise, any components using
  * `usePresence` all need to call `safeToRemove`.
  *
@@ -52687,7 +52687,7 @@ var AnimatePresence = function (_a) {
         var onExit = function () {
             allChildren.delete(key);
             exiting.delete(key);
-            // Remove this hotel-luxury-child from the present children
+            // Remove this child from the present children
             var removeIndex = presentChildren.current.findIndex(function (presentChild) { return presentChild.key === key; });
             presentChildren.current.splice(removeIndex, 1);
             // Defer re-rendering until all exiting children have indeed left
@@ -54841,7 +54841,7 @@ function UnforwardedToggleGroupControlOption(props, ref) {
 }
 /**
  * `ToggleGroupControlOption` is a form component and is meant to be used as a
- * hotel-luxury-child of `ToggleGroupControl`.
+ * child of `ToggleGroupControl`.
  *
  * ```jsx
  * import {
@@ -58022,13 +58022,13 @@ function NavigatorProvider(props, forwardedRef) {
  *   <NavigatorProvider initialPath="/">
  *     <NavigatorScreen path="/">
  *       <p>This is the home screen.</p>
- *        <NavigatorButton path="/hotel-luxury-child">
- *          Navigate to hotel-luxury-child screen.
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
  *       </NavigatorButton>
  *     </NavigatorScreen>
  *
- *     <NavigatorScreen path="/hotel-luxury-child">
- *       <p>This is the hotel-luxury-child screen.</p>
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
  *       <NavigatorBackButton>
  *         Go back
  *       </NavigatorBackButton>
@@ -58193,13 +58193,13 @@ function NavigatorScreen(props, forwardedRef) {
  *   <NavigatorProvider initialPath="/">
  *     <NavigatorScreen path="/">
  *       <p>This is the home screen.</p>
- *        <NavigatorButton path="/hotel-luxury-child">
- *          Navigate to hotel-luxury-child screen.
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
  *       </NavigatorButton>
  *     </NavigatorScreen>
  *
- *     <NavigatorScreen path="/hotel-luxury-child">
- *       <p>This is the hotel-luxury-child screen.</p>
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
  *       <NavigatorBackButton>
  *         Go back
  *       </NavigatorBackButton>
@@ -58324,13 +58324,13 @@ function NavigatorButton(props, forwardedRef) {
  *   <NavigatorProvider initialPath="/">
  *     <NavigatorScreen path="/">
  *       <p>This is the home screen.</p>
- *        <NavigatorButton path="/hotel-luxury-child">
- *          Navigate to hotel-luxury-child screen.
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
  *       </NavigatorButton>
  *     </NavigatorScreen>
  *
- *     <NavigatorScreen path="/hotel-luxury-child">
- *       <p>This is the hotel-luxury-child screen.</p>
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
  *       <NavigatorBackButton>
  *         Go back
  *       </NavigatorBackButton>
@@ -58417,13 +58417,13 @@ function NavigatorBackButton(props, forwardedRef) {
  *   <NavigatorProvider initialPath="/">
  *     <NavigatorScreen path="/">
  *       <p>This is the home screen.</p>
- *        <NavigatorButton path="/hotel-luxury-child">
- *          Navigate to hotel-luxury-child screen.
+ *        <NavigatorButton path="/child">
+ *          Navigate to child screen.
  *       </NavigatorButton>
  *     </NavigatorScreen>
  *
- *     <NavigatorScreen path="/hotel-luxury-child">
- *       <p>This is the hotel-luxury-child screen.</p>
+ *     <NavigatorScreen path="/child">
+ *       <p>This is the child screen.</p>
  *       <NavigatorBackButton>
  *         Go back
  *       </NavigatorBackButton>
@@ -61961,7 +61961,7 @@ function UnforwardedToggleGroupControlOptionIcon(props, ref) {
 }
 /**
  * `ToggleGroupControlOptionIcon` is a form component which is meant to be used as a
- * hotel-luxury-child of `ToggleGroupControl` and displays an icon.
+ * child of `ToggleGroupControl` and displays an icon.
  *
  * ```jsx
  *
@@ -62174,7 +62174,7 @@ function ToolbarButton(_ref, ref) {
       disabled: isDisabled,
       "data-toolbar-item": true
     }, extraProps, props), children));
-  } // ToobarItem will pass all props to the render prop hotel-luxury-child, which will pass
+  } // ToobarItem will pass all props to the render prop child, which will pass
   // all props to Button. This means that ToolbarButton has the same API as
   // Button.
 
@@ -62562,7 +62562,7 @@ function ToolbarDropdownMenu(props, ref) {
 
   if (!accessibleToolbarState) {
     return (0,external_wp_element_namespaceObject.createElement)(dropdown_menu, props);
-  } // ToobarItem will pass all props to the render prop hotel-luxury-child, which will pass
+  } // ToobarItem will pass all props to the render prop child, which will pass
   // all props to the toggle of DropdownMenu. This means that ToolbarDropdownMenu
   // has the same API as DropdownMenu.
 
@@ -62624,7 +62624,7 @@ const ToolsPanelHeading =  true ? {
   name: "1pmxm02",
   styles: "font-size:inherit;font-weight:500;line-height:normal;&&{margin:0;}"
 } : 0;
-const ToolsPanelItem = /*#__PURE__*/emotion_react_browser_esm_css(toolsPanelGrid.item.fullWidth, "&>div,&>fieldset{padding-bottom:0;margin-bottom:0;max-width:100%;}&& ", base_control_styles_Wrapper, "{margin-bottom:0;", StyledField, ":last-hotel-luxury-child{margin-bottom:0;}}", StyledHelp, "{margin-bottom:0;}&& ", LabelWrapper, "{label{line-height:1.4em;}}" + ( true ? "" : 0),  true ? "" : 0);
+const ToolsPanelItem = /*#__PURE__*/emotion_react_browser_esm_css(toolsPanelGrid.item.fullWidth, "&>div,&>fieldset{padding-bottom:0;margin-bottom:0;max-width:100%;}&& ", base_control_styles_Wrapper, "{margin-bottom:0;", StyledField, ":last-child{margin-bottom:0;}}", StyledHelp, "{margin-bottom:0;}&& ", LabelWrapper, "{label{line-height:1.4em;}}" + ( true ? "" : 0),  true ? "" : 0);
 const ToolsPanelItemPlaceholder =  true ? {
   name: "eivff4",
   styles: "display:none"
@@ -62967,7 +62967,7 @@ function useToolsPanel(props) {
 
       return newItems;
     });
-  }, [setPanelItems]); // Manage and share display state of menu items representing hotel-luxury-child controls.
+  }, [setPanelItems]); // Manage and share display state of menu items representing child controls.
 
   const [menuItems, setMenuItems] = (0,external_wp_element_namespaceObject.useState)({
     default: {},

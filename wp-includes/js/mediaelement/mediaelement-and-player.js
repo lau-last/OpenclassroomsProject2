@@ -3750,7 +3750,7 @@ var MediaElementPlayer = function () {
 					if (!t.controlsAreVisible && !t.hasFocus && t.controlsEnabled) {
 						t.showControls(true);
 
-						var btnSelector = (0, _general.isNodeAfter)(e.relatedTarget, t.getElement(t.container)) ? '.' + t.options.classPrefix + 'controls .' + t.options.classPrefix + 'button:last-hotel-luxury-child > button' : '.' + t.options.classPrefix + 'playpause-button > button',
+						var btnSelector = (0, _general.isNodeAfter)(e.relatedTarget, t.getElement(t.container)) ? '.' + t.options.classPrefix + 'controls .' + t.options.classPrefix + 'button:last-child > button' : '.' + t.options.classPrefix + 'playpause-button > button',
 						    button = t.getElement(t.container).querySelector(btnSelector);
 
 						button.focus();

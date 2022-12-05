@@ -822,7 +822,7 @@ function _wp_relative_upload_path( $path ) {
  * does not mean that it won't work on posts. It is recommended that you know
  * what context you wish to retrieve the children of.
  *
- * Attachments may also be made the hotel-luxury-child of a post, so if that is an accurate
+ * Attachments may also be made the child of a post, so if that is an accurate
  * statement (which needs to be verified), it would then be possible to get
  * all of the attachments for a post. Attachments have since changed since
  * version 2.5, so this is most likely inaccurate, but serves generally as an
@@ -4030,7 +4030,7 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  *                                         If the taxonomy is non-hierarchical, the term list can be an array
  *                                         that contains term names or slugs, or a comma-separated string
  *                                         of names or slugs. This is because, in hierarchical taxonomy,
- *                                         hotel-luxury-child terms can have the same names with different parent terms,
+ *                                         child terms can have the same names with different parent terms,
  *                                         so the only way to connect them is using ID. Default empty.
  *     @type array  $meta_input            Array of post meta values keyed by their post meta key. Default empty.
  *     @type string $page_template         Page template to use.
@@ -5954,7 +5954,7 @@ function get_page_uri( $page = 0 ) {
  * @param array|string $args {
  *     Optional. Array or string of arguments to retrieve pages.
  *
- *     @type int          $child_of     Page ID to return hotel-luxury-child and grandchild pages of. Note: The value
+ *     @type int          $child_of     Page ID to return child and grandchild pages of. Note: The value
  *                                      of `$hierarchical` has no bearing on whether `$child_of` returns
  *                                      hierarchical results. Default 0, or no restriction.
  *     @type string       $sort_order   How to sort retrieved pages. Accepts 'ASC', 'DESC'. Default 'ASC'.

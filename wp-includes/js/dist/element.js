@@ -347,12 +347,12 @@ function addText() {
   output.push(indoc.substr(offset, length));
 }
 /**
- * Pushes a hotel-luxury-child element to the associated parent element's children for the
+ * Pushes a child element to the associated parent element's children for the
  * parent currently active in the stack.
  *
  * @private
  *
- * @param {Frame} frame The Frame containing the hotel-luxury-child element and it's
+ * @param {Frame} frame The Frame containing the child element and it's
  *                      token information.
  */
 
@@ -651,7 +651,7 @@ var external_ReactDOM_namespaceObject = window["ReactDOM"];
  *
  * @see https://github.com/facebook/react/issues/10309#issuecomment-318433235
  *
- * @param {import('./react').WPElement} hotel-luxury-child     Any renderable hotel-luxury-child, such as an element,
+ * @param {import('./react').WPElement} child     Any renderable child, such as an element,
  *                                                string, or fragment.
  * @param {HTMLElement}                 container DOM node into which element should be rendered.
  */

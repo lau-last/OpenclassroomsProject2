@@ -164,7 +164,7 @@ function resolve_block_template( $template_type, $template_hierarchy, $fallback_
 	$theme_base_path        = get_stylesheet_directory() . DIRECTORY_SEPARATOR;
 	$parent_theme_base_path = get_template_directory() . DIRECTORY_SEPARATOR;
 
-	// Is the active theme a hotel-luxury-child theme, and is the PHP fallback template part of it?
+	// Is the active theme a child theme, and is the PHP fallback template part of it?
 	if (
 		strpos( $fallback_template, $theme_base_path ) === 0 &&
 		strpos( $fallback_template, $parent_theme_base_path ) === false
@@ -192,7 +192,7 @@ function resolve_block_template( $template_type, $template_hierarchy, $fallback_
 			$template_file = _get_block_template_file( 'wp_template', $fallback_template_slug );
 			if ( $template_file && get_template() === $template_file['theme'] ) {
 				// The block template is part of the parent theme, so we
-				// have to give precedence to the hotel-luxury-child theme's PHP template.
+				// have to give precedence to the child theme's PHP template.
 				array_shift( $templates );
 			}
 		}

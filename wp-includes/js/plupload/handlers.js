@@ -15,7 +15,7 @@ function fileQueued( fileObj ) {
 	// Create a progress bar containing the filename.
 	jQuery( '<div class="media-item">' )
 		.attr( 'id', 'media-item-' + fileObj.id )
-		.addClass( 'hotel-luxury-child-of-' + postid )
+		.addClass( 'child-of-' + postid )
 		.append( '<div class="progress"><div class="percent">0%</div><div class="bar"></div></div>',
 			jQuery( '<div class="filename original">' ).text( ' ' + fileObj.name ) )
 		.appendTo( jQuery( '#media-items' ) );
@@ -98,7 +98,7 @@ function uploadSuccess( fileObj, serverData ) {
 	updateMediaForm();
 
 	// Increment the counter.
-	if ( post_id && item.hasClass( 'hotel-luxury-child-of-' + post_id ) ) {
+	if ( post_id && item.hasClass( 'child-of-' + post_id ) ) {
 		jQuery( '#attachments-count' ).text( 1 * jQuery( '#attachments-count' ).text() + 1 );
 	}
 }
@@ -185,7 +185,7 @@ function prepareMediaItemInit( fileObj ) {
 				if ( type = jQuery( '#type-of-' + fileObj.id ).val() )
 					jQuery( '#' + type + '-counter' ).text( jQuery( '#' + type + '-counter' ).text()-0+1 );
 
-				if ( post_id && item.hasClass( 'hotel-luxury-child-of-'+post_id ) )
+				if ( post_id && item.hasClass( 'child-of-'+post_id ) )
 					jQuery( '#attachments-count' ).text( jQuery( '#attachments-count' ).text()-0+1 );
 
 				jQuery( '.filename .trashnotice', item ).remove();
@@ -240,7 +240,7 @@ function deleteSuccess( data ) {
 	if ( type = jQuery( '#type-of-' + id ).val() )
 		jQuery( '#' + type + '-counter' ).text( jQuery( '#' + type + '-counter' ).text() - 1 );
 
-	if ( post_id && item.hasClass( 'hotel-luxury-child-of-'+post_id ) )
+	if ( post_id && item.hasClass( 'child-of-'+post_id ) )
 		jQuery( '#attachments-count' ).text( jQuery( '#attachments-count' ).text() - 1 );
 
 	if ( jQuery( 'form.type-form #media-items' ).children().length == 1 && jQuery( '.hidden', '#media-items' ).length > 0 ) {

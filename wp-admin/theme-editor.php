@@ -39,8 +39,8 @@ get_current_screen()->add_help_tab(
 				'<p>' . __( 'After typing in your edits, click Update File.' ) . '</p>' .
 				'<p>' . __( '<strong>Advice:</strong> Think very carefully about your site crashing if you are live-editing the theme currently in use.' ) . '</p>' .
 				'<p>' . sprintf(
-					/* translators: %s: Link to documentation on hotel-luxury-child themes. */
-					__( 'Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href="%s">hotel-luxury-child theme</a> instead.' ),
+					/* translators: %s: Link to documentation on child themes. */
+					__( 'Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href="%s">child theme</a> instead.' ),
 					__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' )
 				) . '</p>' .
 				( is_network_admin() ? '<p>' . __( 'Any edits to files from this screen will be reflected on all sites in the network.' ) . '</p>' : '' ),
@@ -260,7 +260,7 @@ if ( $theme->errors() ) {
 				<?php
 				printf(
 					/* translators: %s: Link to edit parent theme. */
-					__( 'This hotel-luxury-child theme inherits templates from a parent theme, %s.' ),
+					__( 'This child theme inherits templates from a parent theme, %s.' ),
 					sprintf(
 						'<a href="%s">%s</a>',
 						self_admin_url( 'theme-editor.php?theme=' . urlencode( $theme->get_template() ) ),
@@ -370,8 +370,8 @@ if ( ! in_array( 'theme_editor_notice', $dismissed_pointers, true ) ) :
 						if ( ! $theme->parent() ) {
 							echo '<p>';
 							printf(
-								/* translators: %s: Link to documentation on hotel-luxury-child themes. */
-								__( 'If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href="%s">making a hotel-luxury-child theme</a>.' ),
+								/* translators: %s: Link to documentation on child themes. */
+								__( 'If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href="%s">making a child theme</a>.' ),
 								esc_url( __( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' ) )
 							);
 							echo '</p>';

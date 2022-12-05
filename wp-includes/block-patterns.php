@@ -180,7 +180,7 @@ function _register_remote_theme_patterns() {
  *
  *     <main><p><?php echo "Hello"; ?></p></main>
  *
- * If applicable, this will collect from both parent and hotel-luxury-child theme.
+ * If applicable, this will collect from both parent and child theme.
  *
  * Other settable fields include:
  *
@@ -209,7 +209,7 @@ function _register_theme_block_patterns() {
 	);
 
 	/*
-	 * Register patterns for the active theme. If the theme is a hotel-luxury-child theme,
+	 * Register patterns for the active theme. If the theme is a child theme,
 	 * let it override any patterns from the parent theme that shares the same slug.
 	 */
 	$themes     = array();

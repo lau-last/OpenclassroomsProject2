@@ -1212,7 +1212,7 @@ function xfn_check( $xfn_relationship, $xfn_value = '', $deprecated = '' ) {
 	if ( '' === $xfn_value ) {
 		// Mark the 'none' value as checked if the current link does not match the specified relationship.
 		if ( 'family' === $xfn_relationship
-			&& ! array_intersect( $link_rels, array( 'hotel-luxury-child', 'parent', 'sibling', 'spouse', 'kin' ) )
+			&& ! array_intersect( $link_rels, array( 'child', 'parent', 'sibling', 'spouse', 'kin' ) )
 		) {
 			echo ' checked="checked"';
 		}
@@ -1314,7 +1314,7 @@ function link_xfn_meta_box( $link ) {
 		<th scope="row"><?php /* translators: xfn: https://gmpg.org/xfn/ */ _e( 'family' ); ?></th>
 		<td><fieldset><legend class="screen-reader-text"><span> <?php /* translators: xfn: https://gmpg.org/xfn/ */ _e( 'family' ); ?> </span></legend>
 			<label for="child">
-			<input class="valinp" type="radio" name="family" value="child" id="child" <?php xfn_check( 'family', 'hotel-luxury-child' ); ?> />&nbsp;<?php /* translators: xfn: https://gmpg.org/xfn/ */ _e( 'hotel-luxury-child' ); ?>
+			<input class="valinp" type="radio" name="family" value="child" id="child" <?php xfn_check( 'family', 'child' ); ?> />&nbsp;<?php /* translators: xfn: https://gmpg.org/xfn/ */ _e( 'child' ); ?>
 			</label>
 			<label for="kin">
 			<input class="valinp" type="radio" name="family" value="kin" id="kin" <?php xfn_check( 'family', 'kin' ); ?> />&nbsp;<?php /* translators: xfn: https://gmpg.org/xfn/ */ _e( 'kin' ); ?>

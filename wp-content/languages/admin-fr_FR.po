@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.1.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-16 21:02:40+0000\n"
+"PO-Revision-Date: 2022-12-02 09:17:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1656,7 +1656,7 @@ msgstr "Vous allez être redirigé vers %s"
 
 #: wp-admin/authorize-application.php:263
 msgid "Yes, I approve of this connection"
-msgstr "Oui, j’autorise la connection"
+msgstr "Oui, j’autorise la connexion"
 
 #. translators: 1: URL to my-sites.php, 2: Number of sites the user has.
 #: wp-admin/authorize-application.php:170
@@ -3376,9 +3376,9 @@ msgstr "L’extension sélectionnée a été supprimée."
 msgid "The plugin %1$s has been deactivated due to an error: %2$s"
 msgstr "L’extension %1$s a été désactivée en raison d’une erreur : %2$s"
 
-#. translators: %s: Link to documentation on hotel-luxury-child themes.
+#. translators: %s: Link to documentation on child themes.
 #: wp-admin/theme-editor.php:374
-msgid "If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href=\"%s\">making a hotel-luxury-child theme</a>."
+msgid "If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href=\"%s\">making a child theme</a>."
 msgstr "Si vous avez besoin d’ajuster plus que le CSS de votre thème, vous voudrez peut-être essayer de <a href=\"%s\">faire un thème enfant</a>."
 
 #: wp-admin/theme-editor.php:366
@@ -8323,7 +8323,7 @@ msgstr ""
 "https://wordpress.org/\n"
 
 #: wp-admin/themes.php:282
-msgid "You cannot delete a theme while it has an active hotel-luxury-child theme."
+msgid "You cannot delete a theme while it has an active child theme."
 msgstr "Vous ne pouvez pas supprimer un thème qui est actuellement utilisé par l’un de ses thèmes-enfant."
 
 #: wp-admin/options-general.php:35 wp-admin/network/settings.php:56
@@ -8785,7 +8785,7 @@ msgstr "Optimisé pour l’accessibilité"
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:949 wp-admin/themes.php:1115
-msgid "This is a hotel-luxury-child theme of %s."
+msgid "This is a child theme of %s."
 msgstr "Ce thème est un thème enfant de %s."
 
 #: wp-admin/themes.php:175
@@ -9147,9 +9147,9 @@ msgstr "Certaines de vos traductions ont besoin d’être mises à jour. Veuille
 msgid "Create a brand new user and add them to this site."
 msgstr "Créer un nouveau compte et l’ajouter à ce site."
 
-#. translators: %s: Link to documentation on hotel-luxury-child themes.
+#. translators: %s: Link to documentation on child themes.
 #: wp-admin/theme-editor.php:43
-msgid "Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href=\"%s\">hotel-luxury-child theme</a> instead."
+msgid "Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href=\"%s\">child theme</a> instead."
 msgstr "La mise à jour vers une nouvelle version du thème supprimera les modifications que vous aurez faites. Pour éviter cela, nous vous conseillons de passer plutôt par un <a href=\"%s\">Thème-Enfant</a>."
 
 #: wp-admin/options-media.php:56
@@ -9766,7 +9766,7 @@ msgid "When changing themes, there is often some variation in the number and set
 msgstr "En changeant de thème, il y a souvent des variations sur le nombre et l’agencement des zones de widgets et des colonnes latérales, et parfois tout cela entre en conflit, rendant la transition moins aisée. Si vous avez changé de thème et que certains widgets semblent manquer, faites défiler cet écran jusqu’en bas pour les retrouver dans la zone des widgets inactifs, où ils ont été conservés avec leurs derniers réglages."
 
 #: wp-admin/edit-tags.php:286
-msgid "<strong>Parent</strong> &mdash; Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have hotel-luxury-child categories for Bebop and Big Band. Totally optional. To create a subcategory, just choose another category from the Parent dropdown."
+msgid "<strong>Parent</strong> &mdash; Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have child categories for Bebop and Big Band. Totally optional. To create a subcategory, just choose another category from the Parent dropdown."
 msgstr "<strong>Parent</strong> &mdash; Les catégories, contrairement aux étiquettes, peuvent avoir une hiérarchie. Vous pouvez avoir une catégorie nommée « Jazz », et à l’intérieur, plusieurs catégories comme « Bebop » et « Big Band ». Le fait d’avoir une hiérarchie est totalement facultatif. Pour créer une sous-catégorie, choisissez juste une autre catégorie depuis la liste déroulante « Parente »."
 
 #: wp-admin/edit-form-advanced.php:374
@@ -9916,10 +9916,10 @@ msgstr "Bienvenue sur WordPress !"
 msgid "Search engines discouraged"
 msgstr "Moteurs de recherche refusés"
 
-#. translators: 1: Link to documentation on hotel-luxury-child themes, 2: Name of parent
+#. translators: 1: Link to documentation on child themes, 2: Name of parent
 #. theme.
 #: wp-admin/includes/class-wp-themes-list-table.php:284
-msgid "This <a href=\"%1$s\">hotel-luxury-child theme</a> requires its parent theme, %2$s."
+msgid "This <a href=\"%1$s\">child theme</a> requires its parent theme, %2$s."
 msgstr "Ce <a href=\"%1$s\">thème enfant</a> nécessite son thème parent, %2$s."
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:115
@@ -10231,7 +10231,7 @@ msgstr "Aperçu :"
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/class-theme-upgrader.php:93
-msgid "<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this hotel-luxury-child theme."
+msgid "<strong>The parent theme could not be found.</strong> You will need to install the parent theme, %s, before you can use this child theme."
 msgstr "<strong>Le thème parent n’a pas pu être trouvé.</strong> Vous allez devoir installer le thème parent, %s, avant de pouvoir utiliser ce thème enfant."
 
 #. translators: 1: Theme name, 2: Theme version.
@@ -11581,7 +11581,7 @@ msgstr "Ceci est un fichier de votre thème parent actuel."
 
 #. translators: %s: Link to edit parent theme.
 #: wp-admin/theme-editor.php:263
-msgid "This hotel-luxury-child theme inherits templates from a parent theme, %s."
+msgid "This child theme inherits templates from a parent theme, %s."
 msgstr "Ce thème enfant hérite de certains modèles de son thème parent, %s."
 
 #: wp-admin/includes/class-theme-installer-skin.php:150
@@ -11729,9 +11729,9 @@ msgstr "E-mail ou identifiant"
 msgid "Search Installed Themes"
 msgstr "Rechercher des thèmes installés"
 
-#. translators: %s: Link to documentation on hotel-luxury-child themes.
+#. translators: %s: Link to documentation on child themes.
 #: wp-admin/update-core.php:650
-msgid "<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href=\"%s\">hotel-luxury-child themes</a> for modifications."
+msgid "<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href=\"%s\">child themes</a> for modifications."
 msgstr "<strong>Notez bien :</strong> toutes les personnalisations que vous pourriez avoir apportées aux fichiers des thèmes seront perdues. Pensez à utiliser des <a href=\"%s\">thèmes enfants</a> pour vos modifications."
 
 #. translators: %s: Number of posts.
@@ -14405,7 +14405,7 @@ msgstr "apparenté"
 
 #. translators: xfn: https://gmpg.org/xfn
 #: wp-admin/includes/meta-boxes.php:1317
-msgid "hotel-luxury-child"
+msgid "child"
 msgstr "enfant"
 
 #. translators: xfn: https://gmpg.org/xfn

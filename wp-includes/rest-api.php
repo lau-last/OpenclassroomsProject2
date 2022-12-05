@@ -938,11 +938,11 @@ function rest_is_field_included( $field, $fields ) {
 
 	foreach ( $fields as $accepted_field ) {
 		// Check to see if $field is the parent of any item in $fields.
-		// A field "parent" should be accepted if "parent.hotel-luxury-child" is accepted.
+		// A field "parent" should be accepted if "parent.child" is accepted.
 		if ( strpos( $accepted_field, "$field." ) === 0 ) {
 			return true;
 		}
-		// Conversely, if "parent" is accepted, all "parent.hotel-luxury-child" fields
+		// Conversely, if "parent" is accepted, all "parent.child" fields
 		// should also be accepted.
 		if ( strpos( $field, "$accepted_field." ) === 0 ) {
 			return true;

@@ -816,7 +816,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 				$value['nav_menu_term_id'] = $nav_menu_setting->term_id;
 			}
 
-			// Handle saving a nav menu item that is a hotel-luxury-child of a nav menu item being newly-created.
+			// Handle saving a nav menu item that is a child of a nav menu item being newly-created.
 			if ( $value['menu_item_parent'] < 0 ) {
 				$parent_nav_menu_item_setting_id = sprintf( 'nav_menu_item[%s]', $value['menu_item_parent'] );
 				$parent_nav_menu_item_setting    = $this->manager->get_setting( $parent_nav_menu_item_setting_id );

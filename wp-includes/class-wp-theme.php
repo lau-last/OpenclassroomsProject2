@@ -134,7 +134,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * The directory name of the theme's files, inside the theme root.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is directory name of the hotel-luxury-child theme.
+	 * In the case of a child theme, this is directory name of the child theme.
 	 * Otherwise, 'stylesheet' is the same as 'template'.
 	 *
 	 * @since 3.4.0
@@ -145,7 +145,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * The directory name of the theme's files, inside the theme root.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the directory name of the parent theme.
+	 * In the case of a child theme, this is the directory name of the parent theme.
 	 * Otherwise, 'template' is the same as 'stylesheet'.
 	 *
 	 * @since 3.4.0
@@ -154,7 +154,7 @@ final class WP_Theme implements ArrayAccess {
 	private $template;
 
 	/**
-	 * A reference to the parent theme, in the case of a hotel-luxury-child theme.
+	 * A reference to the parent theme, in the case of a child theme.
 	 *
 	 * @since 3.4.0
 	 * @var WP_Theme
@@ -214,7 +214,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @param string        $theme_dir  Directory of the theme within the theme_root.
 	 * @param string        $theme_root Theme root.
-	 * @param WP_Theme|null $_child If this theme is a parent theme, the hotel-luxury-child may be passed for validation purposes.
+	 * @param WP_Theme|null $_child If this theme is a parent theme, the child may be passed for validation purposes.
 	 */
 	public function __construct( $theme_dir, $theme_root, $_child = null ) {
 		global $wp_theme_directories;
@@ -346,14 +346,14 @@ final class WP_Theme implements ArrayAccess {
 			$theme_path     = $this->theme_root . '/' . $this->stylesheet;
 
 			if (
-				! file_exists( $theme_path . '/templates/index.php' )
-				&& ! file_exists( $theme_path . '/block-templates/index.php' ) // Deprecated path support since 5.9.0.
+				! file_exists( $theme_path . '/templates/index.html' )
+				&& ! file_exists( $theme_path . '/block-templates/index.html' ) // Deprecated path support since 5.9.0.
 				&& ! file_exists( $theme_path . '/index.php' )
 			) {
 				$error_message = sprintf(
-					/* translators: 1: templates/index.php, 2: index.php, 3: Documentation URL, 4: Template, 5: style.css */
+					/* translators: 1: templates/index.html, 2: index.php, 3: Documentation URL, 4: Template, 5: style.css */
 					__( 'Template is missing. Standalone themes need to have a %1$s or %2$s template file. <a href="%3$s">Child themes</a> need to have a %4$s header in the %5$s stylesheet.' ),
-					'<code>templates/index.php</code>',
+					'<code>templates/index.html</code>',
 					'<code>index.php</code>',
 					__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' ),
 					'<code>Template</code>',
@@ -410,7 +410,7 @@ final class WP_Theme implements ArrayAccess {
 			}
 		}
 
-		// Set the parent, if we're a hotel-luxury-child theme.
+		// Set the parent, if we're a child theme.
 		if ( $this->template != $this->stylesheet ) {
 			// If we are a parent, then there is a problem. Only two generations allowed! Cancel things out.
 			if ( $_child instanceof WP_Theme && $_child->template == $this->stylesheet ) {
@@ -711,7 +711,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @since 3.4.0
 	 *
-	 * @return WP_Theme|false Parent theme, or false if the active theme is not a hotel-luxury-child theme.
+	 * @return WP_Theme|false Parent theme, or false if the active theme is not a child theme.
 	 */
 	public function parent() {
 		return isset( $this->parent ) ? $this->parent : false;
@@ -1033,7 +1033,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the directory name of the theme's "stylesheet" files, inside the theme root.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is directory name of the hotel-luxury-child theme.
+	 * In the case of a child theme, this is directory name of the child theme.
 	 * Otherwise, get_stylesheet() is the same as get_template().
 	 *
 	 * @since 3.4.0
@@ -1047,7 +1047,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the directory name of the theme's "template" files, inside the theme root.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the directory name of the parent theme.
+	 * In the case of a child theme, this is the directory name of the parent theme.
 	 * Otherwise, the get_template() is the same as get_stylesheet().
 	 *
 	 * @since 3.4.0
@@ -1061,8 +1061,8 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the absolute path to the directory of a theme's "stylesheet" files.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the absolute path to the directory
-	 * of the hotel-luxury-child theme's files.
+	 * In the case of a child theme, this is the absolute path to the directory
+	 * of the child theme's files.
 	 *
 	 * @since 3.4.0
 	 *
@@ -1079,7 +1079,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the absolute path to the directory of a theme's "template" files.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the absolute path to the directory
+	 * In the case of a child theme, this is the absolute path to the directory
 	 * of the parent theme's files.
 	 *
 	 * @since 3.4.0
@@ -1099,8 +1099,8 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the URL to the directory of a theme's "stylesheet" files.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the URL to the directory of the
-	 * hotel-luxury-child theme's files.
+	 * In the case of a child theme, this is the URL to the directory of the
+	 * child theme's files.
 	 *
 	 * @since 3.4.0
 	 *
@@ -1113,7 +1113,7 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Returns the URL to the directory of a theme's "template" files.
 	 *
-	 * In the case of a hotel-luxury-child theme, this is the URL to the directory of the
+	 * In the case of a child theme, this is the URL to the directory of the
 	 * parent theme's files.
 	 *
 	 * @since 3.4.0
@@ -1166,7 +1166,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * The main screenshot is called screenshot.png. gif and jpg extensions are also allowed.
 	 *
-	 * Screenshots for a theme must be in the stylesheet directory. (In the case of hotel-luxury-child
+	 * Screenshots for a theme must be in the stylesheet directory. (In the case of child
 	 * themes, parent theme screenshots are not inherited.)
 	 *
 	 * @since 3.4.0
@@ -1416,7 +1416,7 @@ final class WP_Theme implements ArrayAccess {
 	 * Loads the theme's textdomain.
 	 *
 	 * Translation files are not inherited from the parent theme. TODO: If this fails for the
-	 * hotel-luxury-child theme, it should probably try to load the parent theme's translations.
+	 * child theme, it should probably try to load the parent theme's translations.
 	 *
 	 * @since 3.4.0
 	 *
@@ -1492,8 +1492,8 @@ final class WP_Theme implements ArrayAccess {
 	 */
 	public function is_block_theme() {
 		$paths_to_index_block_template = array(
-			$this->get_file_path( '/block-templates/index.php' ),
-			$this->get_file_path( '/templates/index.php' ),
+			$this->get_file_path( '/block-templates/index.html' ),
+			$this->get_file_path( '/templates/index.html' ),
 		);
 
 		foreach ( $paths_to_index_block_template as $path_to_index_block_template ) {

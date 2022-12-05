@@ -646,8 +646,8 @@ function list_theme_updates() {
 <p>
 	<?php
 	printf(
-		/* translators: %s: Link to documentation on hotel-luxury-child themes. */
-		__( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href="%s">hotel-luxury-child themes</a> for modifications.' ),
+		/* translators: %s: Link to documentation on child themes. */
+		__( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href="%s">child themes</a> for modifications.' ),
 		__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' )
 	);
 	?>

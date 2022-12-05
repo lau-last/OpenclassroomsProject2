@@ -148,11 +148,11 @@ function wp_clean_themes_cache( $clear_update_cache = true ) {
 }
 
 /**
- * Whether a hotel-luxury-child theme is in use.
+ * Whether a child theme is in use.
  *
  * @since 3.0.0
  *
- * @return bool True if a hotel-luxury-child theme is in use, false otherwise.
+ * @return bool True if a child theme is in use, false otherwise.
  */
 function is_child_theme() {
 	return ( TEMPLATEPATH !== STYLESHEETPATH );
@@ -247,8 +247,8 @@ function get_stylesheet_uri() {
 	 *
 	 * @since 1.5.0
 	 *
-	 * @param string $stylesheet_uri     Stylesheet URI for the active theme/hotel-luxury-child theme.
-	 * @param string $stylesheet_dir_uri Stylesheet directory URI for the active theme/hotel-luxury-child theme.
+	 * @param string $stylesheet_uri     Stylesheet URI for the active theme/child theme.
+	 * @param string $stylesheet_dir_uri Stylesheet directory URI for the active theme/child theme.
 	 */
 	return apply_filters( 'stylesheet_uri', $stylesheet_uri, $stylesheet_dir_uri );
 }
@@ -832,7 +832,7 @@ function switch_theme( $stylesheet ) {
 /**
  * Checks that the active theme has the required files.
  *
- * Standalone themes need to have a `templates/index.php` or `index.php` template file.
+ * Standalone themes need to have a `templates/index.html` or `index.php` template file.
  * Child themes need to have a `Template` header in the `style.css` stylesheet.
  *
  * Does not initially check the default theme, which is the fallback and should always exist.
@@ -862,8 +862,8 @@ function validate_current_theme() {
 	}
 
 	if (
-		! file_exists( get_template_directory() . '/templates/index.php' )
-		&& ! file_exists( get_template_directory() . '/block-templates/index.php' ) // Deprecated path support since 5.9.0.
+		! file_exists( get_template_directory() . '/templates/index.html' )
+		&& ! file_exists( get_template_directory() . '/block-templates/index.html' ) // Deprecated path support since 5.9.0.
 		&& ! file_exists( get_template_directory() . '/index.php' )
 	) {
 		// Invalid.
@@ -1989,7 +1989,7 @@ function wp_get_custom_css( $stylesheet = '' ) {
  *
  *     @type string $preprocessed Optional. Pre-processed CSS, stored in `post_content_filtered`.
  *                                Normally empty string.
- *     @type string $stylesheet   Optional. Stylesheet (hotel-luxury-child theme) to update.
+ *     @type string $stylesheet   Optional. Stylesheet (child theme) to update.
  *                                Defaults to active theme/stylesheet.
  * }
  * @return WP_Post|WP_Error Post on success, error on failure.
@@ -2166,7 +2166,7 @@ function get_editor_stylesheets() {
 			}
 		}
 
-		// Look in a parent theme first, that way hotel-luxury-child theme CSS overrides.
+		// Look in a parent theme first, that way child theme CSS overrides.
 		if ( is_child_theme() ) {
 			$template_uri = get_template_directory_uri();
 			$template_dir = get_template_directory();
@@ -2704,7 +2704,7 @@ function add_theme_support( $feature, ...$args ) {
 			unset( $args[0]['__jit'] );
 
 			// Merge in data from previous add_theme_support() calls.
-			// The first value registered wins. (A hotel-luxury-child theme is set up first.)
+			// The first value registered wins. (A child theme is set up first.)
 			if ( isset( $_wp_theme_features['custom-header'] ) ) {
 				$args[0] = wp_parse_args( $_wp_theme_features['custom-header'][0], $args[0] );
 			}
@@ -2954,7 +2954,7 @@ function get_theme_support( $feature, ...$args ) {
  * Allows a theme to de-register its support of a certain feature
  *
  * Should be called in the theme's functions.php file. Generally would
- * be used for hotel-luxury-child themes to override support from the parent theme.
+ * be used for child themes to override support from the parent theme.
  *
  * @since 3.0.0
  *

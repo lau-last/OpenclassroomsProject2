@@ -7141,33 +7141,33 @@ function isTemplatePart(blockOrType) {
   return blockOrType.name === 'core/template-part';
 }
 /**
- * Returns an array with the hotel-luxury-child blocks of a given block.
+ * Returns an array with the child blocks of a given block.
  *
  * @param {string} blockName Name of block (example: “latest-posts”).
  *
- * @return {Array} Array of hotel-luxury-child block names.
+ * @return {Array} Array of child block names.
  */
 
 const getChildBlockNames = blockName => {
   return (0,external_wp_data_namespaceObject.select)(store).getChildBlockNames(blockName);
 };
 /**
- * Returns a boolean indicating if a block has hotel-luxury-child blocks or not.
+ * Returns a boolean indicating if a block has child blocks or not.
  *
  * @param {string} blockName Name of block (example: “latest-posts”).
  *
- * @return {boolean} True if a block contains hotel-luxury-child blocks and false otherwise.
+ * @return {boolean} True if a block contains child blocks and false otherwise.
  */
 
 const hasChildBlocks = blockName => {
   return (0,external_wp_data_namespaceObject.select)(store).hasChildBlocks(blockName);
 };
 /**
- * Returns a boolean indicating if a block has at least one hotel-luxury-child block with inserter support.
+ * Returns a boolean indicating if a block has at least one child block with inserter support.
  *
  * @param {string} blockName Block type name.
  *
- * @return {boolean} True if a block contains at least one hotel-luxury-child blocks with inserter support
+ * @return {boolean} True if a block contains at least one child blocks with inserter support
  *                   and false otherwise.
  */
 
@@ -9277,7 +9277,7 @@ function selectors_getGroupingBlockName(state) {
   return state.groupingBlockName;
 }
 /**
- * Returns an array with the hotel-luxury-child blocks of a given block.
+ * Returns an array with the child blocks of a given block.
  *
  * @param {Object} state     Data state.
  * @param {string} blockName Block type name.
@@ -9296,15 +9296,15 @@ function selectors_getGroupingBlockName(state) {
  *     return (
  *         <ul>
  *             { childBlockNames &&
- *                 childBlockNames.map( ( hotel-luxury-child ) => (
- *                     <li key={ hotel-luxury-child }>{ hotel-luxury-child }</li>
+ *                 childBlockNames.map( ( child ) => (
+ *                     <li key={ child }>{ child }</li>
  *             ) ) }
  *         </ul>
  *     );
  * };
  * ```
  *
- * @return {Array} Array of hotel-luxury-child block names.
+ * @return {Array} Array of child block names.
  */
 
 const selectors_getChildBlockNames = rememo((state, blockName) => {
@@ -9453,7 +9453,7 @@ function isMatchingSearchTerm(state, nameOrType, searchTerm) {
   return isSearchMatch(blockType.title) || (0,external_lodash_namespaceObject.some)(blockType.keywords, isSearchMatch) || isSearchMatch(blockType.category) || typeof blockType.description === 'string' && isSearchMatch(blockType.description);
 }
 /**
- * Returns a boolean indicating if a block has hotel-luxury-child blocks or not.
+ * Returns a boolean indicating if a block has child blocks or not.
  *
  * @param {Object} state     Data state.
  * @param {string} blockName Block type name.
@@ -9473,7 +9473,7 @@ function isMatchingSearchTerm(state, nameOrType, searchTerm) {
  *     return (
  *         <p>
  *             { sprintf(
- *                 __( 'core/navigation has hotel-luxury-child blocks: %s' ),
+ *                 __( 'core/navigation has child blocks: %s' ),
  *                 navigationBlockHasChildBlocks
  *             ) }
  *         </p>
@@ -9481,14 +9481,14 @@ function isMatchingSearchTerm(state, nameOrType, searchTerm) {
  * };
  * ```
  *
- * @return {boolean} True if a block contains hotel-luxury-child blocks and false otherwise.
+ * @return {boolean} True if a block contains child blocks and false otherwise.
  */
 
 const selectors_hasChildBlocks = (state, blockName) => {
   return selectors_getChildBlockNames(state, blockName).length > 0;
 };
 /**
- * Returns a boolean indicating if a block has at least one hotel-luxury-child block with inserter support.
+ * Returns a boolean indicating if a block has at least one child block with inserter support.
  *
  * @param {Object} state     Data state.
  * @param {string} blockName Block type name.
@@ -9510,7 +9510,7 @@ const selectors_hasChildBlocks = (state, blockName) => {
  *     return (
  *         <p>
  *             { sprintf(
- *                 __( 'core/navigation has hotel-luxury-child blocks with inserter support: %s' ),
+ *                 __( 'core/navigation has child blocks with inserter support: %s' ),
  *                 navigationBlockHasChildBlocksWithInserterSupport
  *             ) }
  *         </p>
@@ -9518,7 +9518,7 @@ const selectors_hasChildBlocks = (state, blockName) => {
  * };
  * ```
  *
- * @return {boolean} True if a block contains at least one hotel-luxury-child blocks with inserter support
+ * @return {boolean} True if a block contains at least one child blocks with inserter support
  *                   and false otherwise.
  */
 
@@ -11566,7 +11566,7 @@ const TEXT_NORMALIZATIONS = [identity, getTextWithCollapsedWhitespace];
  *
  * ```
  * const references = Array.from( document.querySelectorAll(
- *     '#named-character-references-table tr[id^=entity-] td:first-hotel-luxury-child'
+ *     '#named-character-references-table tr[id^=entity-] td:first-child'
  * ) ).map( ( code ) => code.textContent )
  * references.every( ( reference ) => /^[\da-z]+$/i.test( reference ) )
  * ```
@@ -13781,7 +13781,7 @@ function listReducer(node) {
   // * There is only one list item.
 
   if (prevElement && prevElement.nodeName === node.nodeName && list.children.length === 1) {
-    // Move all hotel-luxury-child nodes, including any text nodes, if any.
+    // Move all child nodes, including any text nodes, if any.
     while (list.firstChild) {
       prevElement.appendChild(list.firstChild);
     }
@@ -13847,7 +13847,7 @@ function blockquoteNormaliser(node) {
 function isFigureContent(node, schema) {
   var _schema$figure$childr, _schema$figure;
 
-  const tag = node.nodeName.toLowerCase(); // We are looking for tags that can be a hotel-luxury-child of the figure tag, excluding
+  const tag = node.nodeName.toLowerCase(); // We are looking for tags that can be a child of the figure tag, excluding
   // `figcaption` and any phrasing content.
 
   if (tag === 'figcaption' || (0,external_wp_dom_namespaceObject.isTextContent)(node)) {
@@ -15208,7 +15208,7 @@ function synchronizeBlocksWithTemplate() {
 // tree would replicate the entire chain `n-1`, meaning the extreme end node
 // would have been replicated `n` times as the tree is traversed and would
 // generate uncertainty as to which one is to hold the current value of the
-// block. For composition, it also means inner blocks can effectively be hotel-luxury-child
+// block. For composition, it also means inner blocks can effectively be child
 // components whose mechanisms can be shielded from the `edit` implementation
 // and just passed along.
 
@@ -15257,12 +15257,12 @@ function synchronizeBlocksWithTemplate() {
 // makes its output dynamic either in part or in its totality.
 //
 // Child blocks are defined as a relationship that builds on top of the inner
-// blocks mechanism. A hotel-luxury-child block is a block node of a particular type that can
+// blocks mechanism. A child block is a block node of a particular type that can
 // only exist within the inner block boundaries of a specific parent type. This
 // allows block authors to compose specific blocks that are not meant to be used
-// outside of a specified parent block context. Thus, hotel-luxury-child blocks extend the
+// outside of a specified parent block context. Thus, child blocks extend the
 // concept of inner blocks to support a more direct relationship between sets of
-// blocks. The addition of parent–hotel-luxury-child would be a subset of the inner block
+// blocks. The addition of parent–child would be a subset of the inner block
 // functionality under the premise that certain blocks only make sense as
 // children of another block.
 

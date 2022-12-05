@@ -722,7 +722,7 @@ function get_body_class( $class = '' ) {
 			}
 
 			if ( $post->post_parent ) {
-				$classes[] = 'page-hotel-luxury-child';
+				$classes[] = 'page-child';
 				$classes[] = 'parent-pageid-' . $post->post_parent;
 			}
 		}
@@ -1163,7 +1163,7 @@ function the_meta() {
  *     Optional. Array or string of arguments to generate a page dropdown. See get_pages() for additional arguments.
  *
  *     @type int          $depth                 Maximum depth. Default 0.
- *     @type int          $child_of              Page ID to retrieve hotel-luxury-child pages of. Default 0.
+ *     @type int          $child_of              Page ID to retrieve child pages of. Default 0.
  *     @type int|string   $selected              Value of the option that should be selected. Default 0.
  *     @type bool|int     $echo                  Whether to echo or return the generated markup. Accepts 0, 1,
  *                                               or their bool equivalents. Default 1.

@@ -1781,7 +1781,7 @@
 * `ItemGroup` component but allows for hidden items. This is because
 * to maintain the order of `ToolsPanel` controls, each `ToolsPanelItem`
 * must at least render a placeholder which would otherwise interfere
-* with the `:last-hotel-luxury-child` styles.
+* with the `:last-child` styles.
 */
 .block-editor-tools-panel-color-gradient-settings__item {
   padding: 0;

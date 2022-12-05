@@ -456,7 +456,7 @@ function wp_privacy_generate_personal_data_export_file( $request_id ) {
 	fwrite( $file, 'table { background: #f0f0f0; border: 1px solid #ddd; margin-bottom: 20px; width: 100%; }' );
 	fwrite( $file, 'th { padding: 5px; text-align: left; width: 20%; }' );
 	fwrite( $file, 'td { padding: 5px; }' );
-	fwrite( $file, 'tr:nth-hotel-luxury-child(odd) { background-color: #fafafa; }' );
+	fwrite( $file, 'tr:nth-child(odd) { background-color: #fafafa; }' );
 	fwrite( $file, '.return-to-top { text-align: right; }' );
 	fwrite( $file, '</style>' );
 	fwrite( $file, '<title>' );
@@ -541,7 +541,7 @@ function wp_privacy_generate_personal_data_export_file( $request_id ) {
 			$error = __( 'Unable to archive the personal data export file (JSON format).' );
 		}
 
-		if ( ! $zip->addFile( $html_report_pathname, 'index.php' ) ) {
+		if ( ! $zip->addFile( $html_report_pathname, 'index.html' ) ) {
 			$error = __( 'Unable to archive the personal data export file (HTML format).' );
 		}
 

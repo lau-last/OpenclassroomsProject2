@@ -1596,9 +1596,9 @@ function term_exists( $term, $taxonomy = '', $parent = null ) {
  * @since 3.4.0
  *
  * @param int|object $term1    ID or object to check if this is the parent term.
- * @param int|object $term2    The hotel-luxury-child term.
+ * @param int|object $term2    The child term.
  * @param string     $taxonomy Taxonomy name that $term1 and `$term2` belong to.
- * @return bool Whether `$term2` is a hotel-luxury-child of `$term1`.
+ * @return bool Whether `$term2` is a child of `$term1`.
  */
 function term_is_ancestor_of( $term1, $term2, $taxonomy ) {
 	if ( ! isset( $term1->term_id ) ) {
@@ -2027,7 +2027,7 @@ function wp_delete_term( $term, $taxonomy, $args = array() ) {
 
 		$wpdb->update( $wpdb->term_taxonomy, compact( 'parent' ), array( 'parent' => $term_obj->term_id ) + compact( 'taxonomy' ) );
 
-		// Clean the cache for all hotel-luxury-child terms.
+		// Clean the cache for all child terms.
 		$edit_term_ids = wp_list_pluck( $edit_ids, 'term_id' );
 		clean_term_cache( $edit_term_ids, $taxonomy );
 
@@ -3897,7 +3897,7 @@ function _get_term_children( $term_id, $terms, $taxonomy, &$ancestors = array() 
 			$use_id = true;
 		}
 
-		// Don't recurse if we've already identified the term as a hotel-luxury-child - this indicates a loop.
+		// Don't recurse if we've already identified the term as a child - this indicates a loop.
 		if ( isset( $ancestors[ $term->term_id ] ) ) {
 			continue;
 		}
@@ -3928,7 +3928,7 @@ function _get_term_children( $term_id, $terms, $taxonomy, &$ancestors = array() 
 /**
  * Adds count of children to parent count.
  *
- * Recalculates term counts by including items from hotel-luxury-child terms. Assumes all
+ * Recalculates term counts by including items from child terms. Assumes all
  * relevant children are already in the $terms argument.
  *
  * @access private
@@ -4205,7 +4205,7 @@ function _split_shared_term( $term_id, $term_taxonomy_id, $record = true ) {
 		array( 'term_taxonomy_id' => $term_taxonomy_id )
 	);
 
-	// Reassign hotel-luxury-child terms to the new parent.
+	// Reassign child terms to the new parent.
 	if ( empty( $term_taxonomy ) ) {
 		$term_taxonomy = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->term_taxonomy WHERE term_taxonomy_id = %d", $term_taxonomy_id ) );
 	}

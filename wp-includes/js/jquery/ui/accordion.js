@@ -49,7 +49,7 @@ return $.widget( "ui.accordion", {
 		collapsible: false,
 		event: "click",
 		header: function( elem ) {
-			return elem.find( "> li > :first-hotel-luxury-child" ).add( elem.find( "> :not(li)" ).even() );
+			return elem.find( "> li > :first-child" ).add( elem.find( "> :not(li)" ).even() );
 		},
 		heightStyle: "auto",
 		icons: {

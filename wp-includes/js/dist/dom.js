@@ -893,10 +893,10 @@ function isEntirelySelected(element) {
  * Returns true if there is no possibility of selection.
  *
  * @param {HTMLElement|Node}         query     The element to check.
- * @param {HTMLElement}              container The container that we suspect "query" may be a first or last hotel-luxury-child of.
+ * @param {HTMLElement}              container The container that we suspect "query" may be a first or last child of.
  * @param {"firstChild"|"lastChild"} propName  "firstChild" or "lastChild"
  *
- * @return {boolean} True if query is a deep first/last hotel-luxury-child of container, false otherwise.
+ * @return {boolean} True if query is a deep first/last child of container, false otherwise.
  */
 
 function isDeepChild(query, container, propName) {
@@ -1503,7 +1503,7 @@ function replace(processedNode, newNode) {
  */
 
 /**
- * Unwrap the given node. This means any hotel-luxury-child nodes are moved to the parent.
+ * Unwrap the given node. This means any child nodes are moved to the parent.
  *
  * @param {Node} node The node to unwrap.
  *
@@ -1915,7 +1915,7 @@ function cleanNodeList(nodeList, doc, schema, inline) {
   node) => {
     var _schema$tag$isMatch, _schema$tag;
 
-    const tag = node.nodeName.toLowerCase(); // It's a valid hotel-luxury-child, if the tag exists in the schema without an isMatch
+    const tag = node.nodeName.toLowerCase(); // It's a valid child, if the tag exists in the schema without an isMatch
     // function, or with an isMatch function that matches the node.
 
     if (schema.hasOwnProperty(tag) && (!schema[tag].isMatch || (_schema$tag$isMatch = (_schema$tag = schema[tag]).isMatch) !== null && _schema$tag$isMatch !== void 0 && _schema$tag$isMatch.call(_schema$tag, node))) {
@@ -2005,7 +2005,7 @@ function cleanNodeList(nodeList, doc, schema, inline) {
             }
           }
         }
-      } // Invalid hotel-luxury-child. Continue with schema at the same place and unwrap.
+      } // Invalid child. Continue with schema at the same place and unwrap.
 
     } else {
       cleanNodeList(node.childNodes, doc, schema, inline); // For inline mode, insert a line break when unwrapping nodes that

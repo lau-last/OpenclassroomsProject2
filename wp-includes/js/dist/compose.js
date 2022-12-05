@@ -4979,7 +4979,7 @@ function useDropZone(_ref) {
     function onDragEnter(
     /** @type {DragEvent} */
     event) {
-      event.preventDefault(); // The `dragenter` event will also fire when entering hotel-luxury-child
+      event.preventDefault(); // The `dragenter` event will also fire when entering child
       // elements, but we only want to call `onDragEnter` when
       // entering the drop zone, which means the `relatedTarget`
       // (element that has been left) should be outside the drop zone.
@@ -5011,7 +5011,7 @@ function useDropZone(_ref) {
     function onDragLeave(
     /** @type {DragEvent} */
     event) {
-      // The `dragleave` event will also fire when leaving hotel-luxury-child
+      // The `dragleave` event will also fire when leaving child
       // elements, but we only want to call `onDragLeave` when
       // leaving the drop zone, which means the `relatedTarget`
       // (element that has been entered) should be outside the drop

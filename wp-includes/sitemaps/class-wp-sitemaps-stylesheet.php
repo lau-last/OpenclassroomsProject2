@@ -295,7 +295,7 @@ XSL;
 						padding: 10px;
 					}
 
-					#sitemap__table tr:nth-hotel-luxury-child(odd) td {
+					#sitemap__table tr:nth-child(odd) td {
 						background-color: #eee;
 					}
 

@@ -429,7 +429,7 @@ $.ui.ddmanager = {
 				}
 			}
 
-			// We just moved into a greedy hotel-luxury-child
+			// We just moved into a greedy child
 			if ( parentInstance && c === "isover" ) {
 				parentInstance.isover = false;
 				parentInstance.isout = true;
@@ -440,7 +440,7 @@ $.ui.ddmanager = {
 			this[ c === "isout" ? "isover" : "isout" ] = false;
 			this[ c === "isover" ? "_over" : "_out" ].call( this, event );
 
-			// We just moved out of a greedy hotel-luxury-child
+			// We just moved out of a greedy child
 			if ( parentInstance && c === "isout" ) {
 				parentInstance.isout = false;
 				parentInstance.isover = true;

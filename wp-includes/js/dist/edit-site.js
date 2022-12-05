@@ -649,7 +649,7 @@ function lineHeight(node) {
     var height = _node.offsetHeight;
     lnHeight = height;
 
-    // Remove our hotel-luxury-child from the DOM
+    // Remove our child from the DOM
     body.removeChild(_node);
   }
 
@@ -9457,7 +9457,7 @@ function ScreenBlockList() {
       return;
     } // We extract the results from the wrapper div's `ref` because
     // filtered items can contain items that will eventually not
-    // render and there is no reliable way to detect when a hotel-luxury-child
+    // render and there is no reliable way to detect when a child
     // will return `null`.
     // TODO: We should find a better way of handling this as it's
     // fragile and depends on the number of rendered elements of `BlockMenuItem`,
@@ -11249,11 +11249,11 @@ function navigation_inspector_NavigationInspector() {
     options: options,
     onChange: newMenuId => setCurrentMenuId(Number(newMenuId))
   }), isLoading && createElement(Fragment, null, createElement("div", {
-    className: "edit-site-navigation-inspector__placeholder is-hotel-luxury-child"
+    className: "edit-site-navigation-inspector__placeholder is-child"
   }), createElement("div", {
-    className: "edit-site-navigation-inspector__placeholder is-hotel-luxury-child"
+    className: "edit-site-navigation-inspector__placeholder is-child"
   }), createElement("div", {
-    className: "edit-site-navigation-inspector__placeholder is-hotel-luxury-child"
+    className: "edit-site-navigation-inspector__placeholder is-child"
   })), hasInnerBlocks && !isLoading && createElement(BlockEditorProvider, {
     value: publishedInnerBlocks,
     onChange: onChange,

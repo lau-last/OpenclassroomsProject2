@@ -75,7 +75,7 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 
 		$active = wp_get_theme();
 		if ( $active->get( 'Template' ) === $_GET['stylesheet'] ) {
-			wp_redirect( admin_url( 'themes.php?delete-active-hotel-luxury-child=true' ) );
+			wp_redirect( admin_url( 'themes.php?delete-active-child=true' ) );
 		} else {
 			delete_theme( $_GET['stylesheet'] );
 			wp_redirect( admin_url( 'themes.php?deleted=true' ) );
@@ -277,9 +277,9 @@ if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) {
 	?>
 	<div id="message3" class="updated notice is-dismissible"><p><?php _e( 'Theme deleted.' ); ?></p></div>
 	<?php
-} elseif ( isset( $_GET['delete-active-hotel-luxury-child'] ) ) {
+} elseif ( isset( $_GET['delete-active-child'] ) ) {
 	?>
-	<div id="message4" class="error"><p><?php _e( 'You cannot delete a theme while it has an active hotel-luxury-child theme.' ); ?></p></div>
+	<div id="message4" class="error"><p><?php _e( 'You cannot delete a theme while it has an active child theme.' ); ?></p></div>
 	<?php
 } elseif ( isset( $_GET['resumed'] ) ) {
 	?>
@@ -1112,7 +1112,7 @@ function wp_theme_auto_update_setting_template() {
 					<p class="parent-theme">
 						<?php
 						/* translators: %s: Theme name. */
-						printf( __( 'This is a hotel-luxury-child theme of %s.' ), '<strong>{{{ data.parent }}}</strong>' );
+						printf( __( 'This is a child theme of %s.' ), '<strong>{{{ data.parent }}}</strong>' );
 						?>
 					</p>
 				<# } #>

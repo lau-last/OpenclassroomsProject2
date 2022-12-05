@@ -917,7 +917,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 							$active_theme_label = ' &mdash; ' . __( 'Active Theme' );
 						}
 
-						/* In case this is a hotel-luxury-child theme, label it properly */
+						/* In case this is a child theme, label it properly */
 						if ( $stylesheet !== $template && $item->get_stylesheet() === $stylesheet ) {
 							$active_theme_label = ' &mdash; ' . __( 'Active Child Theme' );
 						}

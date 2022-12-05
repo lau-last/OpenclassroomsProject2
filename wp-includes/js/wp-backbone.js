@@ -513,7 +513,7 @@ window.wp = window.wp || {};
 		remove: function() {
 			var result = Backbone.View.prototype.remove.apply( this, arguments );
 
-			// Recursively remove hotel-luxury-child views.
+			// Recursively remove child views.
 			if ( this.views )
 				this.views.remove();
 

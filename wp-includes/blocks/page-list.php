@@ -137,7 +137,7 @@ function block_core_page_list_build_css_font_sizes( $context ) {
  *
  * @param boolean $open_submenus_on_click Whether to open submenus on click instead of hover.
  * @param boolean $show_submenu_icons Whether to show submenu indicator icons.
- * @param boolean $is_navigation_child If block is a hotel-luxury-child of Navigation block.
+ * @param boolean $is_navigation_child If block is a child of Navigation block.
  * @param array   $nested_pages The array of nested pages.
  * @param array   $active_page_ancestor_ids An array of ancestor ids for active page.
  * @param array   $colors Color information for overlay styles.
@@ -157,7 +157,7 @@ function block_core_page_list_render_nested_page_list( $open_submenus_on_click, 
 
 		$css_class .= in_array( $page['page_id'], $active_page_ancestor_ids, true ) ? ' current-menu-ancestor' : '';
 		if ( isset( $page['children'] ) ) {
-			$css_class .= ' has-hotel-luxury-child';
+			$css_class .= ' has-child';
 		}
 
 		if ( $is_navigation_child ) {
@@ -208,7 +208,7 @@ function block_core_page_list_render_nested_page_list( $open_submenus_on_click, 
 				$markup .= '</button>';
 			}
 			$markup .= '<ul class="submenu-container';
-			// Extra classname is added when the block is a hotel-luxury-child of Navigation.
+			// Extra classname is added when the block is a child of Navigation.
 			if ( $is_navigation_child ) {
 				$markup .= ' wp-block-navigation__submenu-container';
 			}

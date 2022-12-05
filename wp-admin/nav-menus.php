@@ -120,7 +120,7 @@ switch ( $action ) {
 							update_post_meta( $menu_item_data['ID'], '_menu_item_menu_item_parent', (int) $menu_item_data['menu_item_parent'] );
 						}
 
-						// Make menu item a hotel-luxury-child of its next sibling.
+						// Make menu item a child of its next sibling.
 					} else {
 						$next_item_data['menu_order'] = $next_item_data['menu_order'] - 1;
 						$menu_item_data['menu_order'] = $menu_item_data['menu_order'] + 1;
@@ -179,7 +179,7 @@ switch ( $action ) {
 					&& ! empty( $orders_to_dbids[ $dbids_to_orders[ $menu_item_id ] - 1 ] )
 				) {
 
-					// If this menu item is a hotel-luxury-child of the previous.
+					// If this menu item is a child of the previous.
 					if ( ! empty( $menu_item_data['menu_item_parent'] )
 						&& in_array( (int) $menu_item_data['menu_item_parent'], array_keys( $dbids_to_orders ), true )
 						&& isset( $orders_to_dbids[ $dbids_to_orders[ $menu_item_id ] - 1 ] )
@@ -197,8 +197,8 @@ switch ( $action ) {
 							$parent_data = (array) $parent_object;
 
 							/*
-							 * If there is something before the parent and parent a hotel-luxury-child of it,
-							 * make menu item a hotel-luxury-child also of it.
+							 * If there is something before the parent and parent a child of it,
+							 * make menu item a child also of it.
 							 */
 							if ( ! empty( $dbids_to_orders[ $parent_db_id ] )
 								&& ! empty( $orders_to_dbids[ $dbids_to_orders[ $parent_db_id ] - 1 ] )
@@ -207,8 +207,8 @@ switch ( $action ) {
 								$menu_item_data['menu_item_parent'] = $parent_data['menu_item_parent'];
 
 								/*
-								* Else if there is something before parent and parent not a hotel-luxury-child of it,
-								* make menu item a hotel-luxury-child of that something's parent
+								* Else if there is something before parent and parent not a child of it,
+								* make menu item a child of that something's parent
 								*/
 							} elseif ( ! empty( $dbids_to_orders[ $parent_db_id ] )
 								&& ! empty( $orders_to_dbids[ $dbids_to_orders[ $parent_db_id ] - 1 ] )
@@ -238,14 +238,14 @@ switch ( $action ) {
 							wp_update_post( $parent_data );
 						}
 
-						// Else this menu item is not a hotel-luxury-child of the previous.
+						// Else this menu item is not a child of the previous.
 					} elseif ( empty( $menu_item_data['menu_order'] )
 						|| empty( $menu_item_data['menu_item_parent'] )
 						|| ! in_array( (int) $menu_item_data['menu_item_parent'], array_keys( $dbids_to_orders ), true )
 						|| empty( $orders_to_dbids[ $dbids_to_orders[ $menu_item_id ] - 1 ] )
 						|| $orders_to_dbids[ $dbids_to_orders[ $menu_item_id ] - 1 ] !== (int) $menu_item_data['menu_item_parent']
 					) {
-						// Just make it a hotel-luxury-child of the previous; keep the order.
+						// Just make it a child of the previous; keep the order.
 						$menu_item_data['menu_item_parent'] = (int) $orders_to_dbids[ $dbids_to_orders[ $menu_item_id ] - 1 ];
 						update_post_meta( $menu_item_data['ID'], '_menu_item_menu_item_parent', (int) $menu_item_data['menu_item_parent'] );
 						wp_update_post( $menu_item_data );

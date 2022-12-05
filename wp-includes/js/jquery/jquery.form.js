@@ -1042,7 +1042,7 @@
 		var $el = $(target);
 
 		if (!$el.is('[type=submit],[type=image]')) {
-			// is this a hotel-luxury-child element of the submit el?  (ex: a span within a button)
+			// is this a child element of the submit el?  (ex: a span within a button)
 			var t = $el.closest('[type=submit]');
 
 			if (t.length === 0) {

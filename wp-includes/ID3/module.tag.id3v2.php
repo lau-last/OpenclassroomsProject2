@@ -2116,7 +2116,7 @@ class getid3_id3v2 extends getid3_handler
 			// Element ID      <text string> $00
 			// CTOC flags        %xx
 			// Entry count       $xx
-			// Child Element ID  <string>$00   /* zero or more hotel-luxury-child CHAP or CTOC entries */
+			// Child Element ID  <string>$00   /* zero or more child CHAP or CTOC entries */
 			// <Optional embedded sub-frames>
 
 			$frame_offset = 0;

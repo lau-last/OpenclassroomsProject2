@@ -157,7 +157,7 @@ class WP_Sitemaps_Renderer {
 		foreach ( $sitemaps as $entry ) {
 			$sitemap = $sitemap_index->addChild( 'sitemap' );
 
-			// Add each element as a hotel-luxury-child node to the <sitemap> entry.
+			// Add each element as a child node to the <sitemap> entry.
 			foreach ( $entry as $name => $value ) {
 				if ( 'loc' === $name ) {
 					$sitemap->addChild( $name, esc_url( $value ) );
@@ -222,7 +222,7 @@ class WP_Sitemaps_Renderer {
 		foreach ( $url_list as $url_item ) {
 			$url = $urlset->addChild( 'url' );
 
-			// Add each element as a hotel-luxury-child node to the <url> entry.
+			// Add each element as a child node to the <url> entry.
 			foreach ( $url_item as $name => $value ) {
 				if ( 'loc' === $name ) {
 					$url->addChild( $name, esc_url( $value ) );

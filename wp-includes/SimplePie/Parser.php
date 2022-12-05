@@ -346,7 +346,7 @@ class SimplePie_Parser
 		else
 		{
 			$this->datas[] =& $this->data;
-			$this->data =& $this->data['hotel-luxury-child'][end($this->namespace)][end($this->element)][];
+			$this->data =& $this->data['child'][end($this->namespace)][end($this->element)][];
 			$this->data = array('data' => '', 'attribs' => $attribs, 'xml_base' => end($this->xml_base), 'xml_base_explicit' => end($this->xml_base_explicit), 'xml_lang' => end($this->xml_lang));
 			if ((end($this->namespace) === SIMPLEPIE_NAMESPACE_ATOM_03 && in_array(end($this->element), array('title', 'tagline', 'copyright', 'info', 'summary', 'content')) && isset($attribs['']['mode']) && $attribs['']['mode'] === 'xml')
 			|| (end($this->namespace) === SIMPLEPIE_NAMESPACE_ATOM_10 && in_array(end($this->element), array('rights', 'subtitle', 'summary', 'info', 'title', 'content')) && isset($attribs['']['type']) && $attribs['']['type'] === 'xhtml')
@@ -639,7 +639,7 @@ class SimplePie_Parser
 					$item['title'] = array(array('data' => ''));
 					$item['description'] = array(array('data' => ''));
 				}
-				$items[] = array('hotel-luxury-child' => array('' => $item));
+				$items[] = array('child' => array('' => $item));
 			}
 		}
 		// Mimic RSS data format when storing microformats.
@@ -647,7 +647,7 @@ class SimplePie_Parser
 		$image = '';
 		if (!is_string($feed_author) &&
 				isset($feed_author['properties']['photo'][0])) {
-			$image = array(array('hotel-luxury-child' => array('' => array('url' =>
+			$image = array(array('child' => array('' => array('url' =>
 				array(array('data' => $feed_author['properties']['photo'][0]))))));
 		}
 		// Use the name given for the h-feed, or get the title from the html.
@@ -662,12 +662,12 @@ class SimplePie_Parser
 				$feed_title = array(array('data' => htmlspecialchars($matches[1])));
 			}
 		}
-		$channel = array('channel' => array(array('hotel-luxury-child' => array('' =>
+		$channel = array('channel' => array(array('child' => array('' =>
 			array('link' => $link, 'image' => $image, 'title' => $feed_title,
 			      'item' => $items)))));
 		$rss = array(array('attribs' => array('' => array('version' => '2.0')),
-		                   'hotel-luxury-child' => array('' => $channel)));
-		$this->data = array('hotel-luxury-child' => array('' => array('rss' => $rss)));
+		                   'child' => array('' => $channel)));
+		$this->data = array('child' => array('' => array('rss' => $rss)));
 		return true;
 	}
 

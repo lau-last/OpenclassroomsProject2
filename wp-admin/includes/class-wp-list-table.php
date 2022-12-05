@@ -113,7 +113,7 @@ class WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * The hotel-luxury-child class should call this constructor from its own constructor to override
+	 * The child class should call this constructor from its own constructor to override
 	 * the default $args.
 	 *
 	 * @since 3.1.0

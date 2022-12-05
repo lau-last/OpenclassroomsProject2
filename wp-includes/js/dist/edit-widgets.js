@@ -2136,7 +2136,7 @@ const getWidgetAreaForWidgetId = (0,external_wp_data_namespaceObject.createRegis
   });
 });
 /**
- * Given a hotel-luxury-child client id, returns the parent widget area block.
+ * Given a child client id, returns the parent widget area block.
  *
  * @param {string} clientId The client id of a block in a widget area.
  *
@@ -4136,7 +4136,7 @@ const useWidgetLibraryInsertionPoint = () => {
     const clientId = getBlockSelectionEnd() || firstRootId;
     const rootClientId = getBlockRootClientId(clientId); // If the selected block is at the root level, it's a widget area and
     // blocks can't be inserted here. Return this block as the root and the
-    // last hotel-luxury-child clientId indicating insertion at the end.
+    // last child clientId indicating insertion at the end.
 
     if (clientId && rootClientId === '') {
       return {

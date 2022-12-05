@@ -7813,7 +7813,7 @@ function ColumnsEditContainer(_ref) {
 
 const ColumnsEditContainerWrapper = (0,external_wp_data_namespaceObject.withDispatch)((dispatch, ownProps, registry) => ({
   /**
-   * Update all hotel-luxury-child Column blocks with a new vertical alignment setting
+   * Update all child Column blocks with a new vertical alignment setting
    * based on whatever alignment is passed in. This allows change to parent
    * to overide anything set on a individual column basis.
    *
@@ -7833,7 +7833,7 @@ const ColumnsEditContainerWrapper = (0,external_wp_data_namespaceObject.withDisp
 
     setAttributes({
       verticalAlignment
-    }); // Update all hotel-luxury-child Column Blocks to match.
+    }); // Update all child Column Blocks to match.
 
     const innerBlockClientIds = getBlockOrder(clientId);
     innerBlockClientIds.forEach(innerBlockClientId => {
@@ -7844,7 +7844,7 @@ const ColumnsEditContainerWrapper = (0,external_wp_data_namespaceObject.withDisp
   },
 
   /**
-   * Updates the column count, including necessary revisions to hotel-luxury-child Column
+   * Updates the column count, including necessary revisions to child Column
    * blocks to grant required or redistribute available space.
    *
    * @param {number} previousColumns Previous column count.
@@ -13765,7 +13765,7 @@ const cover_transforms_transforms = {
         gradient,
         style
       } = attributes; // If the Group block being transformed has a Cover block as its
-      // only hotel-luxury-child return that Cover block.
+      // only child return that Cover block.
 
       if ((innerBlocks === null || innerBlocks === void 0 ? void 0 : innerBlocks.length) === 1 && ((_innerBlocks$ = innerBlocks[0]) === null || _innerBlocks$ === void 0 ? void 0 : _innerBlocks$.name) === 'core/cover') {
         return (0,external_wp_blocks_namespaceObject.createBlock)('core/cover', innerBlocks[0].attributes, innerBlocks[0].innerBlocks);
@@ -13915,8 +13915,8 @@ const cover_transforms_transforms = {
             ...(attributes === null || attributes === void 0 ? void 0 : (_attributes$style2 = attributes.style) === null || _attributes$style2 === void 0 ? void 0 : _attributes$style2.color)
           } : undefined
         })
-      }; // If the Cover block contains only a single Group block as a direct hotel-luxury-child,
-      // then attempt to merge the Cover's background colors with the hotel-luxury-child Group block,
+      }; // If the Cover block contains only a single Group block as a direct child,
+      // then attempt to merge the Cover's background colors with the child Group block,
       // and remove the Cover block as the wrapper.
 
       if ((innerBlocks === null || innerBlocks === void 0 ? void 0 : innerBlocks.length) === 1 && ((_innerBlocks$2 = innerBlocks[0]) === null || _innerBlocks$2 === void 0 ? void 0 : _innerBlocks$2.name) === 'core/group') {
@@ -25500,7 +25500,7 @@ function useOutdentList(clientId) {
     } = getBlock(clientId); // Replace the parent block with a new parent block without inner blocks,
     // and make the inner blocks siblings of the parent.
 
-    replaceBlocks([parentBlockId], [newParentBlock, ...innerBlocks]); // Select the last hotel-luxury-child of the list being outdent.
+    replaceBlocks([parentBlockId], [newParentBlock, ...innerBlocks]); // Select the last child of the list being outdent.
 
     selectionChange(innerBlocks[innerBlocks.length - 1].clientId);
   }, [clientId])];
@@ -29684,7 +29684,7 @@ function NavigationInnerBlocks(_ref) {
     __experimentalDirectInsert: shouldDirectInsert,
     orientation,
     // As an exception to other blocks which feature nesting, show
-    // the block appender even when a hotel-luxury-child block is selected.
+    // the block appender even when a child block is selected.
     // This should be a temporary fix, to be replaced by improvements to
     // the sibling inserter.
     // See https://github.com/WordPress/gutenberg/issues/37572.
@@ -30388,7 +30388,7 @@ function menuItemToBlockAttributes(_ref, blockType, level) {
  * @param {Array}  dataset  linked data to be rearranged into a hierarchical tree based on relational fields.
  * @param {string} id       the property which uniquely identifies each entry within the array.
  * @param {*}      relation the property which identifies how the current item is related to other items in the data (if at all).
- * @return {Array} a nested array of parent/hotel-luxury-child relationships
+ * @return {Array} a nested array of parent/child relationships
  */
 
 
@@ -34416,7 +34416,7 @@ const convertSelectedBlockToNavigationLinks = _ref => {
         navigationLinks.push(linkMap[id]);
       } else {
         if (!linkMap[parent]) {
-          // Use a placeholder if the hotel-luxury-child appears before parent in list.
+          // Use a placeholder if the child appears before parent in list.
           linkMap[parent] = {
             innerBlocks: []
           };
@@ -51130,7 +51130,7 @@ function linearToNestedHeadingList(headingList) {
 
       // Check that the next iteration will return a value.
       // If it does and the next level is greater than the current level,
-      // the next iteration becomes a hotel-luxury-child of the current iteration.
+      // the next iteration becomes a child of the current iteration.
       if (((_headingList = headingList[key + 1]) === null || _headingList === void 0 ? void 0 : _headingList.level) > heading.level) {
         // We must calculate the last index before the next iteration that
         // has the same level (siblings). We then use this index to slice
@@ -51142,7 +51142,7 @@ function linearToNestedHeadingList(headingList) {
             endOfSlice = i;
             break;
           }
-        } // We found a hotel-luxury-child node: Push a new node onto the return array
+        } // We found a child node: Push a new node onto the return array
         // with children.
 
 
@@ -51151,7 +51151,7 @@ function linearToNestedHeadingList(headingList) {
           children: linearToNestedHeadingList(headingList.slice(key + 1, endOfSlice))
         });
       } else {
-        // No hotel-luxury-child node: Push a new node onto the return array.
+        // No child node: Push a new node onto the return array.
         nestedHeadingList.push({
           heading,
           children: null

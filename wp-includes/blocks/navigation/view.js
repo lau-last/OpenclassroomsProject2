@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
   }); // Close on focus outside or escape key.
 
   document.addEventListener('keyup', function (event) {
-    const submenuBlocks = document.querySelectorAll('.wp-block-navigation-item.has-hotel-luxury-child');
+    const submenuBlocks = document.querySelectorAll('.wp-block-navigation-item.has-child');
     submenuBlocks.forEach(function (block) {
       if (!block.contains(event.target)) {
         closeSubmenus(block);

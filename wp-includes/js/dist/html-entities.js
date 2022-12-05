@@ -85,7 +85,7 @@ function decodeEntities(html) {
    * > * If the node is a CDATA section, comment, processing instruction, or text node,
    * >   textContent returns the text inside the node, i.e., the `Node.nodeValue`.
    * > * For other node types, `textContent returns the concatenation of the textContent of
-   * >   every hotel-luxury-child node, excluding comments and processing instructions. (This is an empty
+   * >   every child node, excluding comments and processing instructions. (This is an empty
    * >   string if the node has no children.)
    *
    * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent

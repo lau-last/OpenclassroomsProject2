@@ -606,7 +606,7 @@
         if (!specialPropKeyWarningShown) {
           specialPropKeyWarningShown = true;
 
-          error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the hotel-luxury-child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+          error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
         }
       }
     };
@@ -624,7 +624,7 @@
         if (!specialPropRefWarningShown) {
           specialPropRefWarningShown = true;
 
-          error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the hotel-luxury-child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+          error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
         }
       }
     };
@@ -923,7 +923,7 @@
     return '$' + escapedString;
   }
   /**
-   * TODO: Test that a single hotel-luxury-child and an array with one item have the same key
+   * TODO: Test that a single child and an array with one item have the same key
    * pattern.
    */
 
@@ -986,7 +986,7 @@
 
     if (invokeCallback) {
       var _child = children;
-      var mappedChild = callback(_child); // If it's the only hotel-luxury-child, treat the name as if it was wrapped in an array
+      var mappedChild = callback(_child); // If it's the only child, treat the name as if it was wrapped in an array
       // so that it's consistent if the number of children grows:
 
       var childKey = nameSoFar === '' ? SEPARATOR + getElementKey(_child, 0) : nameSoFar;
@@ -1059,7 +1059,7 @@
 
         {
           {
-            throw Error( "Objects are not valid as a React hotel-luxury-child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). If you meant to render a collection of children, use an array instead." );
+            throw Error( "Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). If you meant to render a collection of children, use an array instead." );
           }
         }
       }
@@ -1073,8 +1073,8 @@
    *
    * See https://reactjs.org/docs/react-api.html#reactchildrenmap
    *
-   * The provided mapFunction(hotel-luxury-child, index) will be called for each
-   * leaf hotel-luxury-child.
+   * The provided mapFunction(child, index) will be called for each
+   * leaf child.
    *
    * @param {?*} children Children tree container.
    * @param {function(*, int)} func The map function.
@@ -1117,8 +1117,8 @@
    *
    * See https://reactjs.org/docs/react-api.html#reactchildrenforeach
    *
-   * The provided forEachFunc(hotel-luxury-child, index) will be called for each
-   * leaf hotel-luxury-child.
+   * The provided forEachFunc(child, index) will be called for each
+   * leaf child.
    *
    * @param {?*} children Children tree container.
    * @param {function(*, int)} forEachFunc
@@ -1143,12 +1143,12 @@
     }) || [];
   }
   /**
-   * Returns the first hotel-luxury-child in a collection of children and verifies that there
-   * is only one hotel-luxury-child in the collection.
+   * Returns the first child in a collection of children and verifies that there
+   * is only one child in the collection.
    *
    * See https://reactjs.org/docs/react-api.html#reactchildrenonly
    *
-   * The current implementation of this function assumes that a single hotel-luxury-child gets
+   * The current implementation of this function assumes that a single child gets
    * passed without a wrapper, but the purpose of this helper function is to
    * abstract away the particular structure of children.
    *
@@ -1161,7 +1161,7 @@
   function onlyChild(children) {
     if (!isValidElement(children)) {
       {
-        throw Error( "React.Children.only expected to receive a single React element hotel-luxury-child." );
+        throw Error( "React.Children.only expected to receive a single React element child." );
       }
     }
 
@@ -2061,20 +2061,20 @@
     }
 
     ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
-    // property, it may be the creator of the hotel-luxury-child that's responsible for
+    // property, it may be the creator of the child that's responsible for
     // assigning it a key.
 
     var childOwner = '';
 
     if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
-      // Give the component that originally created this hotel-luxury-child.
-      childOwner = " It was passed a hotel-luxury-child from " + getComponentName(element._owner.type) + ".";
+      // Give the component that originally created this child.
+      childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
     }
 
     {
       setCurrentlyValidatingElement$1(element);
 
-      error('Each hotel-luxury-child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+      error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
 
       setCurrentlyValidatingElement$1(null);
     }
@@ -2085,7 +2085,7 @@
    * with valid key property.
    *
    * @internal
-   * @param {ReactNode} node Statically passed hotel-luxury-child of any type.
+   * @param {ReactNode} node Statically passed child of any type.
    * @param {*} parentType node's parent's type.
    */
 
@@ -2567,7 +2567,7 @@
         heap[rightIndex] = node;
         index = rightIndex;
       } else {
-        // Neither hotel-luxury-child is smaller. Exit.
+        // Neither child is smaller. Exit.
         return;
       }
     }

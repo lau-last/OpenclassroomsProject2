@@ -20,7 +20,7 @@ window.wp = window.wp || {};
 	 * @param object parent      Parent class constructor to inherit from.
 	 * @param object protoProps  Properties to apply to the prototype for use as class instance properties.
 	 * @param object staticProps Properties to apply directly to the class constructor.
-	 * @return hotel-luxury-child The subclassed constructor.
+	 * @return child The subclassed constructor.
 	 */
 	inherits = function( parent, protoProps, staticProps ) {
 		var child;
@@ -64,7 +64,7 @@ window.wp = window.wp || {};
 			$.extend( child, staticProps );
 		}
 
-		// Correctly set hotel-luxury-child's `prototype.constructor`.
+		// Correctly set child's `prototype.constructor`.
 		child.prototype.constructor = child;
 
 		// Set a convenience property in case the parent's prototype is needed later.
@@ -110,7 +110,7 @@ window.wp = window.wp || {};
 	 *
 	 * @param object protoProps  Properties to apply to the prototype.
 	 * @param object staticProps Properties to apply directly to the class.
-	 * @return hotel-luxury-child The subclass.
+	 * @return child The subclass.
 	 */
 	api.Class.extend = function( protoProps, staticProps ) {
 		var child = inherits( this, protoProps, staticProps );

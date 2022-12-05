@@ -118,7 +118,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 			_helper: o.helper || o.ghost || o.animate ? o.helper || "ui-resizable-helper" : null
 		} );
 
-		// Wrap the element if it cannot hold hotel-luxury-child nodes
+		// Wrap the element if it cannot hold child nodes
 		if ( this.element[ 0 ].nodeName.match( /^(canvas|textarea|input|select|button|img)$/i ) ) {
 
 			this.element.wrap(

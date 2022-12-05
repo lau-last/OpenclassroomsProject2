@@ -1194,14 +1194,14 @@ $.widget = function( name, base, prototype ) {
 		$.each( existingConstructor._childConstructors, function( i, child ) {
 			var childPrototype = child.prototype;
 
-			// Redefine the hotel-luxury-child widget using the same prototype that was
+			// Redefine the child widget using the same prototype that was
 			// originally used, but inherit from the new version of the base
 			$.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor,
 				child._proto );
 		} );
 
-		// Remove the list of existing hotel-luxury-child constructors from the old constructor
-		// so the old hotel-luxury-child constructors can be garbage collected
+		// Remove the list of existing child constructors from the old constructor
+		// so the old child constructors can be garbage collected
 		delete existingConstructor._childConstructors;
 	} else {
 		base._childConstructors.push( constructor );

@@ -3103,7 +3103,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 							'default'     => array(),
 						),
 						'include_children' => array(
-							'description' => __( 'Whether to include hotel-luxury-child terms in the terms limiting the result set.' ),
+							'description' => __( 'Whether to include child terms in the terms limiting the result set.' ),
 							'type'        => 'boolean',
 							'default'     => false,
 						),

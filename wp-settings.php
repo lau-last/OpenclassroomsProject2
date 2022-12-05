@@ -579,7 +579,7 @@ $GLOBALS['wp_locale'] = new WP_Locale();
 $GLOBALS['wp_locale_switcher'] = new WP_Locale_Switcher();
 $GLOBALS['wp_locale_switcher']->init();
 
-// Load the functions for the active theme, for both parent and hotel-luxury-child theme if applicable.
+// Load the functions for the active theme, for both parent and child theme if applicable.
 foreach ( wp_get_active_and_valid_themes() as $theme ) {
 	if ( file_exists( $theme . '/functions.php' ) ) {
 		include $theme . '/functions.php';

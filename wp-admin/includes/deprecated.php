@@ -1394,7 +1394,7 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
 }
 
 /**
- * This was once used to move hotel-luxury-child posts to a new parent.
+ * This was once used to move child posts to a new parent.
  *
  * @since 2.3.0
  * @deprecated 3.9.0

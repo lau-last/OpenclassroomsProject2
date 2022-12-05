@@ -141,7 +141,7 @@ function get_sidebar( $name = null, $args = array() ) {
 /**
  * Loads a template part into a template.
  *
- * Provides a simple mechanism for hotel-luxury-child themes to overload reusable sections of code
+ * Provides a simple mechanism for child themes to overload reusable sections of code
  * in the theme.
  *
  * Includes the named template part for a theme or if a name is specified then a
@@ -209,7 +209,7 @@ function get_template_part( $slug, $name = null, $args = array() ) {
 /**
  * Displays search form.
  *
- * Will first attempt to locate the searchform.php file in either the hotel-luxury-child or
+ * Will first attempt to locate the searchform.php file in either the child or
  * the parent, then load it. If it doesn't exist, then the default search form
  * will be displayed. The default search form is HTML, which will be displayed.
  * There is a filter applied to the search form HTML in order to edit or replace
@@ -760,12 +760,12 @@ function bloginfo( $show = '' ) {
  * - 'text_direction' - The text direction determined by the site's language. is_rtl()
  *   should be used instead
  * - 'language' - Language code for the current site
- * - 'stylesheet_url' - URL to the stylesheet for the active theme. An active hotel-luxury-child theme
+ * - 'stylesheet_url' - URL to the stylesheet for the active theme. An active child theme
  *   will take precedence over this value
- * - 'stylesheet_directory' - Directory path for the active theme.  An active hotel-luxury-child theme
+ * - 'stylesheet_directory' - Directory path for the active theme.  An active child theme
  *   will take precedence over this value
  * - 'template_url' / 'template_directory' - URL of the active theme's directory. An active
- *   hotel-luxury-child theme will NOT take precedence over this value
+ *   child theme will NOT take precedence over this value
  * - 'pingback_url' - The pingback XML-RPC file URL (xmlrpc.php)
  * - 'atom_url' - The Atom feed URL (/feed/atom)
  * - 'rdf_url' - The RDF/RSS 1.0 feed URL (/feed/rdf)
@@ -3473,7 +3473,7 @@ function wp_resource_hints() {
 		 *
 		 * @since 4.6.0
 		 * @since 4.7.0 The `$urls` parameter accepts arrays of specific HTML attributes
-		 *              as its hotel-luxury-child elements.
+		 *              as its child elements.
 		 *
 		 * @param array  $urls {
 		 *     Array of resources and their attributes, or URLs to print for resource hints.

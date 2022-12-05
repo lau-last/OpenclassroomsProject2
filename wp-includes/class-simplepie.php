@@ -1930,43 +1930,43 @@ class SimplePie
 		if (!isset($this->data['type']))
 		{
 			$this->data['type'] = SIMPLEPIE_TYPE_ALL;
-			if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed']))
+			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed']))
 			{
 				$this->data['type'] &= SIMPLEPIE_TYPE_ATOM_10;
 			}
-			elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed']))
+			elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed']))
 			{
 				$this->data['type'] &= SIMPLEPIE_TYPE_ATOM_03;
 			}
-			elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF']))
+			elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF']))
 			{
-				if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_10]['channel'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_10]['image'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_10]['item'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_10]['textinput']))
+				if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['channel'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['image'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['item'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_10]['textinput']))
 				{
 					$this->data['type'] &= SIMPLEPIE_TYPE_RSS_10;
 				}
-				if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_090]['channel'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_090]['image'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_090]['item'])
-				|| isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_090]['textinput']))
+				if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['channel'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['image'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['item'])
+				|| isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_090]['textinput']))
 				{
 					$this->data['type'] &= SIMPLEPIE_TYPE_RSS_090;
 				}
 			}
-			elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss']))
+			elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss']))
 			{
 				$this->data['type'] &= SIMPLEPIE_TYPE_RSS_ALL;
-				if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['attribs']['']['version']))
+				if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['attribs']['']['version']))
 				{
-					switch (trim($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['attribs']['']['version']))
+					switch (trim($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['attribs']['']['version']))
 					{
 						case '0.91':
 							$this->data['type'] &= SIMPLEPIE_TYPE_RSS_091;
-							if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['skiphours']['hour'][0]['data']))
+							if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_20]['skiphours']['hour'][0]['data']))
 							{
-								switch (trim($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['skiphours']['hour'][0]['data']))
+								switch (trim($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['child'][SIMPLEPIE_NAMESPACE_RSS_20]['skiphours']['hour'][0]['data']))
 								{
 									case '0':
 										$this->data['type'] &= SIMPLEPIE_TYPE_RSS_091_NETSCAPE;
@@ -2055,10 +2055,10 @@ class SimplePie
 	 * sub-element of the opening feed tag.
 	 *
 	 * The return value is an indexed array of elements matching the given
-	 * namespace and tag name. Each element has `attribs`, `data` and `hotel-luxury-child`
-	 * subkeys. For `attribs` and `hotel-luxury-child`, these contain namespace subkeys.
+	 * namespace and tag name. Each element has `attribs`, `data` and `child`
+	 * subkeys. For `attribs` and `child`, these contain namespace subkeys.
 	 * `attribs` then has one level of associative name => value data (where
-	 * `value` is a string) after the namespace. `hotel-luxury-child` has tag-indexed keys
+	 * `value` is a string) after the namespace. `child` has tag-indexed keys
 	 * after the namespace, each member of which is an indexed array matching
 	 * this same format.
 	 *
@@ -2068,7 +2068,7 @@ class SimplePie
 	 * // <media:content> natively, but it shows you how to parse through
 	 * // the nodes.
 	 * $group = $item->get_item_tags(SIMPLEPIE_NAMESPACE_MEDIARSS, 'group');
-	 * $content = $group[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['content'];
+	 * $content = $group[0]['child'][SIMPLEPIE_NAMESPACE_MEDIARSS]['content'];
 	 * $file = $content[0]['attribs']['']['url'];
 	 * echo $file;
 	 * </pre>
@@ -2084,30 +2084,30 @@ class SimplePie
 		$type = $this->get_type();
 		if ($type & SIMPLEPIE_TYPE_ATOM_10)
 		{
-			if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['hotel-luxury-child'][$namespace][$tag]))
+			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['hotel-luxury-child'][$namespace][$tag];
+				return $this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['child'][$namespace][$tag];
 			}
 		}
 		if ($type & SIMPLEPIE_TYPE_ATOM_03)
 		{
-			if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['hotel-luxury-child'][$namespace][$tag]))
+			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['hotel-luxury-child'][$namespace][$tag];
+				return $this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['child'][$namespace][$tag];
 			}
 		}
 		if ($type & SIMPLEPIE_TYPE_RSS_RDF)
 		{
-			if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][$namespace][$tag]))
+			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['hotel-luxury-child'][$namespace][$tag];
+				return $this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['child'][$namespace][$tag];
 			}
 		}
 		if ($type & SIMPLEPIE_TYPE_RSS_SYNDICATION)
 		{
-			if (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['hotel-luxury-child'][$namespace][$tag]))
+			if (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['child'][$namespace][$tag]))
 			{
-				return $this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['hotel-luxury-child'][$namespace][$tag];
+				return $this->data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]['child'][$namespace][$tag];
 			}
 		}
 		return null;
@@ -2141,9 +2141,9 @@ class SimplePie
 		{
 			if ($channel = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'channel'))
 			{
-				if (isset($channel[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($channel[0]['child'][$namespace][$tag]))
 				{
-					return $channel[0]['hotel-luxury-child'][$namespace][$tag];
+					return $channel[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2151,9 +2151,9 @@ class SimplePie
 		{
 			if ($channel = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'channel'))
 			{
-				if (isset($channel[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($channel[0]['child'][$namespace][$tag]))
 				{
-					return $channel[0]['hotel-luxury-child'][$namespace][$tag];
+					return $channel[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2161,9 +2161,9 @@ class SimplePie
 		{
 			if ($channel = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'channel'))
 			{
-				if (isset($channel[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($channel[0]['child'][$namespace][$tag]))
 				{
-					return $channel[0]['hotel-luxury-child'][$namespace][$tag];
+					return $channel[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2191,9 +2191,9 @@ class SimplePie
 		{
 			if ($image = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'image'))
 			{
-				if (isset($image[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($image[0]['child'][$namespace][$tag]))
 				{
-					return $image[0]['hotel-luxury-child'][$namespace][$tag];
+					return $image[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2201,9 +2201,9 @@ class SimplePie
 		{
 			if ($image = $this->get_feed_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'image'))
 			{
-				if (isset($image[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($image[0]['child'][$namespace][$tag]))
 				{
-					return $image[0]['hotel-luxury-child'][$namespace][$tag];
+					return $image[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2211,9 +2211,9 @@ class SimplePie
 		{
 			if ($image = $this->get_channel_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'image'))
 			{
-				if (isset($image[0]['hotel-luxury-child'][$namespace][$tag]))
+				if (isset($image[0]['child'][$namespace][$tag]))
 				{
-					return $image[0]['hotel-luxury-child'][$namespace][$tag];
+					return $image[0]['child'][$namespace][$tag];
 				}
 			}
 		}
@@ -2432,17 +2432,17 @@ class SimplePie
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
@@ -2454,17 +2454,17 @@ class SimplePie
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($author[0]['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($author[0]['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -2526,17 +2526,17 @@ class SimplePie
 			$name = null;
 			$uri = null;
 			$email = null;
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data']))
 			{
-				$uri = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
+				$uri = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['uri'][0]));
 			}
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $uri !== null)
 			{
@@ -2548,17 +2548,17 @@ class SimplePie
 			$name = null;
 			$url = null;
 			$email = null;
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data']))
 			{
-				$name = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$name = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['name'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data']))
 			{
-				$url = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
+				$url = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]['data'], SIMPLEPIE_CONSTRUCT_IRI, $this->get_base($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['url'][0]));
 			}
-			if (isset($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
+			if (isset($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data']))
 			{
-				$email = $this->sanitize($contributor['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+				$email = $this->sanitize($contributor['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['email'][0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 			}
 			if ($name !== null || $email !== null || $url !== null)
 			{
@@ -2814,17 +2814,17 @@ class SimplePie
 		{
 			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang']))
+		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang']))
+		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
 		}
-		elseif (isset($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang']))
+		elseif (isset($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang']))
 		{
-			return $this->sanitize($this->data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
+			return $this->sanitize($this->data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]['xml_lang'], SIMPLEPIE_CONSTRUCT_TEXT);
 		}
 		elseif (isset($this->data['headers']['content-language']))
 		{

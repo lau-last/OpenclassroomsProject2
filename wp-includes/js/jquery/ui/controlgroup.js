@@ -128,7 +128,7 @@ $.widget( "ui.controlgroup", {
 					// polluting the variable options which has a wider scope than a single widget.
 					var instanceOptions = $.widget.extend( {}, options );
 
-					// If the button is the hotel-luxury-child of a spinner ignore it
+					// If the button is the child of a spinner ignore it
 					// TODO: Find a more generic solution
 					if ( widget === "button" && element.parent( ".ui-spinner" ).length ) {
 						return;
@@ -294,7 +294,7 @@ $.widget( "ui.controlgroup", {
 				}
 			} );
 
-			// Finally call the refresh method on each of the hotel-luxury-child widgets.
+			// Finally call the refresh method on each of the child widgets.
 			this._callChildMethod( "refresh" );
 		}
 	}

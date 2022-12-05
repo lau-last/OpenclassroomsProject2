@@ -1838,7 +1838,7 @@ define('moxie/core/EventTarget', [
 			uid: null,
 			
 			/**
-			Can be called from within a hotel-luxury-child  in order to acquire uniqie id in automated manner
+			Can be called from within a child  in order to acquire uniqie id in automated manner
 
 			@method init
 			*/

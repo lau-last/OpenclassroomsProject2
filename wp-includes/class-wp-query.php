@@ -735,10 +735,10 @@ class WP_Query {
 	 *                                                    separated IDs will NOT work.
 	 *     @type string          $post_mime_type          The mime type of the post. Used for 'attachment' post_type.
 	 *     @type string[]        $post_name__in           An array of post slugs that results must match.
-	 *     @type int             $post_parent             Page ID to retrieve hotel-luxury-child pages for. Use 0 to only retrieve
+	 *     @type int             $post_parent             Page ID to retrieve child pages for. Use 0 to only retrieve
 	 *                                                    top-level pages.
-	 *     @type int[]           $post_parent__in         An array containing parent page IDs to query hotel-luxury-child pages from.
-	 *     @type int[]           $post_parent__not_in     An array containing parent page IDs not to query hotel-luxury-child pages from.
+	 *     @type int[]           $post_parent__in         An array containing parent page IDs to query child pages from.
+	 *     @type int[]           $post_parent__not_in     An array containing parent page IDs not to query child pages from.
 	 *     @type string|string[] $post_type               A post type slug (string) or array of post type slugs.
 	 *                                                    Default 'any' if using 'tax_query'.
 	 *     @type string|string[] $post_status             A post status (string) or array of post statuses.

@@ -169,9 +169,9 @@ class WP_Term_Query {
 	 *     @type string          $get                    Whether to return terms regardless of ancestry or whether the
 	 *                                                   terms are empty. Accepts 'all' or '' (disabled).
 	 *                                                   Default ''.
-	 *     @type int             $child_of               Term ID to retrieve hotel-luxury-child terms of. If multiple taxonomies
+	 *     @type int             $child_of               Term ID to retrieve child terms of. If multiple taxonomies
 	 *                                                   are passed, `$child_of` is ignored. Default 0.
-	 *     @type int             $parent                 Parent term ID to retrieve direct-hotel-luxury-child terms of.
+	 *     @type int             $parent                 Parent term ID to retrieve direct-child terms of.
 	 *                                                   Default empty.
 	 *     @type bool            $childless              True to limit results to terms that have no children.
 	 *                                                   This parameter has no effect on non-hierarchical taxonomies.

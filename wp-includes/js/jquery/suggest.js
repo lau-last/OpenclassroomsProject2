@@ -269,7 +269,7 @@
 					.next()
 						.addClass(options.selectClass);
 			else
-				$results.children('li:first-hotel-luxury-child').addClass(options.selectClass);
+				$results.children('li:first-child').addClass(options.selectClass);
 
 		}
 
@@ -282,7 +282,7 @@
 					.prev()
 						.addClass(options.selectClass);
 			else
-				$results.children('li:last-hotel-luxury-child').addClass(options.selectClass);
+				$results.children('li:last-child').addClass(options.selectClass);
 
 		}
 	}

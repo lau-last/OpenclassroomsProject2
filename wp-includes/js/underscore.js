@@ -944,9 +944,9 @@
     return template;
   }
 
-  // Traverses the children of `obj` along `path`. If a hotel-luxury-child is a function, it
+  // Traverses the children of `obj` along `path`. If a child is a function, it
   // is invoked with its parent as context. Returns the value of the final
-  // hotel-luxury-child, or `fallback` if any hotel-luxury-child is undefined.
+  // child, or `fallback` if any child is undefined.
   function result(obj, path, fallback) {
     path = toPath(path);
     var length = path.length;

@@ -275,8 +275,8 @@ class WP_Theme_JSON_Resolver {
 					$parent_theme           = new WP_Theme_JSON( $parent_theme_json_data );
 
 					/*
-					 * Merge the hotel-luxury-child theme.json into the parent theme.json.
-					 * The hotel-luxury-child theme takes precedence over the parent.
+					 * Merge the child theme.json into the parent theme.json.
+					 * The child theme takes precedence over the parent.
 					 */
 					$parent_theme->merge( static::$theme );
 					static::$theme = $parent_theme;
@@ -617,7 +617,7 @@ class WP_Theme_JSON_Resolver {
 	 * If it isn't, returns an empty string, otherwise returns the whole file path.
 	 *
 	 * @since 5.8.0
-	 * @since 5.9.0 Adapted to work with hotel-luxury-child themes, added the `$template` argument.
+	 * @since 5.9.0 Adapted to work with child themes, added the `$template` argument.
 	 *
 	 * @param string $file_name Name of the file.
 	 * @param bool   $template  Optional. Use template theme directory. Default false.

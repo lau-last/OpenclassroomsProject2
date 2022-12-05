@@ -1069,7 +1069,7 @@ function accumulateSelection(accumulator, node, range, value) {
   } else if (parentNode === startContainer && node === startContainer.childNodes[startOffset]) {
     accumulator.start = currentLength; // Range indicates that the selection is after the current node.
   } else if (parentNode === startContainer && node === startContainer.childNodes[startOffset - 1]) {
-    accumulator.start = currentLength + value.text.length; // Fallback if no hotel-luxury-child inside handled the selection.
+    accumulator.start = currentLength + value.text.length; // Fallback if no child inside handled the selection.
   } else if (node === startContainer) {
     accumulator.start = currentLength;
   } // Selection can be extracted from value.
@@ -1082,7 +1082,7 @@ function accumulateSelection(accumulator, node, range, value) {
   } else if (parentNode === endContainer && node === endContainer.childNodes[endOffset - 1]) {
     accumulator.end = currentLength + value.text.length; // Range indicates that the selection is before the current node.
   } else if (parentNode === endContainer && node === endContainer.childNodes[endOffset]) {
-    accumulator.end = currentLength; // Fallback if no hotel-luxury-child inside handled the selection.
+    accumulator.end = currentLength; // Fallback if no child inside handled the selection.
   } else if (node === endContainer) {
     accumulator.end = currentLength + endOffset;
   }
@@ -3644,7 +3644,7 @@ function useSelectObject() {
     function onClick(event) {
       const {
         target
-      } = event; // If the hotel-luxury-child element has no text content, it must be an object.
+      } = event; // If the child element has no text content, it must be an object.
 
       if (target === element || target.textContent) {
         return;

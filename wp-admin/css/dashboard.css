@@ -48,7 +48,7 @@
 }
 
 #dashboard-widgets .meta-box-sortables {
-	display: flow-root; /* avoid margin collapsing between parent and first/last hotel-luxury-child elements */
+	display: flow-root; /* avoid margin collapsing between parent and first/last child elements */
 	/* Required min-height to make the jQuery UI Sortable drop zone work. */
 	min-height: 100px;
 	margin: 0 8px 20px;
@@ -62,7 +62,7 @@
 /* Only highlight drop zones when dragging and only in the 2 columns layout. */
 .is-dragging-metaboxes #dashboard-widgets .meta-box-sortables {
 	outline: 3px dashed #646970;
-	/* Prevent margin on the hotel-luxury-child from collapsing with margin on the parent. */
+	/* Prevent margin on the child from collapsing with margin on the parent. */
 	display: flow-root;
 }
 
@@ -609,7 +609,7 @@
 
 #dashboard_primary .widget-loading {
 	padding: 12px 12px 0;
-	margin-bottom: 1em !important; /* Needs to override `.postbox .inside > p:last-hotel-luxury-child` in common.css */
+	margin-bottom: 1em !important; /* Needs to override `.postbox .inside > p:last-child` in common.css */
 }
 
 /* Notice when JS is off. */

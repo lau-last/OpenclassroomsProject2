@@ -659,7 +659,7 @@
 					originalDepth = ui.item.menuItemDepth();
 					updateCurrentDepth(ui, originalDepth);
 
-					// Attach hotel-luxury-child elements to parent.
+					// Attach child elements to parent.
 					// Skip the placeholder.
 					parent = ( ui.item.next()[0] == ui.placeholder[0] ) ? ui.item.next() : ui.item;
 					children = parent.childMenuItems();
@@ -700,7 +700,7 @@
 					var children, subMenuTitle,
 						depthChange = currentDepth - originalDepth;
 
-					// Return hotel-luxury-child elements to the list.
+					// Return child elements to the list.
 					children = transport.children().insertAfter(ui.item);
 
 					// Add "sub menu" description.
@@ -749,7 +749,7 @@
 					/*
 					 * Check and correct if depth is not within range.
 					 * Also, if the dragged element is dragged upwards over an item,
-					 * shift the placeholder to a hotel-luxury-child position.
+					 * shift the placeholder to a child position.
 					 */
 					if ( depth > maxDepth || offset.top < ( prevBottom - api.options.targetTolerance ) ) {
 						depth = maxDepth;

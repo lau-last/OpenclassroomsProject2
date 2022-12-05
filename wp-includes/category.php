@@ -105,7 +105,7 @@ function get_category( $category, $output = OBJECT, $filter = 'raw' ) {
  *
  * Breaks the $category_path parameter up to get the category slug.
  *
- * Tries to find the hotel-luxury-child path and will return it. If it doesn't find a
+ * Tries to find the child path and will return it. If it doesn't find a
  * match, then it will return the first category matching slug, if $full_match,
  * is set to false. If it does not, then it will return null.
  *
@@ -240,8 +240,8 @@ function get_cat_name( $cat_id ) {
  * @since 2.1.0
  *
  * @param int|object $cat1 ID or object to check if this is the parent category.
- * @param int|object $cat2 The hotel-luxury-child category.
- * @return bool Whether $cat2 is hotel-luxury-child of $cat1.
+ * @param int|object $cat2 The child category.
+ * @return bool Whether $cat2 is child of $cat1.
  */
 function cat_is_ancestor_of( $cat1, $cat2 ) {
 	return term_is_ancestor_of( $cat1, $cat2, 'category' );

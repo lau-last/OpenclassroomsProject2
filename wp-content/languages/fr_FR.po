@@ -4084,7 +4084,7 @@ msgid "Limit result set to items with specific terms assigned in the %s taxonomy
 msgstr "Limiter le jeu de résultats aux éléments qui ont des termes spécifiquement assignés dans la taxonomie %s."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3106
-msgid "Whether to include hotel-luxury-child terms in the terms limiting the result set."
+msgid "Whether to include child terms in the terms limiting the result set."
 msgstr "Possibilité d’inclure des termes enfants dans les termes limitant le champs de résultats."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3098
@@ -5235,7 +5235,7 @@ msgid "The theme author."
 msgstr "L’auteur ou l’autrice du thème."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:446
-msgid "The theme's template. If this is a hotel-luxury-child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet."
+msgid "The theme's template. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet."
 msgstr "Le modèle du thème. Si c’est un thème enfant, cela fait référence au thème parent, sinon il est identique à la feuille de style du thème."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:63
@@ -6425,8 +6425,8 @@ msgstr "Une erreur de type %1$s a été causée dans la ligne %2$s du fichier %3
 #: wp-admin/includes/class-wp-themes-list-table.php:285
 #: wp-admin/theme-editor.php:44 wp-admin/theme-editor.php:375
 #: wp-admin/update-core.php:651
-msgid "https://developer.wordpress.org/themes/advanced-topics/hotel-luxury-child-themes/"
-msgstr "https://developer.wordpress.org/themes/advanced-topics/hotel-luxury-child-themes/"
+msgid "https://developer.wordpress.org/themes/advanced-topics/child-themes/"
+msgstr "https://developer.wordpress.org/themes/advanced-topics/child-themes/"
 
 #. translators: %s: The amount of additional, not visible images in the gallery
 #. widget preview.
@@ -11219,7 +11219,7 @@ msgctxt "comment status"
 msgid "Approved"
 msgstr "Approuvé"
 
-#. translators: 1: templates/index.php, 2: index.php, 3: Documentation URL, 4:
+#. translators: 1: templates/index.html, 2: index.php, 3: Documentation URL, 4:
 #. Template, 5: style.css
 #: wp-includes/class-wp-theme.php:355
 #: wp-admin/includes/class-theme-upgrader.php:585

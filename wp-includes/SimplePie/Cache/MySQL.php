@@ -328,21 +328,21 @@ class SimplePie_Cache_MySQL extends SimplePie_Cache_DB
 
 			if ($items !== 0)
 			{
-				if (isset($data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]))
+				if (isset($data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0]))
 				{
-					$feed =& $data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0];
+					$feed =& $data['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['feed'][0];
 				}
-				elseif (isset($data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]))
+				elseif (isset($data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0]))
 				{
-					$feed =& $data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0];
+					$feed =& $data['child'][SIMPLEPIE_NAMESPACE_ATOM_03]['feed'][0];
 				}
-				elseif (isset($data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]))
+				elseif (isset($data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0]))
 				{
-					$feed =& $data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0];
+					$feed =& $data['child'][SIMPLEPIE_NAMESPACE_RDF]['RDF'][0];
 				}
-				elseif (isset($data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]))
+				elseif (isset($data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0]))
 				{
-					$feed =& $data['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0];
+					$feed =& $data['child'][SIMPLEPIE_NAMESPACE_RSS_20]['rss'][0];
 				}
 				else
 				{
@@ -363,7 +363,7 @@ class SimplePie_Cache_MySQL extends SimplePie_Cache_DB
 					{
 						while ($row = $query->fetchColumn())
 						{
-							$feed['hotel-luxury-child'][SIMPLEPIE_NAMESPACE_ATOM_10]['entry'][] = unserialize($row);
+							$feed['child'][SIMPLEPIE_NAMESPACE_ATOM_10]['entry'][] = unserialize($row);
 						}
 					}
 					else

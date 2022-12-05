@@ -954,7 +954,7 @@ function get_comments_number_text( $zero = false, $one = false, $more = false, $
  *
  * @since 1.5.0
  * @since 4.4.0 Added the ability for `$comment_ID` to also accept a WP_Comment object.
- * @since 5.4.0 Added 'In reply to %s.' prefix to hotel-luxury-child comments in comments feed.
+ * @since 5.4.0 Added 'In reply to %s.' prefix to child comments in comments feed.
  *
  * @see Walker_Comment::comment()
  *
@@ -2052,7 +2052,7 @@ function comment_form_title( $no_reply_text = false, $reply_text = false, $link_
  *     @type int      $avatar_size       Height and width dimensions of the avatar size. Default 32.
  *     @type bool     $reverse_top_level Ordering of the listed comments. If true, will display
  *                                       newest comments first. Default null.
- *     @type bool     $reverse_children  Whether to reverse hotel-luxury-child comments in the list. Default null.
+ *     @type bool     $reverse_children  Whether to reverse child comments in the list. Default null.
  *     @type string   $format            How to format the comments list. Accepts 'html5', 'xhtml'.
  *                                       Default 'html5' if the theme supports it.
  *     @type bool     $short_ping        Whether to output short pings. Default false.

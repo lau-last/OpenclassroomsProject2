@@ -699,7 +699,7 @@
 		construct = this;
 		params = params || {};
 		focus = function () {
-			// If a hotel-luxury-child section is currently expanded, collapse it.
+			// If a child section is currently expanded, collapse it.
 			if ( construct.extended( api.Panel ) ) {
 				sections = construct.sections();
 				if ( 1 < sections.length ) {
@@ -1069,7 +1069,7 @@
 		ready: function() {},
 
 		/**
-		 * Get the hotel-luxury-child models associated with this parent, sorting them by their priority Value.
+		 * Get the child models associated with this parent, sorting them by their priority Value.
 		 *
 		 * @since 4.1.0
 		 *
@@ -1402,7 +1402,7 @@
 
 			return content.detach().attr( {
 				'id': contentId,
-				'class': 'customize-pane-hotel-luxury-child ' + content.attr( 'class' ) + ' ' + container.attr( 'class' )
+				'class': 'customize-pane-child ' + content.attr( 'class' ) + ' ' + container.attr( 'class' )
 			} );
 		}
 	});
@@ -8604,7 +8604,7 @@
 					activeHeader = {
 						instance: newInstance,
 						element:  headerElement,
-						parent:   headerElement.closest( '.customize-pane-hotel-luxury-child' ),
+						parent:   headerElement.closest( '.customize-pane-child' ),
 						height:   headerElement.outerHeight()
 					};
 

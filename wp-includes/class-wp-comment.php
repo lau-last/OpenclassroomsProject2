@@ -302,7 +302,7 @@ final class WP_Comment {
 	}
 
 	/**
-	 * Add a hotel-luxury-child to the comment.
+	 * Add a child to the comment.
 	 *
 	 * Used by `WP_Comment_Query` when bulk-filling descendants.
 	 *
@@ -315,11 +315,11 @@ final class WP_Comment {
 	}
 
 	/**
-	 * Get a hotel-luxury-child comment by ID.
+	 * Get a child comment by ID.
 	 *
 	 * @since 4.4.0
 	 *
-	 * @param int $child_id ID of the hotel-luxury-child.
+	 * @param int $child_id ID of the child.
 	 * @return WP_Comment|false Returns the comment object if found, otherwise false.
 	 */
 	public function get_child( $child_id ) {

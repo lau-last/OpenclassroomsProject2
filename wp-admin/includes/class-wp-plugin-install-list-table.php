@@ -505,7 +505,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				}
 
 				echo '<div class="plugin-group"><h3>' . esc_html( $group_name ) . '</h3>';
-				// Needs an extra wrapping div for nth-hotel-luxury-child selectors to work.
+				// Needs an extra wrapping div for nth-child selectors to work.
 				echo '<div class="plugin-items">';
 
 				$group = $plugin['group'];

@@ -1462,7 +1462,7 @@ function lineHeight(node) {
     var height = _node.offsetHeight;
     lnHeight = height;
 
-    // Remove our hotel-luxury-child from the DOM
+    // Remove our child from the DOM
     body.removeChild(_node);
   }
 
@@ -4358,7 +4358,7 @@ const withBlockReset = reducer => (state, action) => {
  * Higher-order reducer which targets the combined blocks reducer and handles
  * the `REPLACE_INNER_BLOCKS` action. When dispatched, this action the state
  * should become equivalent to the execution of a `REMOVE_BLOCKS` action
- * containing all the hotel-luxury-child's of the root block followed by the execution of
+ * containing all the child's of the root block followed by the execution of
  * `INSERT_BLOCKS` with the new blocks.
  *
  * @param {Function} reducer Original reducer function.
@@ -5996,12 +5996,12 @@ function getBlockAttributes(state, clientId) {
  * blocks module registration store.
  *
  * getBlock recurses through its inner blocks until all its children blocks have
- * been retrieved. Note that getBlock will not return the hotel-luxury-child inner blocks of
+ * been retrieved. Note that getBlock will not return the child inner blocks of
  * an inner block controller. This is because an inner block controller syncs
  * itself with its own entity, and should therefore not be included with the
  * blocks of a different entity. For example, say you call `getBlocks( TP )` to
- * get the blocks of a template part. If another template part is a hotel-luxury-child of TP,
- * then the nested template part's hotel-luxury-child blocks will not be returned. This way,
+ * get the blocks of a template part. If another template part is a child of TP,
+ * then the nested template part's child blocks will not be returned. This way,
  * the template block itself is considered part of the parent, but the children
  * are not.
  *
@@ -6033,7 +6033,7 @@ const __unstableGetBlockWithoutInnerBlocks = rememo((state, clientId) => {
 }, (state, clientId) => [state.blocks.byClientId[clientId], state.blocks.attributes[clientId]]);
 /**
  * Returns all block objects for the current post being edited as an array in
- * the order they appear in the post. Note that this will exclude hotel-luxury-child blocks
+ * the order they appear in the post. Note that this will exclude child blocks
  * of nested inner block controllers.
  *
  * @param {Object}  state        Editor state.
@@ -7068,8 +7068,8 @@ function getDraggedBlockClientIds(state) {
  * Returns whether the block is being dragged.
  *
  * Only returns true if the block is being directly dragged,
- * not if the block is a hotel-luxury-child of a parent being dragged.
- * See `isAncestorBeingDragged` for hotel-luxury-child blocks.
+ * not if the block is a child of a parent being dragged.
+ * See `isAncestorBeingDragged` for child blocks.
  *
  * @param {Object} state    Global application state.
  * @param {string} clientId Client id for block to check.
@@ -8281,7 +8281,7 @@ function areInnerBlocksControlled(state, clientId) {
 }
 /**
  * Returns the clientId for the first 'active' block of a given array of block names.
- * A block is 'active' if it (or a hotel-luxury-child) is the selected block.
+ * A block is 'active' if it (or a child) is the selected block.
  * Returns the first match moving up the DOM from the selected block.
  *
  * @param {Object}   state            Global application state.
@@ -8300,7 +8300,7 @@ const __experimentalGetActiveBlockIdByBlockNames = rememo((state, validBlockName
 
   if (validBlockNames.includes(getBlockName(state, selectedBlockClientId))) {
     return selectedBlockClientId;
-  } // Check if first selected block is a hotel-luxury-child of a valid entity area.
+  } // Check if first selected block is a child of a valid entity area.
 
 
   const multiSelectedBlockClientIds = getMultiSelectedBlockClientIds(state);
@@ -8380,7 +8380,7 @@ function __unstableHasActiveBlockOverlayActive(state, clientId) {
   if (editorMode === 'zoom-out' && !getBlockRootClientId(state, clientId)) {
     return true;
   } // In navigation mode, the block overlay is active when the block is not
-  // selected (and doesn't contain a selected hotel-luxury-child). The same behavior is
+  // selected (and doesn't contain a selected child). The same behavior is
   // also enabled in all modes for blocks that have controlled children
   // (reusable block, template part, navigation), unless explicitly disabled
   // with `supports.__experimentalDisableBlockOverlay`.
@@ -20331,7 +20331,7 @@ function useNavModeExit(clientId) {
   } = (0,external_wp_data_namespaceObject.useDispatch)(store);
   return (0,external_wp_compose_namespaceObject.useRefEffect)(node => {
     function onMouseDown(event) {
-      // Don't select a block if it's already handled by a hotel-luxury-child
+      // Don't select a block if it's already handled by a child
       // block.
       if (isNavigationMode() && !event.defaultPrevented) {
         // Prevent focus from moving to the block.
@@ -21506,7 +21506,7 @@ function LiveBlockPreview(_ref) {
 /**
  * Pass the returned ref callback to an element that should clear block
  * selection. Selection will only be cleared if the element is clicked directly,
- * not if a hotel-luxury-child element is clicked.
+ * not if a child element is clicked.
  *
  * @return {import('react').RefCallback} Ref callback.
  */
@@ -22227,7 +22227,7 @@ function useDragSelection() {
       if (buttons !== 1) {
         return;
       } // Check the attribute, not the contentEditable attribute. All
-      // hotel-luxury-child elements of the content editable wrapper are editable
+      // child elements of the content editable wrapper are editable
       // and return true for this property. We only want to start
       // multi selecting when the mouse leaves the wrapper.
 
@@ -22276,7 +22276,7 @@ function useDragSelection() {
 
 /**
  * Extract the selection start node from the selection. When the anchor node is
- * not a text node, the selection offset is the index of a hotel-luxury-child node.
+ * not a text node, the selection offset is the index of a child node.
  *
  * @param {Selection} selection The selection.
  *
@@ -22301,8 +22301,8 @@ function extractSelectionStartNode(selection) {
 }
 /**
  * Extract the selection end node from the selection. When the focus node is not
- * a text node, the selection offset is the index of a hotel-luxury-child node. The selection
- * reaches up to but excluding that hotel-luxury-child node.
+ * a text node, the selection offset is the index of a child node. The selection
+ * reaches up to but excluding that child node.
  *
  * @param {Selection} selection The selection.
  *
@@ -22783,7 +22783,7 @@ function useStylesCompatibility() {
           } = _ref;
 
           // If the rule is conditional then it will not have selector text.
-          // Recurse into hotel-luxury-child CSS ruleset to determine selector eligibility.
+          // Recurse into child CSS ruleset to determine selector eligibility.
           if (conditionText) {
             return matchFromRules(__cssRules);
           }
@@ -28346,7 +28346,7 @@ function useInBetweenInserter() {
       if (!element) {
         return;
       } // The block may be in an alignment wrapper, so check the first direct
-      // hotel-luxury-child if the element has no ID.
+      // child if the element has no ID.
 
 
       if (!element.id) {
@@ -29954,7 +29954,7 @@ function useShowMoversGestures(_ref2) {
     };
     /**
      * Events are added via DOM events (vs. React synthetic events),
-     * as the hotel-luxury-child React components swallow mouse events.
+     * as the child React components swallow mouse events.
      */
 
 
@@ -30041,7 +30041,7 @@ function BlockParentSelector() {
     };
   }, []);
   const blockInformation = useBlockDisplayInformation(firstParentClientId); // Allows highlighting the parent block outline when focusing or hovering
-  // the parent block selector within the hotel-luxury-child.
+  // the parent block selector within the child.
 
   const nodeRef = (0,external_wp_element_namespaceObject.useRef)();
   const {
@@ -32314,7 +32314,7 @@ function BlockSettingsDropdown(_ref2) {
   /* translators: %s: block name */
   (0,external_wp_i18n_namespaceObject.__)('Remove %s'), blockTitle);
   const removeBlockLabel = count === 1 ? label : (0,external_wp_i18n_namespaceObject.__)('Remove blocks'); // Allows highlighting the parent block outline when focusing or hovering
-  // the parent block selector within the hotel-luxury-child.
+  // the parent block selector within the child.
 
   const selectParentButtonRef = (0,external_wp_element_namespaceObject.useRef)();
   const {
@@ -32606,7 +32606,7 @@ function BlockGroupToolbar() {
 
   const onConvertToStack = () => onConvertToGroup('stack'); // Don't render the button if the current selection cannot be grouped.
   // A good example is selecting multiple button blocks within a Buttons block:
-  // The group block is not a valid hotel-luxury-child of Buttons, so we should not show the button.
+  // The group block is not a valid child of Buttons, so we should not show the button.
   // Any blocks that are locked against removal also cannot be grouped.
 
 
@@ -33432,7 +33432,7 @@ const pendingSettingsUpdates = new WeakMap();
  *                                                          blocks component. (e.g. "all")
  * @param {boolean}              captureToolbars            Whether or children toolbars should be shown
  *                                                          in the inner blocks component rather than on
- *                                                          the hotel-luxury-child block.
+ *                                                          the child block.
  * @param {string}               orientation                The direction in which the block
  *                                                          should face.
  * @param {Object}               layout                     The layout object for the block container.
@@ -34104,8 +34104,8 @@ function UncontrolledInnerBlocks(props) {
   useNestedSettingsUpdate(clientId, allowedBlocks, __experimentalDefaultBlock, __experimentalDirectInsert, templateLock, captureToolbars, orientation, __experimentalLayout);
   useInnerBlockTemplateSync(clientId, template, templateLock, templateInsertUpdatesSelection);
   const context = (0,external_wp_data_namespaceObject.useSelect)(select => {
-    const block = select(store).getBlock(clientId); // This check is here to avoid the Redux zombie bug where a hotel-luxury-child subscription
-    // is called before a parent, causing potential JS errors when the hotel-luxury-child has been removed.
+    const block = select(store).getBlock(clientId); // This check is here to avoid the Redux zombie bug where a child subscription
+    // is called before a parent, causing potential JS errors when the child has been removed.
 
     if (!block) {
       return;
@@ -42684,7 +42684,7 @@ function useListViewClientIds(blocks) {
  * @property {number}  innerBlockCount                 The number of inner blocks the block has.
  * @property {boolean} isDraggedBlock                  Whether the block is currently being dragged.
  * @property {boolean} canInsertDraggedBlocksAsSibling Whether the dragged block can be a sibling of this block.
- * @property {boolean} canInsertDraggedBlocksAsChild   Whether the dragged block can be a hotel-luxury-child of this block.
+ * @property {boolean} canInsertDraggedBlocksAsChild   Whether the dragged block can be a child of this block.
  */
 
 /**
@@ -42788,9 +42788,9 @@ function getListViewDropTarget(blocksData, position) {
   }
 
   const isDraggingBelow = candidateEdge === 'bottom'; // If the user is dragging towards the bottom of the block check whether
-  // they might be trying to nest the block as a hotel-luxury-child.
+  // they might be trying to nest the block as a child.
   // If the block already has inner blocks, this should always be treated
-  // as nesting since the next block in the tree will be the first hotel-luxury-child.
+  // as nesting since the next block in the tree will be the first child.
 
   if (isDraggingBelow && candidateBlockData.canInsertDraggedBlocksAsChild && (candidateBlockData.innerBlockCount > 0 || isNestingGesture(position, candidateRect))) {
     return {
@@ -50291,7 +50291,7 @@ function useFirefoxCompat() {
       if (!isMultiSelecting()) {
         return;
       } // This is a little hack to work around focus issues with nested
-      // editable elements in Firefox. For some reason the editable hotel-luxury-child
+      // editable elements in Firefox. For some reason the editable child
       // element sometimes regains focus, while it should not be focusable
       // and focus should remain on the editable parent element.
       // To do: try to find the cause of the shifting focus.

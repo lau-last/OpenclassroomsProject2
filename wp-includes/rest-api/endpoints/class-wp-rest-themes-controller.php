@@ -443,7 +443,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 					'readonly'    => true,
 				),
 				'template'       => array(
-					'description' => __( 'The theme\'s template. If this is a hotel-luxury-child theme, this refers to the parent theme, otherwise this is the same as the theme\'s stylesheet.' ),
+					'description' => __( 'The theme\'s template. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme\'s stylesheet.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 				),
