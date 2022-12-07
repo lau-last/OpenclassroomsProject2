@@ -909,7 +909,7 @@ function wp_generate_tag_cloud( $tags, $args = '' ) {
 		if ( 'RAND' === $args['order'] ) {
 			shuffle( $tags );
 		} else {
-			// SQL cannot save you; this is a second (potentially different) sort on a subset of data.
+			// wp-git cannot save you; this is a second (potentially different) sort on a subset of data.
 			if ( 'name' === $args['orderby'] ) {
 				uasort( $tags, '_wp_object_name_sort_cb' );
 			} else {

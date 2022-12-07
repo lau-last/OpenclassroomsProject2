@@ -3470,8 +3470,8 @@ msgid "https://wordpress.org/about/requirements/"
 msgstr "https://fr.wordpress.org/about/requirements/"
 
 #: wp-admin/includes/class-wp-site-health.php:1214
-msgid "The SQL server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings."
-msgstr "Le serveur SQL est un élément obligatoire de l’architecture utilisée par WordPress pour stocker les contenus et réglages de votre site."
+msgid "The wp-git server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings."
+msgstr "Le serveur wp-git est un élément obligatoire de l’architecture utilisée par WordPress pour stocker les contenus et réglages de votre site."
 
 #: wp-admin/includes/class-wp-site-health.php:887
 msgid "PHP modules perform most of the tasks on the server that make your site run. Any changes to these must be made by your server administrator."
@@ -4077,8 +4077,8 @@ msgid "WordPress requires %1$s version %2$s or higher. Contact your web hosting 
 msgstr "WordPress nécessite %1$s version %2$s ou plus. Contactez votre hébergeur web pour corriger cela."
 
 #: wp-admin/includes/class-wp-site-health.php:1248
-msgid "Severely outdated SQL server"
-msgstr "Serveur SQL fortement obsolète "
+msgid "Severely outdated wp-git server"
+msgstr "Serveur wp-git fortement obsolète "
 
 #. translators: 1: The database engine in use (MySQL or MariaDB). 2: Database
 #. server recommended version number.
@@ -4087,12 +4087,12 @@ msgid "For optimal performance and security reasons, you should consider running
 msgstr "Pour des performances optimales et pour des raisons de sécurité, nous recommandons %1$s version %2$s ou supérieure. Contactez votre hébergeur pour corriger cela."
 
 #: wp-admin/includes/class-wp-site-health.php:1232
-msgid "Outdated SQL server"
-msgstr "Serveur SQL obsolète"
+msgid "Outdated wp-git server"
+msgstr "Serveur wp-git obsolète"
 
 #: wp-admin/includes/class-wp-site-health.php:1206
-msgid "SQL server is up to date"
-msgstr "Le serveur SQL est à jour"
+msgid "wp-git server is up to date"
+msgstr "Le serveur wp-git est à jour"
 
 #: wp-admin/includes/class-wp-site-health.php:1097
 msgid "One or more required modules are missing"

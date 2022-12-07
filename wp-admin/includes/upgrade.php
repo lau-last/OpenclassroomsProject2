@@ -2446,14 +2446,14 @@ function upgrade_network() {
  *
  * This method checks for an existing database and creates a new one if it's not
  * already present. It doesn't rely on MySQL's "IF NOT EXISTS" statement, but chooses
- * to query all tables first and then run the SQL statement creating the table.
+ * to query all tables first and then run the wp-git statement creating the table.
  *
  * @since 1.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param string $table_name Database table name.
- * @param string $create_ddl SQL statement to create table.
+ * @param string $create_ddl wp-git statement to create table.
  * @return bool True on success or if the table already exists. False on failure.
  */
 function maybe_create_table( $table_name, $create_ddl ) {
@@ -2533,7 +2533,7 @@ function add_clean_index( $table, $index ) {
  *
  * @param string $table_name  Database table name.
  * @param string $column_name Table column name.
- * @param string $create_ddl  SQL statement to add column.
+ * @param string $create_ddl  wp-git statement to add column.
  * @return bool True on success or if the column already exists. False on failure.
  */
 function maybe_add_column( $table_name, $column_name, $create_ddl ) {
@@ -2691,7 +2691,7 @@ function deslash( $content ) {
 }
 
 /**
- * Modifies the database based on specified SQL statements.
+ * Modifies the database based on specified wp-git statements.
  *
  * Useful for creating new tables and updating existing tables to a new structure.
  *
@@ -2722,11 +2722,11 @@ function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore WordPress.N
 	}
 
 	/**
-	 * Filters the dbDelta SQL queries.
+	 * Filters the dbDelta wp-git queries.
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param string[] $queries An array of dbDelta SQL queries.
+	 * @param string[] $queries An array of dbDelta wp-git queries.
 	 */
 	$queries = apply_filters( 'dbdelta_queries', $queries );
 
@@ -2751,24 +2751,24 @@ function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore WordPress.N
 	}
 
 	/**
-	 * Filters the dbDelta SQL queries for creating tables and/or databases.
+	 * Filters the dbDelta wp-git queries for creating tables and/or databases.
 	 *
 	 * Queries filterable via this hook contain "CREATE TABLE" or "CREATE DATABASE".
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param string[] $cqueries An array of dbDelta create SQL queries.
+	 * @param string[] $cqueries An array of dbDelta create wp-git queries.
 	 */
 	$cqueries = apply_filters( 'dbdelta_create_queries', $cqueries );
 
 	/**
-	 * Filters the dbDelta SQL queries for inserting or updating.
+	 * Filters the dbDelta wp-git queries for inserting or updating.
 	 *
 	 * Queries filterable via this hook contain "INSERT INTO" or "UPDATE".
 	 *
 	 * @since 3.3.0
 	 *
-	 * @param string[] $iqueries An array of dbDelta insert or update SQL queries.
+	 * @param string[] $iqueries An array of dbDelta insert or update wp-git queries.
 	 */
 	$iqueries = apply_filters( 'dbdelta_insert_queries', $iqueries );
 

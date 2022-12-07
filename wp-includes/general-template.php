@@ -2019,21 +2019,21 @@ function wp_get_archives( $args = '' ) {
 	$sql_where = $wpdb->prepare( "WHERE post_type = %s AND post_status = 'publish'", $parsed_args['post_type'] );
 
 	/**
-	 * Filters the SQL WHERE clause for retrieving archives.
+	 * Filters the wp-git WHERE clause for retrieving archives.
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string $sql_where   Portion of SQL query containing the WHERE clause.
+	 * @param string $sql_where   Portion of wp-git query containing the WHERE clause.
 	 * @param array  $parsed_args An array of default arguments.
 	 */
 	$where = apply_filters( 'getarchives_where', $sql_where, $parsed_args );
 
 	/**
-	 * Filters the SQL JOIN clause for retrieving archives.
+	 * Filters the wp-git JOIN clause for retrieving archives.
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param string $sql_join    Portion of SQL query containing JOIN clause.
+	 * @param string $sql_join    Portion of wp-git query containing JOIN clause.
 	 * @param array  $parsed_args An array of default arguments.
 	 */
 	$join = apply_filters( 'getarchives_join', '', $parsed_args );

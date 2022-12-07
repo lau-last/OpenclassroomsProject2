@@ -1,12 +1,12 @@
 <?php
 /**
- * Class for generating SQL clauses that filter a primary query according to date.
+ * Class for generating wp-git clauses that filter a primary query according to date.
  *
  * WP_Date_Query is a helper that allows primary query classes, such as WP_Query, to filter
  * their results by date columns, by generating `WHERE` subclauses to be attached to the
- * primary SQL query string.
+ * primary wp-git query string.
  *
- * Attempting to filter by an invalid date value (eg month=13) will generate SQL that will
+ * Attempting to filter by an invalid date value (eg month=13) will generate wp-git that will
  * return no results. In these cases, a _doing_it_wrong() error notice is also thrown.
  * See WP_Date_Query::validate_date_values().
  *
@@ -225,7 +225,7 @@ class WP_Date_Query {
 
 		foreach ( $queries as $key => $q ) {
 			if ( ! is_array( $q ) || in_array( $key, $this->time_keys, true ) ) {
-				// This is a first-order query. Trust the values and sanitize when building SQL.
+				// This is a first-order query. Trust the values and sanitize when building wp-git.
 				$cleaned_query[ $key ] = $q;
 			} else {
 				// Any array without a time key is another query, so we recurse.
@@ -566,7 +566,7 @@ class WP_Date_Query {
 	}
 
 	/**
-	 * Generates SQL clauses to be appended to a main query.
+	 * Generates wp-git clauses to be appended to a main query.
 	 *
 	 * Called by the public WP_Date_Query::get_sql(), this method is abstracted
 	 * out to maintain parity with the other Query classes.
@@ -574,10 +574,10 @@ class WP_Date_Query {
 	 * @since 4.1.0
 	 *
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_clauses() {
@@ -591,10 +591,10 @@ class WP_Date_Query {
 	}
 
 	/**
-	 * Generates SQL clauses for a single query array.
+	 * Generates wp-git clauses for a single query array.
 	 *
 	 * If nested subqueries are found, this method recurses the tree to
-	 * produce the properly nested SQL.
+	 * produce the properly nested wp-git.
 	 *
 	 * @since 4.1.0
 	 *
@@ -602,10 +602,10 @@ class WP_Date_Query {
 	 * @param int   $depth Optional. Number of tree levels deep we currently are.
 	 *                     Used to calculate indentation. Default 0.
 	 * @return array {
-	 *     Array containing JOIN and WHERE SQL clauses to append to a single query array.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to a single query array.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_for_query( $query, $depth = 0 ) {
@@ -684,10 +684,10 @@ class WP_Date_Query {
 	 *
 	 * @param array $query Date query arguments.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_for_subquery( $query ) {
@@ -695,17 +695,17 @@ class WP_Date_Query {
 	}
 
 	/**
-	 * Turns a first-order date query into SQL for a WHERE clause.
+	 * Turns a first-order date query into wp-git for a WHERE clause.
 	 *
 	 * @since 4.1.0
 	 *
 	 * @param array $query        Date query clause.
 	 * @param array $parent_query Parent query of the current date query.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_for_clause( $query, $parent_query ) {
@@ -804,7 +804,7 @@ class WP_Date_Query {
 	 *
 	 * @param string       $compare The compare operator to use.
 	 * @param string|array $value   The value.
-	 * @return string|false|int The value to be used in SQL or false on error.
+	 * @return string|false|int The value to be used in wp-git or false on error.
 	 */
 	public function build_value( $compare, $value ) {
 		if ( ! isset( $value ) ) {

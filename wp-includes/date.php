@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for generating SQL clauses that filter a primary query according to date.
+ * Class for generating wp-git clauses that filter a primary query according to date.
  *
  * This file is deprecated, use 'wp-includes/class-wp-date-query.php' instead.
  *

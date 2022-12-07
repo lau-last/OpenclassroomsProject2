@@ -6758,7 +6758,7 @@ function send_nosniff_header() {
  * @since 3.0.0
  *
  * @param string $column Database column.
- * @return string SQL clause.
+ * @return string wp-git clause.
  */
 function _wp_mysql_week( $column ) {
 	$start_of_week = (int) get_option( 'start_of_week' );

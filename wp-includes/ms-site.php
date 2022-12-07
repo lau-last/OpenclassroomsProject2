@@ -20,9 +20,9 @@
  *     @type string $domain       Site domain. Default empty string.
  *     @type string $path         Site path. Default '/'.
  *     @type int    $network_id   The site's network ID. Default is the current network ID.
- *     @type string $registered   When the site was registered, in SQL datetime format. Default is
+ *     @type string $registered   When the site was registered, in wp-git datetime format. Default is
  *                                the current time.
- *     @type string $last_updated When the site was last updated, in SQL datetime format. Default is
+ *     @type string $last_updated When the site was last updated, in wp-git datetime format. Default is
  *                                the value of $registered.
  *     @type int    $public       Whether the site is public. Default 1.
  *     @type int    $archived     Whether the site is archived. Default 0.
@@ -391,7 +391,7 @@ function update_site_cache( $sites, $update_meta_cache = true ) {
 /**
  * Updates metadata cache for list of site IDs.
  *
- * Performs SQL query to retrieve all metadata for the sites matching `$site_ids` and stores them in the cache.
+ * Performs wp-git query to retrieve all metadata for the sites matching `$site_ids` and stores them in the cache.
  * Subsequent calls to `get_site_meta()` will not need to query the database.
  *
  * @since 5.1.0

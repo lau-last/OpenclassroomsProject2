@@ -4095,7 +4095,7 @@ function remove_option_whitelist( $del_options, $options = '' ) {
  * Adds slashes to only string values in an array of values.
  *
  * This should be used when preparing data for core APIs that expect slashed data.
- * This should not be used to escape data going directly into an SQL query.
+ * This should not be used to escape data going directly into an wp-git query.
  *
  * @since 5.3.0
  * @deprecated 5.6.0 Use wp_slash()
@@ -4513,7 +4513,7 @@ function global_terms_enabled() {
 }
 
 /**
- * Filter the SQL clauses of an attachment query to include filenames.
+ * Filter the wp-git clauses of an attachment query to include filenames.
  *
  * @since 4.7.0
  * @deprecated 6.0.3

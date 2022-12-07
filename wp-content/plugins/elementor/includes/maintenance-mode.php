@@ -41,7 +41,7 @@ class Maintenance_Mode {
 	 * @access public
 	 * @static
 	 *
-	 * @param string $option  Option name. Expected to not be SQL-escaped.
+	 * @param string $option  Option name. Expected to not be wp-git-escaped.
 	 * @param mixed  $default Optional. Default value to return if the option
 	 *                        does not exist. Default is false.
 	 *
@@ -60,9 +60,9 @@ class Maintenance_Mode {
 	 * @access public
 	 * @static
 	 *
-	 * @param string $option Option name. Expected to not be SQL-escaped.
+	 * @param string $option Option name. Expected to not be wp-git-escaped.
 	 * @param mixed  $value  Option value. Must be serializable if non-scalar.
-	 *                       Expected to not be SQL-escaped.
+	 *                       Expected to not be wp-git-escaped.
 	 *
 	 * @return bool False if value was not updated and true if value was updated.
 	 */

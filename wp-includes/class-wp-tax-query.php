@@ -10,12 +10,12 @@
 /**
  * Core class used to implement taxonomy queries for the Taxonomy API.
  *
- * Used for generating SQL clauses that filter a primary query according to object
+ * Used for generating wp-git clauses that filter a primary query according to object
  * taxonomy terms.
  *
  * WP_Tax_Query is a helper that allows primary query classes, such as WP_Query, to filter
  * their results by object metadata, by generating `JOIN` and `WHERE` subclauses to be
- * attached to the primary SQL query string.
+ * attached to the primary wp-git query string.
  *
  * @since 3.1.0
  */
@@ -231,17 +231,17 @@ class WP_Tax_Query {
 	}
 
 	/**
-	 * Generates SQL clauses to be appended to a main query.
+	 * Generates wp-git clauses to be appended to a main query.
 	 *
 	 * @since 3.1.0
 	 *
 	 * @param string $primary_table     Database table where the object being filtered is stored (eg wp_users).
 	 * @param string $primary_id_column ID column for the filtered object in $primary_table.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	public function get_sql( $primary_table, $primary_id_column ) {
@@ -252,7 +252,7 @@ class WP_Tax_Query {
 	}
 
 	/**
-	 * Generates SQL clauses to be appended to a main query.
+	 * Generates wp-git clauses to be appended to a main query.
 	 *
 	 * Called by the public WP_Tax_Query::get_sql(), this method
 	 * is abstracted out to maintain parity with the other Query classes.
@@ -260,10 +260,10 @@ class WP_Tax_Query {
 	 * @since 4.1.0
 	 *
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_clauses() {
@@ -282,10 +282,10 @@ class WP_Tax_Query {
 	}
 
 	/**
-	 * Generates SQL clauses for a single query array.
+	 * Generates wp-git clauses for a single query array.
 	 *
 	 * If nested subqueries are found, this method recurses the tree to
-	 * produce the properly nested SQL.
+	 * produce the properly nested wp-git.
 	 *
 	 * @since 4.1.0
 	 *
@@ -293,10 +293,10 @@ class WP_Tax_Query {
 	 * @param int   $depth Optional. Number of tree levels deep we currently are.
 	 *                     Used to calculate indentation. Default 0.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to a single query array.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to a single query array.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_for_query( &$query, $depth = 0 ) {
@@ -366,7 +366,7 @@ class WP_Tax_Query {
 	}
 
 	/**
-	 * Generates SQL JOIN and WHERE clauses for a "first-order" query clause.
+	 * Generates wp-git JOIN and WHERE clauses for a "first-order" query clause.
 	 *
 	 * @since 4.1.0
 	 *
@@ -375,10 +375,10 @@ class WP_Tax_Query {
 	 * @param array $clause       Query clause (passed by reference).
 	 * @param array $parent_query Parent query array.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to a first-order query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to a first-order query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	public function get_sql_for_clause( &$clause, $parent_query ) {

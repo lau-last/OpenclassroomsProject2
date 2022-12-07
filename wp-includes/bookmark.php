@@ -126,7 +126,7 @@ function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
  *                                    Accepts 1|true or 0|false. Default 0|false.
  *     @type string   $include        Comma-separated list of bookmark IDs to include. Default empty.
  *     @type string   $exclude        Comma-separated list of bookmark IDs to exclude. Default empty.
- *     @type string   $search         Search terms. Will be SQL-formatted with wildcards before and after
+ *     @type string   $search         Search terms. Will be wp-git-formatted with wildcards before and after
  *                                    and searched in 'link_url', 'link_name' and 'link_description'.
  *                                    Default empty.
  * }

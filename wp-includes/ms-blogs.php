@@ -349,7 +349,7 @@ function clean_site_details_cache( $site_id = 0 ) {
  * @since MU (3.0.0)
  *
  * @param int    $id      A blog ID. Can be null to refer to the current blog.
- * @param string $option  Name of option to retrieve. Expected to not be SQL-escaped.
+ * @param string $option  Name of option to retrieve. Expected to not be wp-git-escaped.
  * @param mixed  $default Optional. Default value to return if the option does not exist.
  * @return mixed Value set for the option.
  */
@@ -396,8 +396,8 @@ function get_blog_option( $id, $option, $default = false ) {
  * @since MU (3.0.0)
  *
  * @param int    $id     A blog ID. Can be null to refer to the current blog.
- * @param string $option Name of option to add. Expected to not be SQL-escaped.
- * @param mixed  $value  Optional. Option value, can be anything. Expected to not be SQL-escaped.
+ * @param string $option Name of option to add. Expected to not be wp-git-escaped.
+ * @param mixed  $value  Optional. Option value, can be anything. Expected to not be wp-git-escaped.
  * @return bool True if the option was added, false otherwise.
  */
 function add_blog_option( $id, $option, $value ) {
@@ -424,7 +424,7 @@ function add_blog_option( $id, $option, $value ) {
  * @since MU (3.0.0)
  *
  * @param int    $id     A blog ID. Can be null to refer to the current blog.
- * @param string $option Name of option to remove. Expected to not be SQL-escaped.
+ * @param string $option Name of option to remove. Expected to not be wp-git-escaped.
  * @return bool True if the option was deleted, false otherwise.
  */
 function delete_blog_option( $id, $option ) {

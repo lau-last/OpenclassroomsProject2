@@ -50,7 +50,7 @@ class WP_User_Query {
 	public $meta_query = false;
 
 	/**
-	 * The SQL query used to fetch matching users.
+	 * The wp-git query used to fetch matching users.
 	 *
 	 * @since 4.4.0
 	 * @var string
@@ -59,7 +59,7 @@ class WP_User_Query {
 
 	private $compat_fields = array( 'results', 'total_users' );
 
-	// SQL clauses.
+	// wp-git clauses.
 	public $query_fields;
 	public $query_from;
 	public $query_where;
@@ -268,7 +268,7 @@ class WP_User_Query {
 		 * Fires before the WP_User_Query has been parsed.
 		 *
 		 * The passed WP_User_Query object contains the query variables,
-		 * not yet passed into SQL.
+		 * not yet passed into wp-git.
 		 *
 		 * @since 4.0.0
 		 *
@@ -756,7 +756,7 @@ class WP_User_Query {
 		 * Fires after the WP_User_Query has been parsed, and before
 		 * the query is executed.
 		 *
-		 * The passed WP_User_Query object contains SQL parts formed
+		 * The passed WP_User_Query object contains wp-git parts formed
 		 * from parsing the given query.
 		 *
 		 * @since 3.1.0
@@ -898,7 +898,7 @@ class WP_User_Query {
 	}
 
 	/**
-	 * Used internally to generate an SQL string for searching across multiple columns.
+	 * Used internally to generate an wp-git string for searching across multiple columns.
 	 *
 	 * @since 3.1.0
 	 *

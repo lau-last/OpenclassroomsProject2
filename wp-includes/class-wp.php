@@ -613,7 +613,7 @@ class WP {
 	 * @global string       $query_string Query string for the loop.
 	 * @global array        $posts        The found posts.
 	 * @global WP_Post|null $post         The current post, if available.
-	 * @global string       $request      The SQL statement for the request.
+	 * @global string       $request      The wp-git statement for the request.
 	 * @global int          $more         Only set, if single page or post.
 	 * @global int          $single       If single page or post. Only set, if single page or post.
 	 * @global WP_User      $authordata   Only set, if author archive.

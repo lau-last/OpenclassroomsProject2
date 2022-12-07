@@ -67,7 +67,7 @@
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
- * @param string $option  Name of the option to retrieve. Expected to not be SQL-escaped.
+ * @param string $option  Name of the option to retrieve. Expected to not be wp-git-escaped.
  * @param mixed  $default Optional. Default value to return if the option does not exist.
  * @return mixed Value of the option. A value of any type may be returned, including
  *               scalar (string, boolean, float, integer), null, array, object.
@@ -397,8 +397,8 @@ function wp_load_core_site_options( $network_id = null ) {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
- * @param string      $option   Name of the option to update. Expected to not be SQL-escaped.
- * @param mixed       $value    Option value. Must be serializable if non-scalar. Expected to not be SQL-escaped.
+ * @param string      $option   Name of the option to update. Expected to not be wp-git-escaped.
+ * @param mixed       $value    Option value. Must be serializable if non-scalar. Expected to not be wp-git-escaped.
  * @param string|bool $autoload Optional. Whether to load the option when WordPress starts up. For existing options,
  *                              `$autoload` can only be updated using `update_option()` if `$value` is also changed.
  *                              Accepts 'yes'|true to enable or 'no'|false to disable. For non-existent options,
@@ -583,9 +583,9 @@ function update_option( $option, $value, $autoload = null ) {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
- * @param string      $option     Name of the option to add. Expected to not be SQL-escaped.
+ * @param string      $option     Name of the option to add. Expected to not be wp-git-escaped.
  * @param mixed       $value      Optional. Option value. Must be serializable if non-scalar.
- *                                Expected to not be SQL-escaped.
+ *                                Expected to not be wp-git-escaped.
  * @param string      $deprecated Optional. Description. Not used anymore.
  * @param string|bool $autoload   Optional. Whether to load the option when WordPress starts up.
  *                                Default is enabled. Accepts 'no' to disable for legacy reasons.
@@ -717,7 +717,7 @@ function add_option( $option, $value = '', $deprecated = '', $autoload = 'yes' )
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
- * @param string $option Name of the option to delete. Expected to not be SQL-escaped.
+ * @param string $option Name of the option to delete. Expected to not be wp-git-escaped.
  * @return bool True if the option was deleted, false otherwise.
  */
 function delete_option( $option ) {
@@ -795,7 +795,7 @@ function delete_option( $option ) {
  *
  * @since 2.8.0
  *
- * @param string $transient Transient name. Expected to not be SQL-escaped.
+ * @param string $transient Transient name. Expected to not be wp-git-escaped.
  * @return bool True if the transient was deleted, false otherwise.
  */
 function delete_transient( $transient ) {
@@ -846,7 +846,7 @@ function delete_transient( $transient ) {
  *
  * @since 2.8.0
  *
- * @param string $transient Transient name. Expected to not be SQL-escaped.
+ * @param string $transient Transient name. Expected to not be wp-git-escaped.
  * @return mixed Value of transient.
  */
 function get_transient( $transient ) {
@@ -918,10 +918,10 @@ function get_transient( $transient ) {
  *
  * @since 2.8.0
  *
- * @param string $transient  Transient name. Expected to not be SQL-escaped.
+ * @param string $transient  Transient name. Expected to not be wp-git-escaped.
  *                           Must be 172 characters or fewer in length.
  * @param mixed  $value      Transient value. Must be serializable if non-scalar.
- *                           Expected to not be SQL-escaped.
+ *                           Expected to not be wp-git-escaped.
  * @param int    $expiration Optional. Time until expiration in seconds. Default 0 (no expiration).
  * @return bool True if the value was set, false otherwise.
  */
@@ -1324,7 +1324,7 @@ function delete_all_user_settings() {
  *
  * @see get_network_option()
  *
- * @param string $option     Name of the option to retrieve. Expected to not be SQL-escaped.
+ * @param string $option     Name of the option to retrieve. Expected to not be wp-git-escaped.
  * @param mixed  $default    Optional. Value to return if the option doesn't exist. Default false.
  * @param bool   $deprecated Whether to use cache. Multisite only. Always set to true.
  * @return mixed Value set for the option.
@@ -1343,8 +1343,8 @@ function get_site_option( $option, $default = false, $deprecated = true ) {
  *
  * @see add_network_option()
  *
- * @param string $option Name of the option to add. Expected to not be SQL-escaped.
- * @param mixed  $value  Option value, can be anything. Expected to not be SQL-escaped.
+ * @param string $option Name of the option to add. Expected to not be wp-git-escaped.
+ * @param mixed  $value  Option value, can be anything. Expected to not be wp-git-escaped.
  * @return bool True if the option was added, false otherwise.
  */
 function add_site_option( $option, $value ) {
@@ -1359,7 +1359,7 @@ function add_site_option( $option, $value ) {
  *
  * @see delete_network_option()
  *
- * @param string $option Name of the option to delete. Expected to not be SQL-escaped.
+ * @param string $option Name of the option to delete. Expected to not be wp-git-escaped.
  * @return bool True if the option was deleted, false otherwise.
  */
 function delete_site_option( $option ) {
@@ -1374,8 +1374,8 @@ function delete_site_option( $option ) {
  *
  * @see update_network_option()
  *
- * @param string $option Name of the option. Expected to not be SQL-escaped.
- * @param mixed  $value  Option value. Expected to not be SQL-escaped.
+ * @param string $option Name of the option. Expected to not be wp-git-escaped.
+ * @param mixed  $value  Option value. Expected to not be wp-git-escaped.
  * @return bool True if the value was updated, false otherwise.
  */
 function update_site_option( $option, $value ) {
@@ -1392,7 +1392,7 @@ function update_site_option( $option, $value ) {
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int    $network_id ID of the network. Can be null to default to the current network ID.
- * @param string $option     Name of the option to retrieve. Expected to not be SQL-escaped.
+ * @param string $option     Name of the option to retrieve. Expected to not be wp-git-escaped.
  * @param mixed  $default    Optional. Value to return if the option doesn't exist. Default false.
  * @return mixed Value set for the option.
  */
@@ -1526,8 +1526,8 @@ function get_network_option( $network_id, $option, $default = false ) {
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int    $network_id ID of the network. Can be null to default to the current network ID.
- * @param string $option     Name of the option to add. Expected to not be SQL-escaped.
- * @param mixed  $value      Option value, can be anything. Expected to not be SQL-escaped.
+ * @param string $option     Name of the option to add. Expected to not be wp-git-escaped.
+ * @param mixed  $value      Option value, can be anything. Expected to not be wp-git-escaped.
  * @return bool True if the option was added, false otherwise.
  */
 function add_network_option( $network_id, $option, $value ) {
@@ -1651,7 +1651,7 @@ function add_network_option( $network_id, $option, $value ) {
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int    $network_id ID of the network. Can be null to default to the current network ID.
- * @param string $option     Name of the option to delete. Expected to not be SQL-escaped.
+ * @param string $option     Name of the option to delete. Expected to not be wp-git-escaped.
  * @return bool True if the option was deleted, false otherwise.
  */
 function delete_network_option( $network_id, $option ) {
@@ -1744,8 +1744,8 @@ function delete_network_option( $network_id, $option ) {
  * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param int    $network_id ID of the network. Can be null to default to the current network ID.
- * @param string $option     Name of the option. Expected to not be SQL-escaped.
- * @param mixed  $value      Option value. Expected to not be SQL-escaped.
+ * @param string $option     Name of the option. Expected to not be wp-git-escaped.
+ * @param mixed  $value      Option value. Expected to not be wp-git-escaped.
  * @return bool True if the value was updated, false otherwise.
  */
 function update_network_option( $network_id, $option, $value ) {
@@ -1871,7 +1871,7 @@ function update_network_option( $network_id, $option, $value ) {
  *
  * @since 2.9.0
  *
- * @param string $transient Transient name. Expected to not be SQL-escaped.
+ * @param string $transient Transient name. Expected to not be wp-git-escaped.
  * @return bool True if the transient was deleted, false otherwise.
  */
 function delete_site_transient( $transient ) {
@@ -1924,7 +1924,7 @@ function delete_site_transient( $transient ) {
  *
  * @see get_transient()
  *
- * @param string $transient Transient name. Expected to not be SQL-escaped.
+ * @param string $transient Transient name. Expected to not be wp-git-escaped.
  * @return mixed Value of transient.
  */
 function get_site_transient( $transient ) {
@@ -1996,9 +1996,9 @@ function get_site_transient( $transient ) {
  *
  * @see set_transient()
  *
- * @param string $transient  Transient name. Expected to not be SQL-escaped. Must be
+ * @param string $transient  Transient name. Expected to not be wp-git-escaped. Must be
  *                           167 characters or fewer in length.
- * @param mixed  $value      Transient value. Expected to not be SQL-escaped.
+ * @param mixed  $value      Transient value. Expected to not be wp-git-escaped.
  * @param int    $expiration Optional. Time until expiration in seconds. Default 0 (no expiration).
  * @return bool True if the value was set, false otherwise.
  */

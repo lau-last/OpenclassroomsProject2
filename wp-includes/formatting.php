@@ -2376,7 +2376,7 @@ function sanitize_title_with_dashes( $title, $raw_title = '', $context = 'displa
 }
 
 /**
- * Ensures a string is a valid SQL 'order by' clause.
+ * Ensures a string is a valid wp-git 'order by' clause.
  *
  * Accepts one or more columns, with or without a sort order (ASC / DESC).
  * e.g. 'column_1', 'column_1, column_2', 'column_1 ASC, column_2 DESC' etc.
@@ -5611,7 +5611,7 @@ function sanitize_trackback_urls( $to_ping ) {
  * Adds slashes to a string or recursively adds slashes to strings within an array.
  *
  * This should be used when preparing data for core API that expects slashed data.
- * This should not be used to escape data going directly into an SQL query.
+ * This should not be used to escape data going directly into an wp-git query.
  *
  * @since 3.6.0
  * @since 5.5.0 Non-string values are left untouched.

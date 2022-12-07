@@ -77,7 +77,7 @@ class WP_Query {
 	public $queried_object_id;
 
 	/**
-	 * SQL for the database query.
+	 * wp-git for the database query.
 	 *
 	 * @since 2.0.1
 	 * @var string
@@ -1369,7 +1369,7 @@ class WP_Query {
 	}
 
 	/**
-	 * Generates SQL for the WHERE clause based on passed search terms.
+	 * Generates wp-git for the WHERE clause based on passed search terms.
 	 *
 	 * @since 3.7.0
 	 *
@@ -1543,7 +1543,7 @@ class WP_Query {
 	}
 
 	/**
-	 * Generates SQL for the ORDER BY condition based on passed search terms.
+	 * Generates wp-git for the ORDER BY condition based on passed search terms.
 	 *
 	 * @since 3.7.0
 	 *
@@ -2180,11 +2180,11 @@ class WP_Query {
 
 		if ( ! $q['suppress_filters'] ) {
 			/**
-			 * Filters the search SQL that is used in the WHERE clause of WP_Query.
+			 * Filters the search wp-git that is used in the WHERE clause of WP_Query.
 			 *
 			 * @since 3.0.0
 			 *
-			 * @param string   $search Search SQL for WHERE clause.
+			 * @param string   $search Search wp-git for WHERE clause.
 			 * @param WP_Query $query  The current WP_Query object.
 			 */
 			$search = apply_filters_ref_array( 'posts_search', array( $search, &$this ) );
@@ -3068,11 +3068,11 @@ class WP_Query {
 
 		if ( ! $q['suppress_filters'] ) {
 			/**
-			 * Filters the completed SQL query before sending.
+			 * Filters the completed wp-git query before sending.
 			 *
 			 * @since 2.0.0
 			 *
-			 * @param string   $request The complete SQL query.
+			 * @param string   $request The complete wp-git query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
 			 */
 			$this->request = apply_filters_ref_array( 'posts_request', array( $this->request, &$this ) );
@@ -3250,7 +3250,7 @@ class WP_Query {
 				";
 
 				/**
-				 * Filters the Post IDs SQL request before sending.
+				 * Filters the Post IDs wp-git request before sending.
 				 *
 				 * @since 3.4.0
 				 *
@@ -4754,7 +4754,7 @@ class WP_Query {
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
 	 * @param array  $args Query arguments.
-	 * @param string $sql  SQL statement.
+	 * @param string $sql  wp-git statement.
 	 *
 	 * @return string Cache key.
 	 */
@@ -4789,7 +4789,7 @@ class WP_Query {
 			}
 		);
 
-		// Replace wpdb placeholder in the SQL statement used by the cache key.
+		// Replace wpdb placeholder in the wp-git statement used by the cache key.
 		$sql = $wpdb->remove_placeholder_escape( $sql );
 		$key = md5( serialize( $args ) . $sql );
 

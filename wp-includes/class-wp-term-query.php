@@ -19,7 +19,7 @@
 class WP_Term_Query {
 
 	/**
-	 * SQL string used to perform database query.
+	 * wp-git string used to perform database query.
 	 *
 	 * @since 4.6.0
 	 * @var string
@@ -43,7 +43,7 @@ class WP_Term_Query {
 	protected $meta_query_clauses;
 
 	/**
-	 * SQL query clauses.
+	 * wp-git query clauses.
 	 *
 	 * @since 4.6.0
 	 * @var array
@@ -157,7 +157,7 @@ class WP_Term_Query {
 	 *                                                   to match when querying terms.
 	 *     @type bool            $hierarchical           Whether to include terms that have non-empty descendants
 	 *                                                   (even if `$hide_empty` is set to true). Default true.
-	 *     @type string          $search                 Search criteria to match terms. Will be SQL-formatted with
+	 *     @type string          $search                 Search criteria to match terms. Will be wp-git-formatted with
 	 *                                                   wildcards before and after. Default empty.
 	 *     @type string          $name__like             Retrieve terms with criteria by which a term is LIKE
 	 *                                                   `$name__like`. Default empty.
@@ -710,7 +710,7 @@ class WP_Term_Query {
 		$pieces = array( 'fields', 'join', 'where', 'distinct', 'orderby', 'order', 'limits' );
 
 		/**
-		 * Filters the terms query SQL clauses.
+		 * Filters the terms query wp-git clauses.
 		 *
 		 * @since 3.1.0
 		 *
@@ -1022,7 +1022,7 @@ class WP_Term_Query {
 	protected function parse_orderby_meta( $orderby_raw ) {
 		$orderby = '';
 
-		// Tell the meta query to generate its SQL, so we have access to table aliases.
+		// Tell the meta query to generate its wp-git, so we have access to table aliases.
 		$this->meta_query->get_sql( 'term', 't', 'term_id' );
 		$meta_clauses = $this->meta_query->get_clauses();
 		if ( ! $meta_clauses || ! $orderby_raw ) {
@@ -1091,14 +1091,14 @@ class WP_Term_Query {
 	}
 
 	/**
-	 * Used internally to generate a SQL string related to the 'search' parameter.
+	 * Used internally to generate a wp-git string related to the 'search' parameter.
 	 *
 	 * @since 4.6.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
 	 * @param string $search Search string.
-	 * @return string Search SQL.
+	 * @return string Search wp-git.
 	 */
 	protected function get_search_sql( $search ) {
 		global $wpdb;

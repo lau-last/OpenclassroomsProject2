@@ -18,7 +18,7 @@
 class WP_Site_Query {
 
 	/**
-	 * SQL for database query.
+	 * wp-git for database query.
 	 *
 	 * @since 4.6.0
 	 * @var string
@@ -26,7 +26,7 @@ class WP_Site_Query {
 	public $request;
 
 	/**
-	 * SQL query clauses.
+	 * wp-git query clauses.
 	 *
 	 * @since 4.6.0
 	 * @var array
@@ -726,7 +726,7 @@ class WP_Site_Query {
 			 *
 			 * @since 4.6.0
 			 *
-			 * @param string        $found_sites_query SQL query. Default 'SELECT FOUND_ROWS()'.
+			 * @param string        $found_sites_query wp-git query. Default 'SELECT FOUND_ROWS()'.
 			 * @param WP_Site_Query $site_query        The `WP_Site_Query` instance.
 			 */
 			$found_sites_query = apply_filters( 'found_sites_query', 'SELECT FOUND_ROWS()', $this );
@@ -736,7 +736,7 @@ class WP_Site_Query {
 	}
 
 	/**
-	 * Used internally to generate an SQL string for searching across multiple columns.
+	 * Used internally to generate an wp-git string for searching across multiple columns.
 	 *
 	 * @since 4.6.0
 	 *
@@ -744,7 +744,7 @@ class WP_Site_Query {
 	 *
 	 * @param string   $search  Search string.
 	 * @param string[] $columns Array of columns to search.
-	 * @return string Search SQL.
+	 * @return string Search wp-git.
 	 */
 	protected function get_search_sql( $search, $columns ) {
 		global $wpdb;

@@ -18,7 +18,7 @@
 class WP_Comment_Query {
 
 	/**
-	 * SQL for database query.
+	 * wp-git for database query.
 	 *
 	 * @since 4.0.1
 	 * @var string
@@ -42,7 +42,7 @@ class WP_Comment_Query {
 	protected $meta_query_clauses;
 
 	/**
-	 * SQL query clauses.
+	 * wp-git query clauses.
 	 *
 	 * @since 4.4.0
 	 * @var array
@@ -57,7 +57,7 @@ class WP_Comment_Query {
 	);
 
 	/**
-	 * SQL WHERE clause.
+	 * wp-git WHERE clause.
 	 *
 	 * Stored after the {@see 'comments_clauses'} filter is run on the compiled WHERE sub-clauses.
 	 *
@@ -996,7 +996,7 @@ class WP_Comment_Query {
 			 *
 			 * @since 4.4.0
 			 *
-			 * @param string           $found_comments_query SQL query. Default 'SELECT FOUND_ROWS()'.
+			 * @param string           $found_comments_query wp-git query. Default 'SELECT FOUND_ROWS()'.
 			 * @param WP_Comment_Query $comment_query        The `WP_Comment_Query` instance.
 			 */
 			$found_comments_query = apply_filters( 'found_comments_query', 'SELECT FOUND_ROWS()', $this );
@@ -1127,7 +1127,7 @@ class WP_Comment_Query {
 	}
 
 	/**
-	 * Used internally to generate an SQL string for searching across multiple columns.
+	 * Used internally to generate an wp-git string for searching across multiple columns.
 	 *
 	 * @since 3.1.0
 	 *
@@ -1135,7 +1135,7 @@ class WP_Comment_Query {
 	 *
 	 * @param string   $search  Search string.
 	 * @param string[] $columns Array of columns to search.
-	 * @return string Search SQL.
+	 * @return string Search wp-git.
 	 */
 	protected function get_search_sql( $search, $columns ) {
 		global $wpdb;

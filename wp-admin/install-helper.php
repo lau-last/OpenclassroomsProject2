@@ -8,7 +8,7 @@
  * These functions are not optimized for speed, but they should only be used
  * once in a while, so speed shouldn't be a concern. If it is and you are
  * needing to use these functions a lot, you might experience time outs. If you
- * do, then it is advised to just write the SQL code yourself.
+ * do, then it is advised to just write the wp-git code yourself.
  *
  *     check_column( 'wp_links', 'link_description', 'mediumtext' );
  *     if ( check_column( $wpdb->comments, 'comment_author', 'tinytext' ) ) {
@@ -46,7 +46,7 @@ if ( ! function_exists( 'maybe_create_table' ) ) :
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
 	 * @param string $table_name Database table name.
-	 * @param string $create_ddl SQL statement to create table.
+	 * @param string $create_ddl wp-git statement to create table.
 	 * @return bool True on success or if the table already exists. False on failure.
 	 */
 	function maybe_create_table( $table_name, $create_ddl ) {
@@ -82,7 +82,7 @@ if ( ! function_exists( 'maybe_add_column' ) ) :
 	 *
 	 * @param string $table_name  Database table name.
 	 * @param string $column_name Table column name.
-	 * @param string $create_ddl  SQL statement to add column.
+	 * @param string $create_ddl  wp-git statement to add column.
 	 * @return bool True on success or if the column already exists. False on failure.
 	 */
 	function maybe_add_column( $table_name, $column_name, $create_ddl ) {
@@ -117,7 +117,7 @@ endif;
  *
  * @param string $table_name  Database table name.
  * @param string $column_name Table column name.
- * @param string $drop_ddl    SQL statement to drop column.
+ * @param string $drop_ddl    wp-git statement to drop column.
  * @return bool True on success or if the column doesn't exist. False on failure.
  */
 function maybe_drop_column( $table_name, $column_name, $drop_ddl ) {
@@ -145,9 +145,9 @@ function maybe_drop_column( $table_name, $column_name, $drop_ddl ) {
 /**
  * Checks that database table column matches the criteria.
  *
- * Uses the SQL DESC for retrieving the table info for the column. It will help
+ * Uses the wp-git DESC for retrieving the table info for the column. It will help
  * understand the parameters, if you do more research on what column information
- * is returned by the SQL statement. Pass in null to skip checking that
+ * is returned by the wp-git statement. Pass in null to skip checking that
  * criteria.
  *
  * Column names returned from DESC table are case sensitive and are listed:

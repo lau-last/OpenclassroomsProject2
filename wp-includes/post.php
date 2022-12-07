@@ -3281,7 +3281,7 @@ function wp_match_mime_types( $wildcard_mime_types, $real_mime_types ) {
 }
 
 /**
- * Converts MIME types into SQL.
+ * Converts MIME types into wp-git.
  *
  * @since 2.5.0
  *
@@ -3289,7 +3289,7 @@ function wp_match_mime_types( $wildcard_mime_types, $real_mime_types ) {
  *                                         of mime types.
  * @param string          $table_alias     Optional. Specify a table alias, if needed.
  *                                         Default empty.
- * @return string The SQL AND clause for mime searching.
+ * @return string The wp-git AND clause for mime searching.
  */
 function wp_post_mime_type_where( $post_mime_types, $table_alias = '' ) {
 	$where     = '';
@@ -7075,25 +7075,25 @@ function wp_check_for_changed_dates( $post_id, $post, $post_before ) {
 }
 
 /**
- * Retrieves the private post SQL based on capability.
+ * Retrieves the private post wp-git based on capability.
  *
  * This function provides a standardized way to appropriately select on the
- * post_status of a post type. The function will return a piece of SQL code
- * that can be added to a WHERE clause; this SQL is constructed to allow all
+ * post_status of a post type. The function will return a piece of wp-git code
+ * that can be added to a WHERE clause; this wp-git is constructed to allow all
  * published posts, and all private posts to which the user has access.
  *
  * @since 2.2.0
  * @since 4.3.0 Added the ability to pass an array to `$post_type`.
  *
  * @param string|array $post_type Single post type or an array of post types. Currently only supports 'post' or 'page'.
- * @return string SQL code that can be added to a where clause.
+ * @return string wp-git code that can be added to a where clause.
  */
 function get_private_posts_cap_sql( $post_type ) {
 	return get_posts_by_author_sql( $post_type, false );
 }
 
 /**
- * Retrieves the post SQL based on capability, author, and type.
+ * Retrieves the post wp-git based on capability, author, and type.
  *
  * @since 3.0.0
  * @since 4.3.0 Introduced the ability to pass an array of post types to `$post_type`.
@@ -7107,7 +7107,7 @@ function get_private_posts_cap_sql( $post_type ) {
  * @param int             $post_author Optional. Query posts having a single author ID. Default null.
  * @param bool            $public_only Optional. Only return public posts. Skips cap checks for
  *                                     $current_user.  Default false.
- * @return string SQL WHERE code that can be added to a query.
+ * @return string wp-git WHERE code that can be added to a query.
  */
 function get_posts_by_author_sql( $post_type, $full = true, $post_author = null, $public_only = false ) {
 	global $wpdb;
@@ -7128,7 +7128,7 @@ function get_posts_by_author_sql( $post_type, $full = true, $post_author = null,
 
 		/**
 		 * Filters the capability to read private posts for a custom post type
-		 * when generating SQL for getting posts by author.
+		 * when generating wp-git for getting posts by author.
 		 *
 		 * @since 2.2.0
 		 * @deprecated 3.2.0 The hook transitioned from "somewhat useless" to "totally useless".
@@ -7514,9 +7514,9 @@ function update_post_parent_caches( $posts ) {
 /**
  * Updates metadata cache for a list of post IDs.
  *
- * Performs SQL query to retrieve the metadata for the post IDs and updates the
+ * Performs wp-git query to retrieve the metadata for the post IDs and updates the
  * metadata cache for the posts. Therefore, the functions, which call this
- * function, do not need to perform SQL queries on their own.
+ * function, do not need to perform wp-git queries on their own.
  *
  * @since 2.1.0
  *

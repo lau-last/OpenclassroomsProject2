@@ -10,12 +10,12 @@
 /**
  * Core class used to implement meta queries for the Meta API.
  *
- * Used for generating SQL clauses that filter a primary query according to metadata keys and values.
+ * Used for generating wp-git clauses that filter a primary query according to metadata keys and values.
  *
  * WP_Meta_Query is a helper that allows primary query classes, such as WP_Query and WP_User_Query,
  *
  * to filter their results by object metadata, by generating `JOIN` and `WHERE` subclauses to be attached
- * to the primary SQL query string.
+ * to the primary wp-git query string.
  *
  * @since 3.2.0
  */
@@ -335,7 +335,7 @@ class WP_Meta_Query {
 	}
 
 	/**
-	 * Generates SQL clauses to be appended to a main query.
+	 * Generates wp-git clauses to be appended to a main query.
 	 *
 	 * @since 3.2.0
 	 *
@@ -346,11 +346,11 @@ class WP_Meta_Query {
 	 * @param object $context           Optional. The main query object that corresponds to the type, for
 	 *                                  example a `WP_Query`, `WP_User_Query`, or `WP_Site_Query`.
 	 * @return string[]|false {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query,
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query,
 	 *     or false if no table exists for the requested meta type.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	public function get_sql( $type, $primary_table, $primary_id_column, $context = null ) {
@@ -378,7 +378,7 @@ class WP_Meta_Query {
 		}
 
 		/**
-		 * Filters the meta query's generated SQL.
+		 * Filters the meta query's generated wp-git.
 		 *
 		 * @since 3.1.0
 		 *
@@ -395,7 +395,7 @@ class WP_Meta_Query {
 	}
 
 	/**
-	 * Generate SQL clauses to be appended to a main query.
+	 * Generate wp-git clauses to be appended to a main query.
 	 *
 	 * Called by the public WP_Meta_Query::get_sql(), this method is abstracted
 	 * out to maintain parity with the other Query classes.
@@ -403,10 +403,10 @@ class WP_Meta_Query {
 	 * @since 4.1.0
 	 *
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to the main query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_clauses() {
@@ -425,10 +425,10 @@ class WP_Meta_Query {
 	}
 
 	/**
-	 * Generate SQL clauses for a single query array.
+	 * Generate wp-git clauses for a single query array.
 	 *
 	 * If nested subqueries are found, this method recurses the tree to
-	 * produce the properly nested SQL.
+	 * produce the properly nested wp-git.
 	 *
 	 * @since 4.1.0
 	 *
@@ -436,10 +436,10 @@ class WP_Meta_Query {
 	 * @param int   $depth Optional. Number of tree levels deep we currently are.
 	 *                     Used to calculate indentation. Default 0.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to a single query array.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to a single query array.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	protected function get_sql_for_query( &$query, $depth = 0 ) {
@@ -509,7 +509,7 @@ class WP_Meta_Query {
 	}
 
 	/**
-	 * Generate SQL JOIN and WHERE clauses for a first-order query clause.
+	 * Generate wp-git JOIN and WHERE clauses for a first-order query clause.
 	 *
 	 * "First-order" means that it's an array with a 'key' or 'value'.
 	 *
@@ -522,10 +522,10 @@ class WP_Meta_Query {
 	 * @param string $clause_key   Optional. The array key used to name the clause in the original `$meta_query`
 	 *                             parameters. If not provided, a key will be generated automatically.
 	 * @return string[] {
-	 *     Array containing JOIN and WHERE SQL clauses to append to a first-order query.
+	 *     Array containing JOIN and WHERE wp-git clauses to append to a first-order query.
 	 *
-	 *     @type string $join  SQL fragment to append to the main JOIN clause.
-	 *     @type string $where SQL fragment to append to the main WHERE clause.
+	 *     @type string $join  wp-git fragment to append to the main JOIN clause.
+	 *     @type string $where wp-git fragment to append to the main WHERE clause.
 	 * }
 	 */
 	public function get_sql_for_clause( &$clause, $parent_query, $clause_key = '' ) {

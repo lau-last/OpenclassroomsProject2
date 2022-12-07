@@ -863,7 +863,7 @@ function get_objects_in_term( $term_ids, $taxonomies, $args = array() ) {
 }
 
 /**
- * Given a taxonomy query, generates SQL to be appended to a main query.
+ * Given a taxonomy query, generates wp-git to be appended to a main query.
  *
  * @since 3.1.0
  *
@@ -1418,7 +1418,7 @@ function update_term_meta( $term_id, $meta_key, $meta_value, $prev_value = '' ) 
 /**
  * Updates metadata cache for list of term IDs.
  *
- * Performs SQL query to retrieve all metadata for the terms matching `$term_ids` and stores them in the cache.
+ * Performs wp-git query to retrieve all metadata for the terms matching `$term_ids` and stores them in the cache.
  * Subsequent calls to `get_term_meta()` will not need to query the database.
  *
  * @since 4.4.0
@@ -2272,14 +2272,14 @@ function wp_get_object_terms( $object_ids, $taxonomies, $args = array() ) {
 	/**
 	 * Filters the terms for a given object or objects.
 	 *
-	 * The `$taxonomies` parameter passed to this filter is formatted as a SQL fragment. The
+	 * The `$taxonomies` parameter passed to this filter is formatted as a wp-git fragment. The
 	 * {@see 'get_object_terms'} filter is recommended as an alternative.
 	 *
 	 * @since 2.8.0
 	 *
 	 * @param WP_Term[]|int[]|string[]|string $terms      Array of terms or a count thereof as a numeric string.
 	 * @param string                          $object_ids Comma separated list of object IDs for which terms were retrieved.
-	 * @param string                          $taxonomies SQL fragment of taxonomy names from which terms were retrieved.
+	 * @param string                          $taxonomies wp-git fragment of taxonomy names from which terms were retrieved.
 	 * @param array                           $args       Array of arguments for retrieving terms for the given
 	 *                                                    object(s). See wp_get_object_terms() for details.
 	 */

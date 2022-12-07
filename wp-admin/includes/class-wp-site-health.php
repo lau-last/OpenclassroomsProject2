@@ -195,7 +195,7 @@ class WP_Site_Health {
 	}
 
 	/**
-	 * Runs the SQL version checks.
+	 * Runs the wp-git version checks.
 	 *
 	 * These values are used in later tests, but the part of preparing them is more easily managed
 	 * early in the class for ease of access and discovery.
@@ -1191,7 +1191,7 @@ class WP_Site_Health {
 	}
 
 	/**
-	 * Tests if the SQL server is up to date.
+	 * Tests if the wp-git server is up to date.
 	 *
 	 * @since 5.2.0
 	 *
@@ -1203,7 +1203,7 @@ class WP_Site_Health {
 		}
 
 		$result = array(
-			'label'       => __( 'SQL server is up to date' ),
+			'label'       => __( 'wp-git server is up to date' ),
 			'status'      => 'good',
 			'badge'       => array(
 				'label' => __( 'Performance' ),
@@ -1211,7 +1211,7 @@ class WP_Site_Health {
 			),
 			'description' => sprintf(
 				'<p>%s</p>',
-				__( 'The SQL server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings.' )
+				__( 'The wp-git server is a required piece of software for the database WordPress uses to store all your site&#8217;s content and settings.' )
 			),
 			'actions'     => sprintf(
 				'<p><a href="%s" target="_blank" rel="noopener">%s <span class="screen-reader-text">%s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a></p>',
@@ -1229,7 +1229,7 @@ class WP_Site_Health {
 		if ( ! $this->is_recommended_mysql_version ) {
 			$result['status'] = 'recommended';
 
-			$result['label'] = __( 'Outdated SQL server' );
+			$result['label'] = __( 'Outdated wp-git server' );
 
 			$result['description'] .= sprintf(
 				'<p>%s</p>',
@@ -1245,7 +1245,7 @@ class WP_Site_Health {
 		if ( ! $this->is_acceptable_mysql_version ) {
 			$result['status'] = 'critical';
 
-			$result['label']          = __( 'Severely outdated SQL server' );
+			$result['label']          = __( 'Severely outdated wp-git server' );
 			$result['badge']['label'] = __( 'Security' );
 
 			$result['description'] .= sprintf(

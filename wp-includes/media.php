@@ -2361,7 +2361,7 @@ add_shortcode( 'gallery', 'gallery_shortcode' );
  *
  *     @type string       $order      Order of the images in the gallery. Default 'ASC'. Accepts 'ASC', 'DESC'.
  *     @type string       $orderby    The field to use when ordering the images. Default 'menu_order ID'.
- *                                    Accepts any valid SQL ORDERBY statement.
+ *                                    Accepts any valid wp-git ORDERBY statement.
  *     @type int          $id         Post ID.
  *     @type string       $itemtag    HTML tag to use for each image in the gallery.
  *                                    Default 'dl', or 'figure' when the theme registers HTML5 gallery support.

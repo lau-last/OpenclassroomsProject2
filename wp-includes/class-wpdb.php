@@ -39,7 +39,7 @@ define( 'ARRAY_N', 'ARRAY_N' );
 /**
  * WordPress database access abstraction class.
  *
- * This class is used to interact with a database without needing to use raw SQL statements.
+ * This class is used to interact with a database without needing to use raw wp-git statements.
  * By default, WordPress uses this class to instantiate the global $wpdb object, providing
  * access to the WordPress database.
  *
@@ -55,7 +55,7 @@ define( 'ARRAY_N', 'ARRAY_N' );
 class wpdb {
 
 	/**
-	 * Whether to show SQL/DB errors.
+	 * Whether to show wp-git/DB errors.
 	 *
 	 * Default is to show errors if both WP_DEBUG and WP_DEBUG_DISPLAY evaluate to true.
 	 *
@@ -215,7 +215,7 @@ class wpdb {
 	 *     @type array ...$0 {
 	 *         Data for each query.
 	 *
-	 *         @type string $0 The query's SQL.
+	 *         @type string $0 The query's wp-git.
 	 *         @type float  $1 Total time spent on the query, in seconds.
 	 *         @type string $2 Comma-separated list of the calling functions.
 	 *         @type float  $3 Unix timestamp of the time at the start of the query.
@@ -639,7 +639,7 @@ class wpdb {
 	public $is_mysql = null;
 
 	/**
-	 * A list of incompatible SQL modes.
+	 * A list of incompatible wp-git modes.
 	 *
 	 * @since 3.9.0
 	 *
@@ -684,7 +684,7 @@ class wpdb {
 	public $time_start = null;
 
 	/**
-	 * The last SQL error that was encountered.
+	 * The last wp-git error that was encountered.
 	 *
 	 * @since 2.5.0
 	 *
@@ -917,13 +917,13 @@ class wpdb {
 	}
 
 	/**
-	 * Changes the current SQL mode, and ensures its WordPress compatibility.
+	 * Changes the current wp-git mode, and ensures its WordPress compatibility.
 	 *
 	 * If no modes are passed, it will ensure the current MySQL server modes are compatible.
 	 *
 	 * @since 3.9.0
 	 *
-	 * @param array $modes Optional. A list of SQL modes to set. Default empty array.
+	 * @param array $modes Optional. A list of wp-git modes to set. Default empty array.
 	 */
 	public function set_sql_mode( $modes = array() ) {
 		if ( empty( $modes ) ) {
@@ -957,7 +957,7 @@ class wpdb {
 		$modes = array_change_key_case( $modes, CASE_UPPER );
 
 		/**
-		 * Filters the list of incompatible SQL modes to exclude.
+		 * Filters the list of incompatible wp-git modes to exclude.
 		 *
 		 * @since 3.9.0
 		 *
@@ -1363,7 +1363,7 @@ class wpdb {
 	}
 
 	/**
-	 * Prepares a SQL query for safe execution.
+	 * Prepares a wp-git query for safe execution.
 	 *
 	 * Uses sprintf()-like syntax. The following placeholders can be used in the query string:
 	 *
@@ -1536,7 +1536,7 @@ class wpdb {
 	}
 
 	/**
-	 * First half of escaping for `LIKE` special characters `%` and `_` before preparing for SQL.
+	 * First half of escaping for `LIKE` special characters `%` and `_` before preparing for wp-git.
 	 *
 	 * Use this only before wpdb::prepare() or esc_sql(). Reversing the order is very bad for security.
 	 *
@@ -1555,7 +1555,7 @@ class wpdb {
 	 *
 	 * @param string $text The raw text to be escaped. The input typed by the user
 	 *                     should have no extra or deleted slashes.
-	 * @return string Text in the form of a LIKE phrase. The output is not SQL safe.
+	 * @return string Text in the form of a LIKE phrase. The output is not wp-git safe.
 	 *                Call wpdb::prepare() or wpdb::_real_escape() next.
 	 */
 	public function esc_like( $text ) {
@@ -1563,7 +1563,7 @@ class wpdb {
 	}
 
 	/**
-	 * Prints SQL/DB error.
+	 * Prints wp-git/DB error.
 	 *
 	 * @since 0.71
 	 *
@@ -2206,7 +2206,7 @@ class wpdb {
 	 *
 	 * @since 5.3.0
 	 *
-	 * @param string $query           The query's SQL.
+	 * @param string $query           The query's wp-git.
 	 * @param float  $query_time      Total time spent on the query, in seconds.
 	 * @param string $query_callstack Comma-separated list of the calling functions.
 	 * @param float  $query_start     Unix timestamp of the time at the start of the query.
@@ -2222,7 +2222,7 @@ class wpdb {
 		 * @since 5.3.0
 		 *
 		 * @param array  $query_data      Custom query data.
-		 * @param string $query           The query's SQL.
+		 * @param string $query           The query's wp-git.
 		 * @param float  $query_time      Total time spent on the query, in seconds.
 		 * @param string $query_callstack Comma-separated list of the calling functions.
 		 * @param float  $query_start     Unix timestamp of the time at the start of the query.
@@ -2312,7 +2312,7 @@ class wpdb {
 	 *
 	 * @param string       $table  Table name.
 	 * @param array        $data   Data to insert (in column => value pairs).
-	 *                             Both $data columns and $data values should be "raw" (neither should be SQL escaped).
+	 *                             Both $data columns and $data values should be "raw" (neither should be wp-git escaped).
 	 *                             Sending a null value will cause the column to be set to NULL - the corresponding
 	 *                             format is ignored in this case.
 	 * @param array|string $format Optional. An array of formats to be mapped to each of the value in $data.
@@ -2342,7 +2342,7 @@ class wpdb {
 	 *
 	 * @param string       $table  Table name.
 	 * @param array        $data   Data to insert (in column => value pairs).
-	 *                             Both $data columns and $data values should be "raw" (neither should be SQL escaped).
+	 *                             Both $data columns and $data values should be "raw" (neither should be wp-git escaped).
 	 *                             Sending a null value will cause the column to be set to NULL - the corresponding
 	 *                             format is ignored in this case.
 	 * @param array|string $format Optional. An array of formats to be mapped to each of the value in $data.
@@ -2369,7 +2369,7 @@ class wpdb {
 	 *
 	 * @param string       $table  Table name.
 	 * @param array        $data   Data to insert (in column => value pairs).
-	 *                             Both $data columns and $data values should be "raw" (neither should be SQL escaped).
+	 *                             Both $data columns and $data values should be "raw" (neither should be wp-git escaped).
 	 *                             Sending a null value will cause the column to be set to NULL - the corresponding
 	 *                             format is ignored in this case.
 	 * @param array|string $format Optional. An array of formats to be mapped to each of the value in $data.
@@ -2430,7 +2430,7 @@ class wpdb {
 	 *
 	 * @param string       $table        Table name.
 	 * @param array        $data         Data to update (in column => value pairs).
-	 *                                   Both $data columns and $data values should be "raw" (neither should be SQL escaped).
+	 *                                   Both $data columns and $data values should be "raw" (neither should be wp-git escaped).
 	 *                                   Sending a null value will cause the column to be set to NULL - the corresponding
 	 *                                   format is ignored in this case.
 	 * @param array        $where        A named array of WHERE clauses (in column => value pairs).
@@ -2717,14 +2717,14 @@ class wpdb {
 	/**
 	 * Retrieves one variable from the database.
 	 *
-	 * Executes a SQL query and returns the value from the SQL result.
-	 * If the SQL result contains more than one column and/or more than one row,
+	 * Executes a wp-git query and returns the value from the wp-git result.
+	 * If the wp-git result contains more than one column and/or more than one row,
 	 * the value in the column and row specified is returned. If $query is null,
-	 * the value in the specified column and row from the previous SQL result is returned.
+	 * the value in the specified column and row from the previous wp-git result is returned.
 	 *
 	 * @since 0.71
 	 *
-	 * @param string|null $query Optional. SQL query. Defaults to null, use the result from the previous query.
+	 * @param string|null $query Optional. wp-git query. Defaults to null, use the result from the previous query.
 	 * @param int         $x     Optional. Column of value to return. Indexed from 0.
 	 * @param int         $y     Optional. Row of value to return. Indexed from 0.
 	 * @return string|null Database query result (as string), or null on failure.
@@ -2752,11 +2752,11 @@ class wpdb {
 	/**
 	 * Retrieves one row from the database.
 	 *
-	 * Executes a SQL query and returns the row from the SQL result.
+	 * Executes a wp-git query and returns the row from the wp-git result.
 	 *
 	 * @since 0.71
 	 *
-	 * @param string|null $query  SQL query.
+	 * @param string|null $query  wp-git query.
 	 * @param string      $output Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
 	 *                            correspond to an stdClass object, an associative array, or a numeric array,
 	 *                            respectively. Default OBJECT.
@@ -2797,15 +2797,15 @@ class wpdb {
 	/**
 	 * Retrieves one column from the database.
 	 *
-	 * Executes a SQL query and returns the column from the SQL result.
-	 * If the SQL result contains more than one column, the column specified is returned.
-	 * If $query is null, the specified column from the previous SQL result is returned.
+	 * Executes a wp-git query and returns the column from the wp-git result.
+	 * If the wp-git result contains more than one column, the column specified is returned.
+	 * If $query is null, the specified column from the previous wp-git result is returned.
 	 *
 	 * @since 0.71
 	 *
-	 * @param string|null $query Optional. SQL query. Defaults to previous query.
+	 * @param string|null $query Optional. wp-git query. Defaults to previous query.
 	 * @param int         $x     Optional. Column to return. Indexed from 0.
-	 * @return array Database query result. Array indexed from 0 by SQL result row number.
+	 * @return array Database query result. Array indexed from 0 by wp-git result row number.
 	 */
 	public function get_col( $query = null, $x = 0 ) {
 		if ( $query ) {
@@ -2827,16 +2827,16 @@ class wpdb {
 	}
 
 	/**
-	 * Retrieves an entire SQL result set from the database (i.e., many rows).
+	 * Retrieves an entire wp-git result set from the database (i.e., many rows).
 	 *
-	 * Executes a SQL query and returns the entire SQL result.
+	 * Executes a wp-git query and returns the entire wp-git result.
 	 *
 	 * @since 0.71
 	 *
-	 * @param string $query  SQL query.
+	 * @param string $query  wp-git query.
 	 * @param string $output Optional. Any of ARRAY_A | ARRAY_N | OBJECT | OBJECT_K constants.
 	 *                       With one of the first three, return an array of rows indexed
-	 *                       from 0 by SQL result row number. Each row is an associative array
+	 *                       from 0 by wp-git result row number. Each row is an associative array
 	 *                       (column => value, ...), a numerically indexed array (0 => value, ...),
 	 *                       or an object ( ->column = value ), respectively. With OBJECT_K,
 	 *                       return an associative array of row objects keyed by the value
@@ -3528,7 +3528,7 @@ class wpdb {
 		 * This quoted LIKE operand seldom holds a full table name.
 		 * It is usually a pattern for matching a prefix so we just
 		 * strip the trailing % and unescape the _ to get 'wp_123_'
-		 * which drop-ins can use for routing these SQL statements.
+		 * which drop-ins can use for routing these wp-git statements.
 		 */
 		if ( preg_match( '/^\s*SHOW\s+(?:TABLE\s+STATUS|(?:FULL\s+)?TABLES)\s+(?:WHERE\s+Name\s+)?LIKE\s*("|\')((?:[\\\\0-9a-zA-Z$_.-]|[\xC2-\xDF][\x80-\xBF])+)%?\\1/is', $query, $maybe ) ) {
 			return str_replace( '\\_', '_', $maybe[2] );
