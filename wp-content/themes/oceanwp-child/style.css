@@ -17,24 +17,17 @@ Version: 1.0
 #9F9F9F text_grey
 #FFD7AF rose
 */
-a:focus{
+a:focus {
     outline: none !important;
-}
-/*
-.elementor-column-gap-default > .elementor-column > .elementor-element-populated {
-    padding: 0 !important;
 }
 
 #wpforms-form-194 input,
-#wpforms-form-194 textarea,
-#wpforms-form-251 input,
-#wpforms-form-251 textarea{
+#wpforms-form-194 textarea {
     border-radius: 5px !important;
 }
 
-#wpforms-form-194 button,
-#wpforms-form-251 button{
-    background-color: #333333 !important;
+#wpforms-form-194 button {
+    background-color: #cbaa72 !important;
     border-radius: 5px !important;
     text-transform: none !important;
     font-size: 15px !important;
@@ -42,17 +35,16 @@ a:focus{
 }
 
 #wpforms-form-194 button:hover {
-    background-color: white !important;
-    color: #cbaa72 !important;
     border: none !important;
 }
 
-#wpforms-form-251 button:hover{
-    background-color: #cbaa72 !important;
-    color: white !important;
-    border: none !important;
+.elementor-column-gap-default > .elementor-column > .elementor-element-populated {
+    padding: 0px !important;
 }
-*/
+
+#laurent_button{
+    filter: drop-shadow(5px 5px 10px #000);
+}
 
 
 

@@ -329,7 +329,7 @@ function get_tag_template() {
  * An example of this is:
  *
  * 1. taxonomy-location-texas.php
- * 2. taxonomy-location.php
+ * 2. taxonomy-login.php
  * 3. taxonomy.php
  *
  * The template hierarchy and template path are filterable via the {@see '$type_template_hierarchy'}
